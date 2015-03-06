@@ -14,7 +14,26 @@ call pathogen#infect()
 " map cmd-shift-enter to insert newline ABOVE in insert mode "
 :imap <S-D-Enter> <C-O>O
 
+" display
+set nowrap
+set scrolloff=3
+set showmatch " show matching bracket
+set matchtime=2 " for 0.2 seconds
+set matchpairs+=<:> " for html
+set colorcolumn=85 " set vertical ruler
+set laststatus=2 " 2 line status bar
 syntax on
+syntax enable
+set background=dark
+colorscheme solarized
+
+" ediitng
+set ignorecase " ignore case for searching unless using uppercase letters
+set smartcase
+set smartindent
+set tabstop=2
+set shiftwidth=2
+set expandtab " turn tabs into spaces
 
 " multicursor settings "
 " override default ctrl-n mapping: "
@@ -38,8 +57,6 @@ let g:ctrlp_cmd = 'CtrlP'
 " allows you press esc to turn off search highlight "
 :nnoremap <esc> :noh<return><esc>
 
-" set vertical ruler "
-set colorcolumn=85
 
 """ splitting ""
 " set default split opening to bottom and right: "
@@ -51,15 +68,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-syntax enable
-set background=dark
-colorscheme solarized
-
-set smartindent
-set tabstop=2
-set shiftwidth=2
-set expandtab
 
 au BufRead,BufNewFile *.txt, *.md, *.markdown, *.mdown, *.mkd, *.mkdn set filetype=markdown
 
