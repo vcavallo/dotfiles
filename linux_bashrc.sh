@@ -80,7 +80,11 @@
   function desktop {
     cd /home/$USER/Desktop/$@
   }
-   
+
+  function dotfiles {
+    cd /home/$USER/dotfiles/$@
+  }
+
   function dev {
     cd /home/$USER/development/$@
   }

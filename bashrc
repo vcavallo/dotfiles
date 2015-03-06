@@ -1,7 +1,7 @@
 
   # used for os-specific functions
   os=`uname -s`
-   
+
   case $os in
     "Darwin" )
       source ~/dotfiles/darwin_bashrc.sh;;

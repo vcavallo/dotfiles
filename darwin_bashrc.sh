@@ -104,6 +104,10 @@
   function desktop {
     cd /Users/$USER/Desktop/$@
   }
+
+  function dotfiles {
+    cd /Users/$USER/dotfiles/$@
+  }
    
   function dev {
     cd /Users/$USER/development/$@
