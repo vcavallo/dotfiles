@@ -28,8 +28,6 @@ let g:multi_cursor_prev_key='<S-D-p>'
 let g:multi_cursor_skip_key='<D-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
-source ~/.vim/vimrc
-
 " setup for ctrlp "
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<C-p>'
@@ -350,8 +348,8 @@ if !has("gui")
 endif
 
 "make <c-l> clear the highlight as well as redraw
-nnoremap <C-L> :nohls<CR><C-L>
-inoremap <C-L> <C-O>:nohls<CR>
+"nnoremap <C-L> :nohls<CR><C-L>
+"inoremap <C-L> <C-O>:nohls<CR>
 
 "map Q to something useful
 noremap Q gq
