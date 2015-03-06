@@ -1,0 +1,8 @@
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+.DS_Store
+*DS_Store
+*.un~
+Session.vim
+.netrwhist
+*~
