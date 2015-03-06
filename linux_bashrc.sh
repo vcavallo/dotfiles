@@ -1,27 +1,3 @@
-# Configuring The Prompt
-# ======================
- 
-  # This function is called in your prompt to output your active git branch.
-  function parse_git_branch {
-    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-  }
- 
-  # This function builds your prompt. It is called below
-  function prompt {
-    # Define some local colors
-    local         RED="\[\033[0;31m\]" # This syntax is some weird bash color thing I never
-    local   LIGHT_RED="\[\033[1;31m\]" # really understood
-    local        CHAR="♥"
-    # ♥ ☆ - Keeping some cool ASCII Characters for reference
- 
-    # Here is where we actually export the PS1 Variable which stores the text for your prompt
-    export PS1="\[\e]2;\u@\h\a[\[\e[37;44;1m\]\t\[\e[0m\]]$RED\$(parse_git_branch) \e[0m\][\[\e[32m\]\w\[\e[0m\]]\n\[\e[0;31m\]$ \[\e[0m\]"
-      PS2='> '
-      PS4='+ '
-    }
- 
-  # Finally call the function and our prompt is all pretty
-  prompt
 
 # Environment Variables
 # =====================
@@ -128,7 +104,11 @@
   function allegiance {
     cd /home/$USER/development/projects/clients/dopamine/allegiance/$@
   }
-   
+
+  function dotfiles {
+    cd /home/$USER/dotfiles/$@
+  }
+
   # A function to easily grep for a matching process
   # USE: psg postgres
   function psg {
@@ -190,7 +170,7 @@
   # Touch and Go
   create() {
     touch $1
-    subl $1
+    vim $1
   }
  
   # LS
@@ -209,17 +189,9 @@
  
   # CD
   alias cd..='cd ..'
-  alias cdbox='cd ~/Dropbox/computers'
- 
-  # Emacs
-  alias emacs='emacs-24.3'
-  alias em='emacs-24.3'
  
   # GREP
   alias grep='grep -n --color=auto'
- 
-  # Mou.app
-  alias mou="open /Applications/Mou.app"
  
   # Restart POW server for this app
   alias restart="touch tmp/restart.txt"
