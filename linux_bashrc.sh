@@ -211,5 +211,7 @@
 # Final Configurations and Plugins
 # =====================
  
+  # call key layout modifications (for chromebook...)
+  xmodmap ~/.Xmodmap
   # free up control-s for forward history search
   stty -ixon
