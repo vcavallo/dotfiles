@@ -20,14 +20,14 @@ set scrolloff=3
 set showmatch " show matching bracket
 set matchtime=2 " for 0.2 seconds
 set matchpairs+=<:> " for html
-set colorcolumn=85 " set vertical ruler
 set laststatus=2 " 2 line status bar
 syntax on
 syntax enable
 set background=dark
 colorscheme solarized
+set colorcolumn=85 " show right margin
 
-" ediitng
+" editing
 set ignorecase " ignore case for searching unless using uppercase letters
 set smartcase
 set smartindent
@@ -130,7 +130,7 @@ if v:version >= 703
     set undodir=~/.vim/undofiles
     set undofile
 
-    set colorcolumn=+1 "mark the ideal max text width
+    " set colorcolumn=+1 "mark the ideal max text width
 endif
 
 "default indent settings
