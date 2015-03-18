@@ -1,6 +1,6 @@
 [core]
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-  excludesfile = /Users/<YOUR HOME DIRECTORY>/.gitignore
+	excludesfile = ~/.gitignore
 [alias]
   st = status
   ci = commit
@@ -50,3 +50,5 @@
   trustExitCode = true
 [merge]
   tool = opendiff
+[grep]
+  linenumber = true
