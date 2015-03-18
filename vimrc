@@ -21,10 +21,11 @@ set showmatch " show matching bracket
 set matchtime=2 " for 0.2 seconds
 set matchpairs+=<:> " for html
 set laststatus=2 " 2 line status bar
-syntax on
+" syntax on
 syntax enable
 set background=dark
 colorscheme solarized
+let g:solarized_termtrans = 1
 set colorcolumn=85 " show right margin
 
 " editing
@@ -75,11 +76,11 @@ let g:syntastic_mode_map={ 'mode': 'active',
                      \ 'active_filetypes': [],
                      \ 'passive_filetypes': ['html'] }
 
-if has('gui_running')
-    set background=dark
-else
-    set background=dark
-endif
+"if has('gui_running')
+"    set background=dark
+"else
+"    set background=dark
+"endif
 
 set shell=/bin/bash\ -li
 
