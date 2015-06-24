@@ -7,7 +7,7 @@
   br = branch
   co = checkout
   df = diff
-  last = git diff head^ head
+  last = diff head^ head
   lg = log -p
   who = shortlog -s --
   up = pull
