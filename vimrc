@@ -102,8 +102,49 @@ autocmd vimenter * NERDTree
 " close vim if NERDTree is the only window left "
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-" always show line numbers "
-set number
+" a function for switching between the number modes:
+if exists("+relativenumber")
+  if v:version >= 400
+    set number
+  endif
+  set relativenumber " show relative line numbers
+  set number
+  set numberwidth=3  " narrow number column
+  " cycles between relative / absolute / no numbering
+  if v:version >= 400
+    function! RelativeNumberToggle()
+      if (&number == 1 && &relativenumber == 1)
+        set nonumber
+        set relativenumber relativenumber?
+      elseif (&number == 0 && &relativenumber == 1)
+        set norelativenumber
+        set number number?
+      elseif (&number == 1 && &relativenumber == 0)
+        set norelativenumber
+        set nonumber number?
+      else
+        set number
+        set relativenumber relativenumber?
+      endif
+    endfunc
+  else
+    function! RelativeNumberToggle()
+      if (&relativenumber == 1)
+        set number number?
+      elseif (&number == 1)
+        set nonumber number?
+      else
+        set relativenumber relativenumber?
+      endif
+    endfunc
+  endif
+  nnoremap <silent> <leader>n :call RelativeNumberToggle()<CR>
+else " fallback
+  set relativenumber " show relative line numbers
+  set number " show line numbers
+  " inverts numbering
+  nnoremap <silent> <leader>n :set number! number?<CR>
+endif
 
 " settings from scrooloose:
 
