@@ -8,6 +8,9 @@ call pathogen#infect()
 " map 'jj' to 'exit insert mode' "
 :imap jj <Esc>
 
+" unmap Shift+k to avoid annoying man entry halting thing "
+:map <S-k> <Nop>
+
 " map cmd-enter to insert newline BELOW in insert mode "
 :imap <D-Enter> <C-O>o
 
