@@ -30,6 +30,9 @@ set background=dark
 colorscheme solarized
 let g:solarized_termtrans = 1
 set colorcolumn=85 " show right margin
+" change cursor shape per mode in terminal vim
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
 " editing
 set ignorecase " ignore case for searching unless using uppercase letters
@@ -41,15 +44,15 @@ set expandtab " turn tabs into spaces
 
 " multicursor settings "
 " override default ctrl-n mapping: "
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_exit_from_visual_mode=0
-let g:multi_cursor_exit_from_insert_mode=0
-
-" my mappings for multi-cursor
-let g:multi_cursor_next_key='<D-d>'
-let g:multi_cursor_prev_key='<S-D-p>'
-let g:multi_cursor_skip_key='<D-x>'
-let g:multi_cursor_quit_key='<Esc>'
+" let g:multi_cursor_use_default_mapping=0 "
+" let g:multi_cursor_exit_from_visual_mode "
+" let g:multi_cursor_exit_from_insert_mode "
+"                                          "
+" my mappings for multi-cursor             "
+" let g:multi_cursor_next_key='<D-d>'      "
+" let g:multi_cursor_prev_key='<S-D-p>'    "
+" let g:multi_cursor_skip_key='<D-x>'      "
+" let g:multi_cursor_quit_key='<Esc>'      "
 
 " setup for ctrlp "
 set runtimepath^=~/.vim/bundle/ctrlp.vim
