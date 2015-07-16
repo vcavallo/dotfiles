@@ -131,6 +131,10 @@
   function fin_lit {
     cd /Users/$USER/development/projects/clients/dopamine/fin_lit/$@
   }
+
+  function bill {
+    cd /Users/$USER/development/projects/bill-blass$@
+  }
    
   function allegiance {
     cd /Users/$USER/development/projects/clients/dopamine/allegiance/$@
