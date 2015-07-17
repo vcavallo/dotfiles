@@ -1,0 +1,4 @@
+term screen-256color
+shell -$SHELL #ensure the login shell (.bash_profile / .profile) is used
+startup_message off
+caption always "%{= Wk}%-w%{= Bw}%n %t%{-}%+w %-=" #show current screen caption
