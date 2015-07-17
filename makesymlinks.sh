@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc vimrc gitconfig gitignore Xmodmap"    # list of files/folders to symlink in homedir
+files="darwin_bashrc linux_bashrc bashrc vimrc gitconfig gitignore screenrc tmux.conf Xmodmap"    # list of files/folders to symlink in homedir
 
 ##########
 
