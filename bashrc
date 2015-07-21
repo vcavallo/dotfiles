@@ -10,6 +10,7 @@
   esac
 
   EDITOR=vim
+  GIT_EDITOR=vim
 
   # This function is called in your prompt to output your active git branch.
   function parse_git_branch {
