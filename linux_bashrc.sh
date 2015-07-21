@@ -27,10 +27,10 @@
     # Editors
     # Tells your shell that when a program requires various editors, use sublime.
     # The -w flag tells your shell to wait until sublime exits
-    export VISUAL="vim -w"
-    export SVN_EDITOR="vim -w"
-    export GIT_EDITOR="vim -w"
-    export EDITOR="vim -w"
+    export VISUAL="vim"
+    export SVN_EDITOR="vim"
+    export GIT_EDITOR="vim"
+    export EDITOR="vim"
  
   # Paths
  
