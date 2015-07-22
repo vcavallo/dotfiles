@@ -412,6 +412,9 @@ endif
 "map Q to something useful
 noremap Q gq
 
+" allow space to play macro
+:nnoremap <Space> @q
+
 "make Y consistent with C and D
 nnoremap Y y$
 
