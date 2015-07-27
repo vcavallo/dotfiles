@@ -76,6 +76,10 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" easier pane opening
+nnoremap <leader>v <C-w>v<C-w>l
+nnoremap <leader>h <C-w>s<C-w>j
+
 au BufRead,BufNewFile *.txt, *.md, *.markdown, *.mdown, *.mkd, *.mkdn set filetype=markdown
 
 let g:syntastic_mode_map={ 'mode': 'active',
@@ -391,6 +395,9 @@ endfunction
 "nerdtree settings
 let g:NERDTreeMouseMode = 2
 let g:NERDTreeWinSize = 40
+
+"Scratch settings
+nnoremap <leader><tab> :Scratch<cr>
 
 "explorer mappings
 nnoremap <f1> :BufExplorer<cr>
