@@ -19,7 +19,10 @@ call pathogen#infect()
 
 " display
 set nowrap
+"vertical/horizontal scroll off settings
 set scrolloff=3
+set sidescrolloff=7
+set sidescroll=1
 set showmatch " show matching bracket
 set matchtime=2 " for 0.2 seconds
 set matchpairs+=<:> " for html
@@ -65,7 +68,7 @@ let g:ctrlp_cmd = 'CtrlP'
 :nnoremap <esc> :noh<return><esc>
 
 
-""" splitting ""
+""" splitting "
 " set default split opening to bottom and right: "
 set splitbelow
 set splitright
@@ -78,7 +81,7 @@ nnoremap <C-H> <C-W><C-H>
 
 " easier pane opening
 nnoremap <leader>v <C-w>v<C-w>l
-nnoremap <leader>h <C-w>s<C-w>j
+nnoremap <leader>s <C-w>s<C-w>j
 
 au BufRead,BufNewFile *.txt, *.md, *.markdown, *.mdown, *.mkd, *.mkdn set filetype=markdown
 
@@ -199,15 +202,10 @@ set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
 set wildmode=list:longest   "make cmdline tab completion similar to bash
-set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+set wildmenu                "enable ctrl-n and ctrl-p to scroll through matches
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 
 set formatoptions-=o "dont continue comments when pushing o/O
-
-"vertical/horizontal scroll off settings
-set scrolloff=3
-set sidescrolloff=7
-set sidescroll=1
 
 "load ftplugins and indent files
 filetype plugin on
@@ -262,9 +260,9 @@ set statusline+=%{StatuslineTrailingSpaceWarning()}
 
 set statusline+=%{StatuslineLongLineWarning()}
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
 "display a warning if &paste is set
 set statusline+=%#error#
@@ -394,10 +392,10 @@ endfunction
 
 "nerdtree settings
 let g:NERDTreeMouseMode = 2
-let g:NERDTreeWinSize = 40
+let g:NERDTreeWinSize = 25
 
 "Scratch settings
-nnoremap <leader><tab> :Scratch<cr>
+"nnoremap <leader><tab> :Scratch<cr>
 
 "explorer mappings
 nnoremap <f1> :BufExplorer<cr>
