@@ -84,6 +84,7 @@ nnoremap <leader>v <C-w>v<C-w>l
 nnoremap <leader>s <C-w>s<C-w>j
 
 au BufRead,BufNewFile *.txt, *.md, *.markdown, *.mdown, *.mkd, *.mkdn set filetype=markdown
+au BufRead,BufNewFile *.txt, *.md, *.markdown, *.mdown, *.mkd, *.mkdn setlocal textwidth=80
 
 let g:syntastic_mode_map={ 'mode': 'active',
                      \ 'active_filetypes': [],
