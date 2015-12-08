@@ -108,9 +108,9 @@ autocmd BufLeave,FocusLost * silent! wall
 :map vv :YRShow
 
 " open NERDTree automatically when vim starts "
-" if has("gui")
-autocmd vimenter * NERDTree
-" endif
+if has("gui")
+  autocmd vimenter * NERDTree
+endif
 
 " open NERDTree even if no files specified "
 " autocmd vimenter * if !argc() | NERDTree | endif
