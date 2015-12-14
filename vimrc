@@ -44,6 +44,8 @@ set smartindent
 set tabstop=2
 set shiftwidth=2
 set expandtab " turn tabs into spaces
+inoremap <S-Tab> <C-V><Tab>
+" ^ use shift-tab to insert tabs in INSERT mode
 
 " multicursor settings "
 " override default ctrl-n mapping: "
