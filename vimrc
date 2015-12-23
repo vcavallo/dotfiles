@@ -92,8 +92,8 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
-au BufRead,BufNewFile *.txt, *.md, *.markdown, *.mdown, *.mkd, *.mkdn set filetype=markdown
-au BufRead,BufNewFile *.txt, *.md, *.markdown, *.mdown, *.mkd, *.mkdn setlocal textwidth=80
+autocmd BufRead,BufNewFile *.txt,*.md,*.markdown,*.mdown,*.mkd,*.mkdn set filetype=markdown
+autocmd BufRead,BufNewFile *.txt,*.md,*.markdown,*.mdown,*.mkd,*.mkdn setlocal textwidth=80
 
 let g:syntastic_mode_map={ 'mode': 'active',
                      \ 'active_filetypes': [],
