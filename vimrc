@@ -69,6 +69,8 @@ let g:ctrlp_cmd = 'CtrlP'
 " allows you press esc to turn off search highlight "
 :nnoremap <esc> :noh<return><esc>
 
+vmap <C-x> :!pbcopy<CR>
+vmap <C-c> :w !pbcopy<CR><CR>
 
 """ splitting "
 " set default split opening to bottom and right: "
