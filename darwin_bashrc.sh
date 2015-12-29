@@ -6,8 +6,13 @@
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
   }
 
-  export GITAWAREPROMPT=~/.bash/git-aware-prompt
-  source "${GITAWAREPROMPT}/main.sh"
+  if [ -d ~/.bash/git-aware-prompt ]; then
+    export GITAWAREPROMPT=~/.bash/git-aware-prompt
+    source "${GITAWAREPROMPT}/main.sh"
+  else
+    echo "git-aware prompt not installed"
+    echo "get it here: https://github.com/jimeh/git-aware-prompt"
+  fi
 
   # This function builds your prompt. It is called below
   function prompt {
@@ -73,7 +78,7 @@
     # Also, Homebrew adopts this convetion so things installed via Homebrew
     # get symlinked into /usr/local
     export USR_PATHS="/usr/games/bin:/usr/local:/usr/local/bin:/usr/local/sbin:/usr/bin"
- 
+
     # Hint: You can interpolate a variable into a string by using the $VARIABLE notation as below.
  
     # We build our final PATH by combining the variables defined above
@@ -198,6 +203,10 @@
  
 # Aliases
 # =====================
+
+  # Vim
+  alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+  # use mac vim's terminal vim (has clipboard support)
  
   # Rspec
   alias rs="rspec"
