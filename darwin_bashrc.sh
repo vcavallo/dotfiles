@@ -88,10 +88,11 @@
     # it will try to find that command within a directory that is defined in our PATH.
     # Read http://blog.seldomatt.com/blog/2012/10/08/bash-and-the-one-true-path/ for more on that.
     export PATH="$USR_PATHS:$PYTHON_SHARE:$PATH"
- 
-    # If you go into your shell and type: $PATH you will see the output of your current path.
- 
-    # export PATH="$PATH:/Users/vinney/bin"
+
+    # set PATH so it includes user's private bin if it exists
+    if [ -d "$HOME/bin" ] ; then
+     PATH="$HOME/bin:$PATH"
+    fi
 
 # Helpful Functions
 # =====================
