@@ -215,3 +215,5 @@
   xmodmap ~/.Xmodmap
   # free up control-s for forward history search
   stty -ixon
+
+echo "using Linux-specific bashrc"

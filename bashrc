@@ -158,11 +158,8 @@ fi
 
  case $os in
    "Darwin" )
-     echo "using Darwin-specific bashrc"
      source ~/dotfiles/darwin_bashrc.sh;;
    "Linux" )
-     echo "using Linux-specific bashrc"
      source ~/dotfiles/linux_bashrc.sh;;
  esac
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
