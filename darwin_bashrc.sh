@@ -281,7 +281,6 @@
     . `brew --prefix`/etc/bash_completion
   fi
 
-# source ~/.rvm/scripts/rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 echo "using Darwin-specific bashrc"
