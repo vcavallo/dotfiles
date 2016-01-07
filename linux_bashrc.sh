@@ -207,7 +207,6 @@
   # pb paste
   alias v="pbpaste"
  
- 
 # Final Configurations and Plugins
 # =====================
  
