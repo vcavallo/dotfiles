@@ -153,17 +153,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
  # used for os-specific functions
  os=`uname -s`
 
  case $os in
    "Darwin" )
-     echo "using Darwin-specific bashrc"
      source ~/dotfiles/darwin_bashrc.sh;;
    "Linux" )
-     echo "using Linux-specific bashrc"
      source ~/dotfiles/linux_bashrc.sh;;
  esac

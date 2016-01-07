@@ -88,10 +88,11 @@
     # it will try to find that command within a directory that is defined in our PATH.
     # Read http://blog.seldomatt.com/blog/2012/10/08/bash-and-the-one-true-path/ for more on that.
     export PATH="$USR_PATHS:$PYTHON_SHARE:$PATH"
- 
-    # If you go into your shell and type: $PATH you will see the output of your current path.
- 
-    # export PATH="$PATH:/Users/vinney/bin"
+
+    # set PATH so it includes user's private bin if it exists
+    if [ -d "$HOME/bin" ] ; then
+     PATH="$HOME/bin:$PATH"
+    fi
 
 # Helpful Functions
 # =====================
@@ -266,8 +267,6 @@
   # pb paste
   alias v="pbpaste"
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
- 
 # Final Configurations and Plugins
 # =====================
  
@@ -280,3 +279,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
   if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
   fi
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+echo "using Darwin-specific bashrc"
