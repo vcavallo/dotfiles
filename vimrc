@@ -37,6 +37,13 @@ set colorcolumn=85 " show right margin
 let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
+" markdown stuff
+" start all of these with <Leader>m
+" increase header: leader-m then + (really =)
+:map <Leader>m= ^i#<esc>
+" decrease header: leader-m then -
+:map <Leader>m- ^x
+
 " editing
 set ignorecase " ignore case for searching unless using uppercase letters
 set smartcase
