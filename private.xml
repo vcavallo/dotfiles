@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+    <name>Page down with SHIFT-C-J</name>
+    <identifier>private.page_down_shift-c-j</identifier>
+    <autogen>
+      __KeyToKey__
+      KeyCode::J, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L,
+      KeyCode::PAGEDOWN
+    </autogen>
+    <autogen>
+      __KeyToKey__
+      KeyCode::J, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_R,
+      KeyCode::PAGEDOWN
+    </autogen>
+  </item>
+  <item>
+    <name>Page up with SHIFT-C-K</name>
+    <identifier>private.page_up_shift-c-k</identifier>
+    <autogen>
+      __KeyToKey__
+      KeyCode::K, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L,
+      KeyCode::PAGEUP
+    </autogen>
+    <autogen>
+      __KeyToKey__
+      KeyCode::K, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_R,
+      KeyCode::PAGEUP
+    </autogen>
+  </item>
+  <item>
+    <name>down arrow with C-J</name>
+    <identifier>private.down_arrow_c-j</identifier>
+    <autogen>
+      __KeyToKey__
+      KeyCode::J, ModifierFlag::CONTROL_L,
+      KeyCode::CURSOR_DOWN
+    </autogen>
+  </item>
+  <item>
+    <name>up arrow with C-K</name>
+    <identifier>private.up_arrow_c-k</identifier>
+    <autogen>
+      __KeyToKey__
+      KeyCode::K, ModifierFlag::CONTROL_L,
+      KeyCode::CURSOR_UP
+    </autogen>
+  </item>
+</root>
