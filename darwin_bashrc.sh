@@ -44,7 +44,6 @@
     local BBLACK_ON_IGREEN="\[\e[0;30;102m\]"
     local ENDC="\[\e[0m\]" # ends a color declaration
 
-    local LOAD=`chkload`
     local USER="\u"
     local HOST="\h"
     local TIME=`fmt_time`
