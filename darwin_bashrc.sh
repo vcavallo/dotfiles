@@ -17,16 +17,41 @@
   # This function builds your prompt. It is called below
   function prompt {
     # Define some local colors
-    local         RED="\[\033[0;31m\]" # This syntax is some weird bash color thing I never
-    local   LIGHT_RED="\[\033[1;31m\]" # really understood
-    local        CHAR="♥"
-    # ♥ ☆ - Keeping some cool ASCII Characters for reference
+    # \[ is the opening of a non-printing element
+    # \e starts every color block
+    # ii;cc;bb i = bold, c = color, b = background
+    # m ends all colors blocks
+    # \] closes a non-printing element
+    local RED="\[\e[0;31m\]"
+    local IRED="\[\e[0;91m\]"
+    local LIGHT_RED="\[\e[1;31m\]"
+    local BLUE="\[\e[0;34m\]"
+    local IBLUE="\[\e[0;94m\]"
+    local YELLOW="\[\e[0;33m\]"
+    local IYELLOW="\[\e[1;93m\]"
+    local IPURPLE="\[\e[0;95m\]"
+    local BBLACK_ON_IGREEN="\[\e[1;30;102m\]"
+    local ENDC="\[\e[0m\]" # ends a color declaration
 
-    # Here is where we actually export the PS1 Variable which stores the text for your prompt
-    export PS1="\[\e]2;\u@\h\a[\[\e[37;44;1m\]\t\[\e[0m\]]$RED\$git_branch\e\[\e[40;35m\]\$git_dirty\e[0m\][\[\e[32m\]\w\[\e[0m\]]\n\[\e[0;31m\]$ \[\e[0m\]"
+    local USER="\u"
+    local HOST="\h"
+    local TIME="\t"
+    local WORKING_PATH="\w"
+    # build the prompt variable here:
+    local PROMPT="$IPURPLE$TIME$ENDC $IYELLOW\$git_branch$ENDC$BBLACK_ON_IGREEN$git_dirty$ENDC $IBLUE$WORKING_PATH$ENDC\n$ENDC$IRED\$$ENDC "
+
+    export PS1=$PROMPT
       PS2='> '
       PS4='+ '
-    }
+  }
+    #export PS1=$USER[$TIME]\$git_branch\e\$git_dirty\e\w\n\$
+      #PS2='> '
+      #PS4='+ '
+    #}
+    #export PS1=$USER"[\[\e[37;44;1m\]$TIME\e[0m\]]$IRED\$git_branch\e\[\e[40;35m\]\$git_dirty\e[0m\][\[\e[32m\]\w\[\e[0m\]]\n\[\e[0;31m\]$ \[\e[0m\]"
+    #  PS2='> '
+    #  PS4='+ '
+    #}
 
   # Finally call the function
   prompt
