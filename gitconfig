@@ -44,6 +44,7 @@
   funcname = ^ *\\(\\(class\\|module\\|def\\) .*\\)
 [push]
   default = current
+	followTags = true
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path =
