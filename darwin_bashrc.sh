@@ -14,6 +14,16 @@
     echo "get it here: https://github.com/jimeh/git-aware-prompt"
   fi
 
+  # thanks brett terpstra:
+  fmt_time () { #format time just the way I likes it
+      if [ `date +%p` = "PM" ]; then
+          meridiem="pm"
+      else
+          meridiem="am"
+      fi
+      date +"%l:%M:%S$meridiem"|sed 's/ //g'
+  }
+
   # This function builds your prompt. It is called below
   function prompt {
     # Define some local colors
@@ -30,15 +40,18 @@
     local YELLOW="\[\e[0;33m\]"
     local IYELLOW="\[\e[1;93m\]"
     local IPURPLE="\[\e[0;95m\]"
+    local LGRAY="\[\e[0;37m\]"
     local BBLACK_ON_IGREEN="\[\e[0;30;102m\]"
     local ENDC="\[\e[0m\]" # ends a color declaration
 
+    local LOAD=`chkload`
     local USER="\u"
     local HOST="\h"
-    local TIME="\t"
+    local TIME=`fmt_time`
     local WORKING_PATH="\w"
+    local DATE="\d"
     # build the prompt variable here:
-    local PROMPT="$IPURPLE$TIME$ENDC $IYELLOW\$git_branch$ENDC$BBLACK_ON_IGREEN\$git_dirty$ENDC $IBLUE$WORKING_PATH$ENDC\n$ENDC$IRED\$$ENDC "
+    local PROMPT="[ $LGRAY$USER@$HOST $IPURPLE$DATE, $TIME $ENDC] $IBLUE$WORKING_PATH\n$IYELLOW\$git_branch$BBLACK_ON_IGREEN\$git_dirty$IRED\$$ENDC "
 
     export PS1=$PROMPT
       PS2='> '
