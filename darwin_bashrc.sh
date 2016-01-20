@@ -30,7 +30,7 @@
     local YELLOW="\[\e[0;33m\]"
     local IYELLOW="\[\e[1;93m\]"
     local IPURPLE="\[\e[0;95m\]"
-    local BBLACK_ON_IGREEN="\[\e[1;30;102m\]"
+    local BBLACK_ON_IGREEN="\[\e[0;30;102m\]"
     local ENDC="\[\e[0m\]" # ends a color declaration
 
     local USER="\u"
@@ -38,22 +38,14 @@
     local TIME="\t"
     local WORKING_PATH="\w"
     # build the prompt variable here:
-    local PROMPT="$IPURPLE$TIME$ENDC $IYELLOW\$git_branch$ENDC$BBLACK_ON_IGREEN$git_dirty$ENDC $IBLUE$WORKING_PATH$ENDC\n$ENDC$IRED\$$ENDC "
+    local PROMPT="$IPURPLE$TIME$ENDC $IYELLOW\$git_branch$ENDC$BBLACK_ON_IGREEN\$git_dirty$ENDC $IBLUE$WORKING_PATH$ENDC\n$ENDC$IRED\$$ENDC "
 
     export PS1=$PROMPT
       PS2='> '
       PS4='+ '
   }
-    #export PS1=$USER[$TIME]\$git_branch\e\$git_dirty\e\w\n\$
-      #PS2='> '
-      #PS4='+ '
-    #}
-    #export PS1=$USER"[\[\e[37;44;1m\]$TIME\e[0m\]]$IRED\$git_branch\e\[\e[40;35m\]\$git_dirty\e[0m\][\[\e[32m\]\w\[\e[0m\]]\n\[\e[0;31m\]$ \[\e[0m\]"
-    #  PS2='> '
-    #  PS4='+ '
-    #}
 
-  # Finally call the function
+  # call the prompt function
   prompt
 
 # Environment Variables
