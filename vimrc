@@ -29,6 +29,7 @@ set showmatch " show matching bracket
 set matchtime=2 " for 0.2 seconds
 set matchpairs+=<:> " for html
 set laststatus=2 " 2 line status bar
+set number
 " syntax on
 syntax enable
 set background=dark
