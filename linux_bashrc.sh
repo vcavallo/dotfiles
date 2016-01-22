@@ -1,3 +1,64 @@
+# Configuring The Prompt
+# ======================
+
+  # This function is called in your prompt to output your active git branch.
+  function parse_git_branch {
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+  }
+
+  if [ -d ~/.bash/git-aware-prompt ]; then
+    export GITAWAREPROMPT=~/.bash/git-aware-prompt
+    source "${GITAWAREPROMPT}/main.sh"
+  else
+    echo "git-aware prompt not installed"
+    echo "get it here: https://github.com/jimeh/git-aware-prompt"
+  fi
+
+  # thanks brett terpstra:
+  fmt_time () { #format time just the way I likes it
+      if [ `date +%p` = "PM" ]; then
+          meridiem="pm"
+      else
+          meridiem="am"
+      fi
+      date +"%l:%M:%S$meridiem"|sed 's/ //g'
+  }
+
+  # This function builds your prompt. It is called below
+  function prompt {
+    # Define some local colors
+    # \[ is the opening of a non-printing element
+    # \e starts every color block
+    # ii;cc;bb i = bold, c = color, b = background
+    # m ends all colors blocks
+    # \] closes a non-printing element
+    local RED="\[\e[0;31m\]"
+    local IRED="\[\e[0;91m\]"
+    local LIGHT_RED="\[\e[1;31m\]"
+    local BLUE="\[\e[0;34m\]"
+    local IBLUE="\[\e[0;94m\]"
+    local YELLOW="\[\e[0;33m\]"
+    local IYELLOW="\[\e[1;93m\]"
+    local IPURPLE="\[\e[0;95m\]"
+    local LGRAY="\[\e[0;37m\]"
+    local BBLACK_ON_IGREEN="\[\e[0;30;102m\]"
+    local ENDC="\[\e[0m\]" # ends a color declaration
+
+    local USER="\u"
+    local HOST="\h"
+    local TIME=`fmt_time`
+    local WORKING_PATH="\w"
+    local DATE="\d"
+    # build the prompt variable here:
+    local PROMPT="[ $LGRAY$USER@$HOST $IPURPLE$DATE, $TIME $ENDC] $IBLUE$WORKING_PATH\n$IYELLOW\$git_branch$BBLACK_ON_IGREEN\$git_dirty$IRED\$$ENDC "
+
+    export PS1=$PROMPT
+      PS2='> '
+      PS4='+ '
+  }
+
+  # call the prompt function
+  prompt
 
 # Environment Variables
 # =====================
