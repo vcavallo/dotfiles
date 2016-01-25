@@ -42,15 +42,20 @@ let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
 " markdown stuff
-" start all of these with <Leader>m
+" these all start off with <Leader>m
 " increase header: leader-m then + (really =)
 :map <Leader>m= ^i#<esc>
 " decrease header: leader-m then -
 :map <Leader>m- ^x
 
 " taskpaper stuff
-" start all of these with <Leader>d (for donut. uh, i mean 'do')
-:map <Leader>dd A@done<esc>
+" these all start off with <Leader>d (for donut. uh, i mean 'do')
+:map <Leader>dd A @done<esc>
+" mark done - d
+:map <Leader>da :.m/Archive/<Cr>
+" move to top of archive - a
+:map <Leader>d<S-d> A @done<esc>:.m/Archive/<Cr>
+" done and top of archive - D
 
 " editing
 set ignorecase " ignore case for searching unless using uppercase letters
