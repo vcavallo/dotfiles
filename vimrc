@@ -48,6 +48,10 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 " decrease header: leader-m then -
 :map <Leader>m- ^x
 
+" taskpaper stuff
+" start all of these with <Leader>d (for donut. uh, i mean 'do')
+:map <Leader>dd A@done<esc>
+
 " editing
 set ignorecase " ignore case for searching unless using uppercase letters
 set smartcase
@@ -105,7 +109,7 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
-autocmd BufRead,BufNewFile *.txt,*.md,*.markdown,*.mdown,*.mkd,*.mkdn set filetype=markdown
+autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn set filetype=markdown
 autocmd BufRead,BufNewFile *.txt,*.md,*.markdown,*.mdown,*.mkd,*.mkdn setlocal textwidth=80
 
 let g:syntastic_mode_map={ 'mode': 'active',
