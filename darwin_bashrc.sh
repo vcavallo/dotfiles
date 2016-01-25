@@ -45,7 +45,7 @@
     local ENDC="\[\e[0m\]" # ends a color declaration
 
     local USER="\u"
-    local HOST="\h"
+    local HOST="\H"
     local TIME=`fmt_time`
     local WORKING_PATH="\w"
     local DATE="\d"
