@@ -254,7 +254,7 @@ set t_Co=256
 set hidden
 
 "Airline theme setup:
-let g:airline_theme='badwolf'
+let g:airline_theme='kalisi'
 
 "statusline setup
 set statusline =%#identifier#
