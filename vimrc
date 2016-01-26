@@ -57,6 +57,8 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 :map <Leader>d<S-d> A @done<esc>:.m/Archive/<Cr>
 " done and top of archive - D
 
+:nnoremap vv :set invpaste paste?<CR>
+
 " editing
 set ignorecase " ignore case for searching unless using uppercase letters
 set smartcase
@@ -136,7 +138,7 @@ autocmd BufLeave,FocusLost * silent! wall
 :map tt :NERDTreeToggle
 
 " map 'V' to show YankRing "
-:map vv :YRShow
+" :map vv :YRShow
 
 " open NERDTree automatically when vim starts "
 " if has("gui")
