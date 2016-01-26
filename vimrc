@@ -87,6 +87,16 @@ let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
 :nmap π :CtrlP<return>
 
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set colorcolumn=80
+    autocmd WinEnter * set number
+    autocmd WinEnter * set cul
+
+    autocmd WinLeave * set colorcolumn=0
+    autocmd WinLeave * set nonumber
+    autocmd WinLeave * set nocul
+augroup END
 
 " allows you press esc to turn off search highlight "
 :nnoremap <esc> :noh<return><esc>
