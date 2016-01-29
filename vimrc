@@ -52,7 +52,7 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 " these all start off with <Leader>d (for donut. uh, i mean 'do')
 :map <Leader>dd A @done<esc>
 " mark done - d
-:map <Leader>da :.m/Archive/<Cr>
+:map <Leader>da :.m/Archive/<Cr><esc>
 " move to top of archive - a
 :map <Leader>d<S-d> A @done<esc>:.m/Archive/<Cr>
 " done and top of archive - D
@@ -90,11 +90,9 @@ let g:ctrlp_cmd = 'CtrlP'
 augroup BgHighlight
     autocmd!
     autocmd WinEnter * set colorcolumn=80
-    autocmd WinEnter * set number
     autocmd WinEnter * set cul
 
     autocmd WinLeave * set colorcolumn=0
-    autocmd WinLeave * set nonumber
     autocmd WinLeave * set nocul
 augroup END
 
