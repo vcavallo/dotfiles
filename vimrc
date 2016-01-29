@@ -22,7 +22,7 @@ set nowrap
 " set linebreak   "wrap lines at convenient points
 
 "vertical/horizontal scroll off settings
-set scrolloff=3
+set scrolloff=10
 set sidescrolloff=7
 set sidescroll=1
 set showmatch " show matching bracket
