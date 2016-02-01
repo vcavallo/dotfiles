@@ -125,17 +125,17 @@
 
 # Helpful Functions
 # =====================
- 
+
   # case-insensitive auto-complete
   bind "set completion-ignore-case on"
-   
+
   # show all if ambiguous
   bind "set show-all-if-ambiguous on"
-   
+
   # Functions to CD into folders from anywhere
   # so you just type "folder-name".
   # HINT: It uses the built in USER variable to know your OS X username
-   
+
   # USE: desktop
   #      desktop subfolder
 
@@ -143,50 +143,30 @@
     cd /Users/$USER/Desktop/$@
   }
 
-  function dotfiles {
+  function dots {
     cd /Users/$USER/dotfiles/$@
   }
-   
+
   function dev {
     cd /Users/$USER/development/$@
   }
-   
-  function nytm {
-    cd /Users/$USER/development/projects/clients/nytm/nytm-membership-v2/$@
-  }
-   
-  function kpmg {
-    cd /Users/$USER/development/projects/clients/dopamine/kpmg_trivia/$@
-  }
-   
-  function dopa {
-    cd /Users/$USER/development/projects/clients/dopamine/$@
-  }
-   
-  function fin_lit {
-    cd /Users/$USER/development/projects/clients/dopamine/fin_lit/$@
+
+  function nvalt {
+    cd /Users/$USER/Dropbox/nvALT/$@
   }
 
   function bill {
     cd /Users/$USER/development/projects/bill-blass$@
   }
-   
-  function allegiance {
-    cd /Users/$USER/development/projects/clients/dopamine/allegiance/$@
-  }
-   
+
   function blog {
     cd /Users/$USER/development/code/vcavallo.github.io/$@
   }
-   
+
   function blog_posts {
     cd /Users/$USER/development/code/vcavallo.github.io/source/_posts/$@
   }
-   
-  function flatiron {
-    cd /Users/$USER/flatiron/$@
-  }
-   
+
   # A function to easily grep for a matching process
   # USE: psg postgres
   function psg {
