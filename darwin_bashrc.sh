@@ -151,8 +151,8 @@
     cd /Users/$USER/development/$@
   }
 
-  function nvalt {
-    cd /Users/$USER/Dropbox/nvALT/$@
+  function db {
+    cd /Users/$USER/Dropbox/$@
   }
 
   function bill {

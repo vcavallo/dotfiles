@@ -54,7 +54,7 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 " mark done - d
 :map <Leader>da :.m/Archive/<Cr><esc>
 " move to top of archive - a
-:map <Leader>d<S-d> A @done<esc>:.m/Archive/<Cr>
+:map <Leader>d<S-d> A @done<esc>:.m/Archive/<Cr><esc>
 " done and top of archive - D
 
 :nnoremap vv :set invpaste paste?<CR>
