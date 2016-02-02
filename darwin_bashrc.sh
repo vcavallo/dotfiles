@@ -52,7 +52,7 @@
     local WORKING_PATH="\w"
     local DATE="\d"
     # build the prompt variable here:
-    local PROMPT="[ $LGRAY$USER@$HOST $IPURPLE$DATE, $TIME $ENDC] $IBLUE$WORKING_PATH\n$IGREEN\$git_branch$WHITE_ON_RED\$git_dirty$IBLUE\$$ENDC "
+    local PROMPT="[ $LGRAY$USER@$HOST $IPURPLE$DATE, $TIME $ENDC] $IBLUE$WORKING_PATH\n$IGREEN\$git_branch$WHITE_ON_RED\$git_dirty$IBLUE \$$ENDC "
 
     export PS1=$PROMPT
       PS2='> '
