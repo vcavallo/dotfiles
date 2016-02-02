@@ -42,6 +42,8 @@
     local IPURPLE="\[\e[0;95m\]"
     local LGRAY="\[\e[0;37m\]"
     local BBLACK_ON_IGREEN="\[\e[0;30;102m\]"
+    local IGREEN="\[\e[0;30;102m\]"
+    local WHITE_ON_RED="\[\e[0;1;41m\]"
     local ENDC="\[\e[0m\]" # ends a color declaration
 
     local USER="\u"
@@ -50,7 +52,7 @@
     local WORKING_PATH="\w"
     local DATE="\d"
     # build the prompt variable here:
-    local PROMPT="[ $LGRAY$USER@$HOST $IPURPLE$DATE, $TIME $ENDC] $IBLUE$WORKING_PATH\n$IYELLOW\$git_branch$BBLACK_ON_IGREEN\$git_dirty$IRED\$$ENDC "
+    local PROMPT="[ $LGRAY$USER@$HOST $IPURPLE$DATE, $TIME $ENDC] $IBLUE$WORKING_PATH\n$IGREEN\$git_branch$WHITE_ON_RED\$git_dirty$IBLUE\$$ENDC "
 
     export PS1=$PROMPT
       PS2='> '
