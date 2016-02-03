@@ -11,6 +11,12 @@
   last = diff head^ head
   lg = log -p
   who = shortlog -s --
+  unstage = reset
+  uncommit = reset --soft HEAD^
+  slag = log --oneline --decorate --graph --all
+  sla = log --oneline --decorate --all
+  sl = log --oneline --decorate
+  log = log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s'
   up = pull
   pr = pull --rebase
   pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
@@ -39,7 +45,7 @@
   status = auto
   branch = auto
 [format]
-  pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
+  pretty = '%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s'
 [diff "ruby"]
   funcname = ^ *\\(\\(class\\|module\\|def\\) .*\\)
 [push]
