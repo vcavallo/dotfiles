@@ -13,6 +13,7 @@
   who = shortlog -s --
   unstage = reset
   uncommit = reset --soft HEAD^
+  df = diff --word-diff --color-words
   slag = log --oneline --decorate --graph --all
   sla = log --oneline --decorate --all
   sl = log --oneline --decorate
@@ -49,14 +50,13 @@
 [diff "ruby"]
   funcname = ^ *\\(\\(class\\|module\\|def\\) .*\\)
 [push]
-  default = current
-	followTags = true
+  default = upstream
+  followTags = true
+[fetch]
+  prune = true
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path =
-[mergetool "sourcetree"]
-  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
 [merge]
   tool = opendiff
 [grep]
