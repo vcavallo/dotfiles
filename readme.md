@@ -10,6 +10,10 @@ chmod +x makesymlinks.sh
 ./makesymlinks.sh
 ```
 
+### install tmux-plugins
+
+https://github.com/tmux-plugins/tpm
+
 ### installing karabiner xml
 
 find your `~/Library/Application\ Support/Karabiner` directory. Delete or rename
