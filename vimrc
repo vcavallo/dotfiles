@@ -58,6 +58,8 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 " done and top of archive - D
 
 :nnoremap vv :set invpaste paste?<CR>
+:map <Leader>p vv"*]pvv
+" enter paste mode, paste at current indent level, leave paste mode
 
 " editing
 set ignorecase " ignore case for searching unless using uppercase letters
