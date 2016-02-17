@@ -159,6 +159,12 @@ autocmd vimenter * NERDTree
 " open NERDTree even if no files specified "
 " autocmd vimenter * if !argc() | NERDTree | endif
 
+" resize splits on focus:
+set winwidth=84
+set winheight=5
+set winminheight=5
+set winheight=999
+
 " close vim if NERDTree is the only window left "
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
