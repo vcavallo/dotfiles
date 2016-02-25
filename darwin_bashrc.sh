@@ -294,5 +294,3 @@
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 echo "using Darwin-specific bashrc"
-source $(gem environment gemdir)/gems/timetrap-1.10.0/completions/bash/timetrap-autocomplete.bash
-echo "gem directory: $(gem environment gemdir)"
