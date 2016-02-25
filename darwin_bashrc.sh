@@ -161,6 +161,10 @@
     cd /Users/$USER/development/projects/bill-blass$@
   }
 
+  function curious {
+    cd /Users/$USER/development/projects/twitterbot-prototype$@
+  }
+
   function blog {
     cd /Users/$USER/development/code/vcavallo.github.io/$@
   }
