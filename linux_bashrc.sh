@@ -276,4 +276,6 @@
   # free up control-s for forward history search
   stty -ixon
 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 echo "using Linux-specific bashrc"
