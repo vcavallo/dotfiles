@@ -92,10 +92,10 @@ let g:ctrlp_cmd = 'CtrlP'
 augroup BgHighlight
     autocmd!
     autocmd WinEnter * set colorcolumn=80
-    autocmd WinEnter * set cul
+    " autocmd WinEnter * set cul
 
     autocmd WinLeave * set colorcolumn=0
-    autocmd WinLeave * set nocul
+    " autocmd WinLeave * set nocul
 augroup END
 
 " allows you press esc to turn off search highlight "
