@@ -63,6 +63,7 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 " done and top of archive - D
 
 :nnoremap vv :set invpaste paste?<CR>
+" toggle paste modes
 :map <Leader>p vv"*]pvv
 " enter paste mode, paste at current indent level, leave paste mode
 
@@ -106,7 +107,6 @@ augroup END
 " allows you press esc to turn off search highlight "
 :nnoremap <esc> :noh<return><esc>
 
-vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
 
 """ splitting "
@@ -158,7 +158,7 @@ autocmd BufLeave,FocusLost * silent! wall
 
 " open NERDTree automatically when vim starts "
 " if has("gui")
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 " endif
 
 " open NERDTree even if no files specified "
