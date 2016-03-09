@@ -17,6 +17,11 @@ call pathogen#infect()
 " map cmd-shift-enter to insert newline ABOVE in insert mode "
 :imap <S-D-Enter> <C-O>O
 
+" %% on command line will give you current path of buffer
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+" map <leader>e :edit %%
+" map <leader>v :view %%
+
 " display
 set nowrap
 " set linebreak   "wrap lines at convenient points
