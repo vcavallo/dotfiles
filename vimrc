@@ -136,7 +136,7 @@ map <Leader>a :call RunAllSpecs()<CR>
 
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn set filetype=markdown
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal syntax=markdown
-autocmd BufRead,BufNewFile *.txt,*.md,*.markdown,*.mdown,*.mkd,*.mkdn setlocal textwidth=80
+autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal textwidth=80
 
 let g:syntastic_mode_map={ 'mode': 'active',
                      \ 'active_filetypes': [],
@@ -172,6 +172,11 @@ set winwidth=84
 set winheight=5
 set winminheight=5
 set winheight=999
+
+" highlight current line
+set cursorline
+" highlight current column
+set cursorcolumn
 
 " close vim if NERDTree is the only window left "
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
