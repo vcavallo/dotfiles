@@ -176,7 +176,7 @@ set winheight=999
 " highlight current line
 set cursorline
 " highlight current column
-set cursorcolumn
+" set cursorcolumn
 
 " close vim if NERDTree is the only window left "
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -186,7 +186,7 @@ if exists("+relativenumber")
   if v:version >= 400
     set number
   endif
-  set relativenumber " show relative line numbers
+  " set relativenumber " show relative line numbers
   set number
   set numberwidth=3  " narrow number column
   " cycles between relative / absolute / no numbering
