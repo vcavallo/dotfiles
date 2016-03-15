@@ -57,10 +57,13 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 " these all start off with <Leader>d (for donut. uh, i mean 'do')
 :map <Leader>dd A @done<esc>
 " mark done - d
-:map <Leader>da :.m/[Aa]rchive/<Cr><esc>
+:map <Leader>da kmxj:.m/[Aa]rchive/<Cr>`x
+:vmap <leader>da :m/[Aa]rchive/<cr>
+:map <leader>dA :g/@done/.m/[Aa]rchive/<cr><cr>
 " move to top of archive - a
-:map <Leader>d<S-d> A @done<esc>:.m/Archive/<Cr><esc>
+:map <Leader>d<S-d> kmxjA @done<esc>:.m/[aA]rchive/<Cr>`x
 " done and top of archive - D
+
 
 :nnoremap vv :set invpaste paste?<CR>
 " toggle paste modes
@@ -138,6 +141,10 @@ autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn set filet
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal syntax=markdown
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal textwidth=80
 
+autocmd BufRead,BufNewFile *.die setlocal buftype=nofile
+autocmd BufRead,BufNewFile *.die setlocal bufhidden=hide
+autocmd BufRead,BufNewFile *.die setlocal noswapfile
+
 let g:syntastic_mode_map={ 'mode': 'active',
                      \ 'active_filetypes': [],
                      \ 'passive_filetypes': ['html'] }
@@ -188,7 +195,7 @@ if exists("+relativenumber")
   endif
   " set relativenumber " show relative line numbers
   set number
-  set numberwidth=3  " narrow number column
+  set numberwidth=5
   " cycles between relative / absolute / no numbering
   if v:version >= 400
     function! RelativeNumberToggle()
