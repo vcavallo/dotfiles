@@ -141,6 +141,10 @@ autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn set filet
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal syntax=markdown
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal textwidth=80
 
+autocmd BufRead,BufNewFile *.die setlocal buftype=nofile
+autocmd BufRead,BufNewFile *.die setlocal bufhidden=hide
+autocmd BufRead,BufNewFile *.die setlocal noswapfile
+
 let g:syntastic_mode_map={ 'mode': 'active',
                      \ 'active_filetypes': [],
                      \ 'passive_filetypes': ['html'] }
