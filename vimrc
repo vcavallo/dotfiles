@@ -405,7 +405,7 @@ endfunction
 "recalculate the long line warning when idle and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_long_line_warning
 
-"return a warning for "long lines" where "long" is either &textwidth or 80 (if
+"return a warning for long lines where long is either &textwidth or 80 (if
 "no &textwidth is set)
 "
 "return '' if no long lines
