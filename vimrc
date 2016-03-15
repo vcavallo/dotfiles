@@ -188,7 +188,7 @@ if exists("+relativenumber")
   endif
   " set relativenumber " show relative line numbers
   set number
-  set numberwidth=3  " narrow number column
+  set numberwidth=5
   " cycles between relative / absolute / no numbering
   if v:version >= 400
     function! RelativeNumberToggle()
