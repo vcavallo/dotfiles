@@ -57,11 +57,11 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 " these all start off with <Leader>d (for donut. uh, i mean 'do')
 :map <Leader>dd A @done<esc>
 " mark done - d
-:map <Leader>da kmxj:.m/[Aa]rchive/<Cr>`x
-:vmap <leader>da :m/[Aa]rchive/<cr>
-:map <leader>dA :g/@done/.m/[Aa]rchive/<cr><cr>
+:map <Leader>da kmxj:.m/[Aa]rchive/<Cr>`x<esc>
+:vmap <leader>da :m/[Aa]rchive/<cr><esc>
+:map <leader>dA :g/@done/.m/[Aa]rchive/<cr><cr><esc>
 " move to top of archive - a
-:map <Leader>d<S-d> kmxjA @done<esc>:.m/[aA]rchive/<Cr>`x
+:map <Leader>d<S-d> kmxjA @done<esc>:.m/[aA]rchive/<Cr>`x<esc>
 " done and top of archive - D
 
 
