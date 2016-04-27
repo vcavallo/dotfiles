@@ -162,7 +162,7 @@
   }
 
   function curious {
-    cd /Users/$USER/development/projects/twitterbot-prototype$@
+    cd /Users/$USER/development/projects/wondersauce/google$@
   }
 
   function blog {
