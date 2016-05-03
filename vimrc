@@ -38,9 +38,10 @@ set number
 " syntax on
 syntax enable
 set background=dark
-colorscheme smyck
-" colorscheme solarized
+" colorscheme smyck
+colorscheme solarized
 " let g:solarized_termtrans = 1
+
 set colorcolumn=85 " show right margin
 " change cursor shape per mode in terminal vim
 let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
