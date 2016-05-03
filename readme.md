@@ -1,5 +1,13 @@
 # Dotfiles
 
+## TODO!
+
+- [ ] allow for local [dotfile].local to overwrite the suggested global dotfile
+  provided by this repo. What if I want to use solarized at work but smyck at
+  home...?
+    - [ ] probably would help to use an 'install' concept similar to how i'm
+      using my scripts repo
+
 ## to use this set of dotfiles on another system
 
 ### installing home directory files
