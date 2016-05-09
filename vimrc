@@ -125,7 +125,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " toggle to previous buffer
-noremap <leader><leader> <C-^>
+nnoremap <leader>\ <C-^>
 
 " easier pane opening
 " commenting these out for vim-rspec to use
