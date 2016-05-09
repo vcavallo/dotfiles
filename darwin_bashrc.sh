@@ -153,6 +153,10 @@
     cd /Users/$USER/development/$@
   }
 
+  function nvalt {
+    cd /Users/$USER/Dropbox/nvALT && vim
+  }
+
   function db {
     cd /Users/$USER/Dropbox/$@
   }
