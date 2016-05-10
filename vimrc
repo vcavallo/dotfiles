@@ -126,6 +126,10 @@ nnoremap <C-H> <C-W><C-H>
 " toggle to previous buffer
 noremap <leader><leader> <C-^>
 
+" DANGEROUS
+" execute ./ the most-recently changed file in working directory
+map <leader>cc :!unset -v latest; for file in *;do [[ $file -nt $latest ]] && latest=$file; done; ./$(basename $latest)<cr>
+
 " easier pane opening
 " commenting these out for vim-rspec to use
 " nnoremap <leader>v <C-w>v<C-w>l
