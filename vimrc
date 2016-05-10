@@ -38,9 +38,10 @@ set number
 " syntax on
 syntax enable
 set background=dark
-colorscheme smyck
-" colorscheme solarized
+" colorscheme smyck
+colorscheme solarized
 " let g:solarized_termtrans = 1
+
 set colorcolumn=85 " show right margin
 " change cursor shape per mode in terminal vim
 let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
@@ -57,11 +58,11 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 " these all start off with <Leader>d (for donut. uh, i mean 'do')
 :map <Leader>dd A @done<esc>
 " mark done - d
-:map <Leader>da kmxj:.m/[Aa]rchive/<Cr>`x
-:vmap <leader>da :m/[Aa]rchive/<cr>
-:map <leader>dA :g/@done/.m/[Aa]rchive/<cr><cr>
+:map <Leader>da kmxj:.m/[Aa]rchive/<Cr>`x<esc>
+:vmap <leader>da :m/[Aa]rchive/<cr><esc>
+:map <leader>dA :g/@done/.m/[Aa]rchive/<cr><cr><esc>
 " move to top of archive - a
-:map <Leader>d<S-d> kmxjA @done<esc>:.m/[aA]rchive/<Cr>`x
+:map <Leader>d<S-d> kmxjA @done<esc>:.m/[aA]rchive/<Cr>`x<esc>
 " done and top of archive - D
 
 
@@ -124,7 +125,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " toggle to previous buffer
-noremap <leader><leader> <C-^>
+nnoremap <leader>\ <C-^>
 
 " DANGEROUS
 " execute ./ the most-recently changed file in working directory
@@ -143,7 +144,8 @@ map <Leader>a :call RunAllSpecs()<CR>
 
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn set filetype=markdown
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal syntax=markdown
-autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal textwidth=80
+autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal wrap linebreak
+" autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal textwidth=80
 
 autocmd BufRead,BufNewFile *.die setlocal buftype=nofile
 autocmd BufRead,BufNewFile *.die setlocal bufhidden=hide
@@ -416,7 +418,7 @@ endfunction
 "recalculate the long line warning when idle and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_long_line_warning
 
-"return a warning for "long lines" where "long" is either &textwidth or 80 (if
+"return a warning for long lines where long is either &textwidth or 80 (if
 "no &textwidth is set)
 "
 "return '' if no long lines

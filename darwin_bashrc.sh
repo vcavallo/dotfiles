@@ -153,6 +153,10 @@
     cd /Users/$USER/development/$@
   }
 
+  function nvalt {
+    cd /Users/$USER/Dropbox/nvALT && vim
+  }
+
   function db {
     cd /Users/$USER/Dropbox/$@
   }
@@ -162,7 +166,7 @@
   }
 
   function curious {
-    cd /Users/$USER/development/projects/twitterbot-prototype$@
+    cd /Users/$USER/development/projects/wondersauce/google$@
   }
 
   function blog {
