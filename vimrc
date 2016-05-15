@@ -299,7 +299,7 @@ set hidden
 
 "Airline theme setup:
 " let g:airline_theme='kalisi'
-let g:airline_theme='gruvbox"
+let g:airline_theme='gruvbox'
 
 "statusline setup
 set statusline =%#identifier#
