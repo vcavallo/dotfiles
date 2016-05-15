@@ -39,7 +39,8 @@ set number
 syntax enable
 set background=dark
 " colorscheme smyck
-colorscheme solarized
+" colorscheme solarized
+colorscheme gruvbox
 " let g:solarized_termtrans = 1
 
 set colorcolumn=85 " show right margin
@@ -297,7 +298,8 @@ set t_Co=256
 set hidden
 
 "Airline theme setup:
-let g:airline_theme='kalisi'
+" let g:airline_theme='kalisi'
+let g:airline_theme='gruvbox"
 
 "statusline setup
 set statusline =%#identifier#
