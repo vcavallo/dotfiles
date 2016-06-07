@@ -143,7 +143,7 @@ set shell=/bin/bash\ -li
 autocmd BufLeave,FocusLost * silent! wall
 
 " map 'tt' to open up NERDTree "
-:map tt :NERDTreeToggle
+:map tt :NERDTreeToggle<cr>
 
 " resize splits on focus:
 set winwidth=84
