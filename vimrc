@@ -60,11 +60,12 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 :map <Leader>d<S-d> kmxjA @done<esc>:.m/[aA]rchive/<Cr>`x<esc>
 " done and top of archive - D
 
-
 :nnoremap vv :set invpaste paste?<CR>
 " toggle paste modes
 :map <Leader>p vv"*]pvv
 " enter paste mode, paste at current indent level, leave paste mode
+:map <leader>o o<C-o>O
+" add blank line above and below and enter insert mode
 
 " editing
 set ignorecase " ignore case for searching unless using uppercase letters
