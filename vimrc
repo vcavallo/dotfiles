@@ -11,12 +11,6 @@ call pathogen#infect()
 " unmap Shift+k to avoid annoying man entry halting thing "
 :map <S-k> <Nop>
 
-" map cmd-enter to insert newline BELOW in insert mode "
-:imap <D-Enter> <C-O>o
-
-" map cmd-shift-enter to insert newline ABOVE in insert mode "
-:imap <S-D-Enter> <C-O>O
-
 " %% on command line will give you current path of buffer
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 " map <leader>e :edit %%
@@ -24,7 +18,7 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 " display
 set nowrap
-" set linebreak   "wrap lines at convenient points
+" set linebreak " wrap lines at convenient points
 
 "vertical/horizontal scroll off settings
 set scrolloff=10
@@ -66,11 +60,12 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 :map <Leader>d<S-d> kmxjA @done<esc>:.m/[aA]rchive/<Cr>`x<esc>
 " done and top of archive - D
 
-
 :nnoremap vv :set invpaste paste?<CR>
 " toggle paste modes
 :map <Leader>p vv"*]pvv
 " enter paste mode, paste at current indent level, leave paste mode
+:map <leader>o o<C-o>O
+" add blank line above and below and enter insert mode
 
 " editing
 set ignorecase " ignore case for searching unless using uppercase letters
@@ -79,20 +74,9 @@ set smartindent
 set tabstop=2
 set shiftwidth=2
 set expandtab " turn tabs into spaces
-inoremap <S-Tab> <C-V><Tab>
-" ^ use shift-tab to insert tabs in INSERT mode
 
-" multicursor settings "
-" override default ctrl-n mapping: "
-" let g:multi_cursor_use_default_mapping=0 "
-" let g:multi_cursor_exit_from_visual_mode "
-" let g:multi_cursor_exit_from_insert_mode "
-"                                          "
-" my mappings for multi-cursor             "
-" let g:multi_cursor_next_key='<D-d>'      "
-" let g:multi_cursor_prev_key='<S-D-p>'    "
-" let g:multi_cursor_skip_key='<D-x>'      "
-" let g:multi_cursor_quit_key='<Esc>'      "
+" use shift-tab to insert tabs in INSERT mode
+inoremap <S-Tab> <C-V><Tab>
 
 " setup for ctrlp "
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -112,7 +96,7 @@ augroup END
 " allows you press esc to turn off search highlight "
 :nnoremap <esc> :noh<return><esc>
 
-vmap <C-c> :w !pbcopy<CR><CR>
+vmap <C-c>:w !pbcopy<CR><CR>
 
 """ splitting "
 " set default split opening to bottom and right: "
@@ -126,18 +110,13 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " toggle to previous buffer
-nnoremap <leader>\ <C-^>
+map <leader>\ <C-^>
 
 " DANGEROUS
 " execute ./ the most-recently changed file in working directory
 map <leader>cc :!unset -v latest; for file in *;do [[ $file -nt $latest ]] && latest=$file; done; ./$(basename $latest)<cr>
 
-" easier pane opening
-" commenting these out for vim-rspec to use
-" nnoremap <leader>v <C-w>v<C-w>l
-" nnoremap <leader>s <C-w>s<C-w>j
-
-" " RSpec.vim mappings
+" RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
@@ -145,9 +124,11 @@ map <Leader>a :call RunAllSpecs()<CR>
 
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn set filetype=markdown
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal syntax=markdown
+autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal spell
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal wrap linebreak
 " autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal textwidth=80
 
+" if you give a file the .die extension, it won't be saved/saveable
 autocmd BufRead,BufNewFile *.die setlocal buftype=nofile
 autocmd BufRead,BufNewFile *.die setlocal bufhidden=hide
 autocmd BufRead,BufNewFile *.die setlocal noswapfile
@@ -156,30 +137,13 @@ let g:syntastic_mode_map={ 'mode': 'active',
                      \ 'active_filetypes': [],
                      \ 'passive_filetypes': ['html'] }
 
-"if has('gui_running')
-"    set background=dark
-"else
-"    set background=dark
-"endif
-
 set shell=/bin/bash\ -li
 
 " autosave on lost focus "
 autocmd BufLeave,FocusLost * silent! wall
 
 " map 'tt' to open up NERDTree "
-:map tt :NERDTreeToggle
-
-" map 'V' to show YankRing "
-" :map vv :YRShow
-
-" open NERDTree automatically when vim starts "
-" if has("gui")
-" autocmd vimenter * NERDTree
-" endif
-
-" open NERDTree even if no files specified "
-" autocmd vimenter * if !argc() | NERDTree | endif
+:map tt :NERDTreeToggle<cr>
 
 " resize splits on focus:
 set winwidth=84
@@ -247,8 +211,11 @@ set backspace=indent,eol,start
 "store lots of :cmdline history
 set history=1000
 
-set showcmd     "show incomplete cmds down the bottom
-set showmode    "show current mode down the bottom
+"show incomplete cmds down the bottom
+set showcmd
+
+"show current mode down the bottom
+set showmode
 
 "display tabs and trailing spaces
 set list
@@ -257,20 +224,11 @@ set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 set incsearch   "find the next match as we type the search
 set hlsearch    "hilight searches by default
 
-
 if v:version >= 703
     "undo settings
     set undodir=~/.vim/undofiles
     set undofile
-
-    " set colorcolumn=+1 "mark the ideal max text width
 endif
-
-"default indent settings
-"set shiftwidth=4
-"set softtabstop=4
-"set expandtab
-"set autoindent
 
 "folding settings
 set foldmethod=indent   "fold based on indent
@@ -309,6 +267,11 @@ set statusline+=%*
 "display a warning if fileformat isnt unix
 set statusline+=%#warningmsg#
 set statusline+=%{&ff!='unix'?'['.&ff.']':''}
+set statusline+=%*
+
+" display a warning if using dos line endings
+set statusline+=%#warningmsg#
+set statusline+=\ %9*%{&ff=='unix'?'':&ff.'\ format'}%*
 set statusline+=%*
 
 "display a warning if file encoding isnt utf-8
@@ -474,25 +437,8 @@ endfunction
 let g:NERDTreeMouseMode = 2
 let g:NERDTreeWinSize = 25
 
-"Scratch settings
-"nnoremap <leader><tab> :Scratch<cr>
-
-"explorer mappings
-nnoremap <f1> :BufExplorer<cr>
-nnoremap <f2> :NERDTreeToggle<cr>
-nnoremap <f3> :TagbarToggle<cr>
-
 "source project specific config files
 runtime! projects/**/*.vim
-
-"dont load csapprox if we no gui support - silences an annoying warning
-if !has("gui")
-    let g:CSApprox_loaded = 1
-endif
-
-"make <c-l> clear the highlight as well as redraw
-"nnoremap <C-L> :nohls<CR><C-L>
-"inoremap <C-L> <C-O>:nohls<CR>
 
 "map Q to something useful
 noremap Q gq
@@ -534,7 +480,7 @@ autocmd filetype svn,*commit* setlocal spell
 "leave them - otherwise the buffer list gets poluted
 "
 "add a mapping on .. to view parent tree
-autocmd BufReadPost fugitive://* set bufhidden=delete
+autocmd BufReadPost fugitive:/[* set bufhidden=delete
 autocmd BufReadPost fugitive://*
   \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
   \   nnoremap <buffer> .. :edit %:h<CR> |

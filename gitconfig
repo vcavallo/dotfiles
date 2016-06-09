@@ -2,6 +2,7 @@
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
   excludesfile = ~/.gitignore
   editor = vim
+	autocrlf = input
 [alias]
   st = status
   ci = commit
