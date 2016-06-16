@@ -157,6 +157,10 @@
     cd /Users/$USER/Dropbox/nvALT && vim
   }
 
+  function wiki {
+    cd /Users/$USER/Dropbox/wiki && vim
+  }
+
   function db {
     cd /Users/$USER/Dropbox/$@
   }
