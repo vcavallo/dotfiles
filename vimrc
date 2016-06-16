@@ -136,6 +136,8 @@ autocmd BufRead,BufNewFile *.die setlocal noswapfile
 " vimwiki
 let wiki_1 = {}
 let wiki_1.path = '~/Dropbox/wiki/'
+let wiki_1.syntax = 'markdown'
+let wiki_1.ext = '.txt'
 let g:vimwiki_list = [wiki_1]
 
 let g:syntastic_mode_map={ 'mode': 'active',
