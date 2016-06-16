@@ -133,6 +133,11 @@ autocmd BufRead,BufNewFile *.die setlocal buftype=nofile
 autocmd BufRead,BufNewFile *.die setlocal bufhidden=hide
 autocmd BufRead,BufNewFile *.die setlocal noswapfile
 
+" vimwiki
+let wiki_1 = {}
+let wiki_1.path = '~/Dropbox/wiki/'
+let g:vimwiki_list = [wiki_1]
+
 let g:syntastic_mode_map={ 'mode': 'active',
                      \ 'active_filetypes': [],
                      \ 'passive_filetypes': ['html'] }
