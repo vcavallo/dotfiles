@@ -122,6 +122,16 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
+" Cucumber mappings
+" Run currently open cucumber feature file
+map <Leader>ct :w<cr>:!cucumber %<cr>
+
+" Run current cucumber scenario
+map <Leader>cs :w<cr>:exe "!cucumber %" . ":" . line(".")<cr>
+
+" Run all cucumber feature files
+map <Leader>ca :w<cr>:!cucumber<cr>
+
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn set filetype=markdown
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal syntax=markdown
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal spell
