@@ -82,6 +82,7 @@ inoremap <S-Tab> <C-V><Tab>
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'rw'
 :nmap π :CtrlP<return>
 
 augroup BgHighlight
@@ -144,11 +145,12 @@ autocmd BufRead,BufNewFile *.die setlocal bufhidden=hide
 autocmd BufRead,BufNewFile *.die setlocal noswapfile
 
 " vimwiki
-let wiki_1 = {}
-let wiki_1.path = '~/Dropbox/wiki/'
-let wiki_1.syntax = 'markdown'
-let wiki_1.ext = '.txt'
-let g:vimwiki_list = [wiki_1]
+let wiki_trunk = {}
+let wiki_trunk.path = '~/Dropbox/wiki/notes'
+let wiki_trunk.syntax = 'markdown'
+let wiki_trunk.ext = '.markdown'
+
+let g:vimwiki_list = [wiki_trunk]
 
 let g:syntastic_mode_map={ 'mode': 'active',
                      \ 'active_filetypes': [],
