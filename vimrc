@@ -162,7 +162,8 @@ set shell=/bin/bash\ -li
 autocmd BufLeave,FocusLost * silent! wall
 
 " map 'tt' to open up NERDTree "
-:map tt :NERDTreeToggle<cr>
+" :map tt :NERDTreeToggle<cr>
+:map tt :Vexplore<cr>
 
 " resize splits on focus:
 set winwidth=84
@@ -176,7 +177,7 @@ set cursorline
 " set cursorcolumn
 
 " close vim if NERDTree is the only window left "
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " a function for switching between the number modes:
 if exists("+relativenumber")
@@ -453,8 +454,8 @@ function! s:Median(nums)
 endfunction
 
 "nerdtree settings
-let g:NERDTreeMouseMode = 2
-let g:NERDTreeWinSize = 25
+" let g:NERDTreeMouseMode = 2
+" let g:NERDTreeWinSize = 25
 
 "source project specific config files
 runtime! projects/**/*.vim
