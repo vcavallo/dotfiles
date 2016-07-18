@@ -29,21 +29,39 @@
     </autogen>
   </item>
   <item>
-    <name>down arrow with C-J</name>
-    <identifier>private.down_arrow_c-j</identifier>
+    <name>down arrow with fn-j</name>
+    <identifier>private.down_arrow_fn-j</identifier>
     <autogen>
       __KeyToKey__
-      KeyCode::J, ModifierFlag::CONTROL_L,
+      KeyCode::J, ModifierFlag::FN,
       KeyCode::CURSOR_DOWN
     </autogen>
   </item>
   <item>
-    <name>up arrow with C-K</name>
-    <identifier>private.up_arrow_c-k</identifier>
+    <name>up arrow with fn-k</name>
+    <identifier>private.up_arrow_fn-k</identifier>
     <autogen>
       __KeyToKey__
-      KeyCode::K, ModifierFlag::CONTROL_L,
+      KeyCode::K, ModifierFlag::FN,
       KeyCode::CURSOR_UP
+    </autogen>
+  </item>
+  <item>
+    <name>left arrow with fn-h</name>
+    <identifier>private.left_arrow_fn-h</identifier>
+    <autogen>
+      __KeyToKey__
+      KeyCode::H, ModifierFlag::FN,
+      KeyCode::CURSOR_LEFT
+    </autogen>
+  </item>
+  <item>
+    <name>right arrow with fn-l</name>
+    <identifier>private.right_arrow_fn-l</identifier>
+    <autogen>
+      __KeyToKey__
+      KeyCode::L, ModifierFlag::FN,
+      KeyCode::CURSOR_RIGHT
     </autogen>
   </item>
 </root>
