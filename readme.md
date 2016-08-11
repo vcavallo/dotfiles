@@ -22,11 +22,13 @@ chmod +x makesymlinks.sh
 
 https://github.com/tmux-plugins/tpm
 
-### installing karabiner xml
+### installing karabiner xml (and other configs that don't live in the user's root)
 
 find your `~/Library/Application\ Support/Karabiner` directory. Delete or rename
 the existing `private.xml` (it's just a placeholder) and then `ln -s
 ~/dotfiles/private.xml .` here.
+
+Do the same for `~/.config/htop/htoprc` (for OS X)
 
 ## updating this collection
 
