@@ -94,6 +94,7 @@
     export SVN_EDITOR="vim"
     export GIT_EDITOR="vim"
     export EDITOR="vim"
+    export VAGRANT_HOME="/Volumes/vagrant-boxes/vagrant.d/" # if vagrant is on a USB
  
   # Paths
  
