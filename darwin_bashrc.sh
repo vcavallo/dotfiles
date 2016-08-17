@@ -48,9 +48,9 @@
 
     local USER="\u"
     local HOST="\H"
-    local TIME=`fmt_time`
+    local TIME="\t"
     local WORKING_PATH="\w"
-    local DATE="\d"
+    local DATE="\D{%Y-%m-%d}"
     # build the prompt variable here:
     local PROMPT="[ $LGRAY$USER@$HOST $IPURPLE$DATE, $TIME $ENDC] $IBLUE$WORKING_PATH\n$IGREEN\$git_branch$WHITE_ON_RED\$git_dirty$IBLUE \$$ENDC "
 
