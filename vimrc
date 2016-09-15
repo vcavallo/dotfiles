@@ -34,7 +34,7 @@ syntax enable
 set background=dark
 " colorscheme smyck
 " colorscheme solarized
-colorscheme gruvbox
+colorscheme tender
 " let g:solarized_termtrans = 1
 
 set colorcolumn=85 " show right margin
@@ -133,6 +133,8 @@ map <Leader>cs :w<cr>:exe "!cucumber %" . ":" . line(".")<cr>
 " Run all cucumber feature files
 map <Leader>ca :w<cr>:!cucumber<cr>
 
+autocmd BufRead,BufNewFile *.less set filetype=css
+autocmd BufRead,BufNewFile *.less set syntax=css
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn set filetype=markdown
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal syntax=markdown
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal spell
@@ -143,6 +145,8 @@ autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal 
 autocmd BufRead,BufNewFile *.die setlocal buftype=nofile
 autocmd BufRead,BufNewFile *.die setlocal bufhidden=hide
 autocmd BufRead,BufNewFile *.die setlocal noswapfile
+
+au FileType xhtml,xml so ~/.vim/bundle/html-autoclosetag.vim
 
 " vimwiki
 let wiki_trunk = {}
@@ -277,7 +281,10 @@ set hidden
 
 "Airline theme setup:
 " let g:airline_theme='kalisi'
-let g:airline_theme='gruvbox'
+" let g:airline_theme='gruvbox'
+
+let g:tender_airline = 1
+let g:airline_theme='tender'
 
 "statusline setup
 set statusline =%#identifier#
