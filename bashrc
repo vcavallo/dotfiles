@@ -170,3 +170,4 @@ fi
    "Linux" )
      source ~/dotfiles/linux_bashrc.sh;;
  esac
+
