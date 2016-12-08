@@ -135,6 +135,8 @@ map <Leader>ca :w<cr>:!cucumber<cr>
 
 autocmd BufRead,BufNewFile *.less set filetype=css
 autocmd BufRead,BufNewFile *.less set syntax=css
+autocmd BufRead,BufNewFile *.ledger,*.journal set filetype=ledger
+autocmd BufRead,BufNewFile *.ledger,*.journal set syntax=ledger
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn set filetype=markdown
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal syntax=markdown
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal spell
