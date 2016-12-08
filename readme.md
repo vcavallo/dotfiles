@@ -2,6 +2,8 @@
 
 ## TODO!
 
+- [ ] make separate files for different OSes
+    - [ ] allow os-probing to determine which to use
 - [ ] allow for local [dotfile].local to overwrite the suggested global dotfile
   provided by this repo. What if I want to use solarized at work but smyck at
   home...?
@@ -9,6 +11,13 @@
       using my scripts repo
 
 ## to use this set of dotfiles on another system
+
+**note** - various things don't carry across OSes so cleanly. for instance, the `home` path between linux and os x (for timetrap, for example). Because of this, you'll need to update a few things locally after cloning this as well as after any updates :(
+
+### Things to check by OS:
+
+- paths (`timetrap.yml`)
+- clipboard things (`tmux.conf`)
 
 ### installing home directory files
 
