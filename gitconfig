@@ -18,6 +18,7 @@
   slag = log --oneline --decorate --graph --all
   sla = log --oneline --decorate --all
   sl = log --oneline --decorate
+  l = log --oneline --decorate --graph --all
   log = log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s'
   up = pull
   pr = pull --rebase
@@ -41,6 +42,7 @@
 [user]
   name = vinney cavallo
   email = vcavallo@gmail.com
+	signkey = 1E35CC30
 [color]
   ui = true
   diff = auto

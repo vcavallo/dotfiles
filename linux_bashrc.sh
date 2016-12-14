@@ -150,6 +150,10 @@
     cd /home/$USER/development/$@
   }
 
+  function wu {
+    cd /home/$USER/development/exnilio/walkup/$@
+  }
+
   function nytm {
     cd /home/$USER/development/projects/clients/nytm/nytm-membership-v2/$@
   }
@@ -274,7 +278,7 @@
   # free up control-s for forward history search
   stty -ixon
 
-  setxkbmap -option ctrl:swapcaps
+  #setxkbmap -option ctrl:swapcaps
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
