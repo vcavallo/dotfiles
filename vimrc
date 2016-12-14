@@ -163,8 +163,6 @@
  autocmd BufLeave,FocusLost * silent! wall
  :au FocusLost * silent! wa
 " 
-" " map 'tt' to open up NERDTree "
-" " :map tt :NERDTreeToggle<cr>
  :map tt :Vexplore<cr>
 " 
 " " resize splits on focus:
@@ -177,54 +175,19 @@
  set cursorline
 " " highlight current column
 " " set cursorcolumn
-" 
-" " close vim if NERDTree is the only window left "
-" " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-" 
-" " a function for switching between the number modes:
-" if exists("+relativenumber")
-"   if v:version >= 400
-"     set number
-"   endif
-"   " set relativenumber " show relative line numbers
-"   set number
-"   set numberwidth=5
-"   " cycles between relative / absolute / no numbering
-"   if v:version >= 400
-"     function! RelativeNumberToggle()
-"       if (&number == 1 && &relativenumber == 1)
-"         set nonumber
-"         set relativenumber relativenumber?
-"       elseif (&number == 0 && &relativenumber == 1)
-"         set norelativenumber
-"         set number number?
-"       elseif (&number == 1 && &relativenumber == 0)
-"         set norelativenumber
-"         set nonumber number?
-"       else
-"         set number
-"         set relativenumber relativenumber?
-"       endif
-"     endfunc
-"   else
-"     function! RelativeNumberToggle()
-"       if (&relativenumber == 1)
-"         set number number?
-"       elseif (&number == 1)
-"         set nonumber number?
-"       else
-"         set relativenumber relativenumber?
-"       endif
-"     endfunc
-"   endif
-"   nnoremap <silent> <leader>n :call RelativeNumberToggle()<CR>
-" else " fallback
-"   set relativenumber " show relative line numbers
-"   set number " show line numbers
-"   " inverts numbering
-"   nnoremap <silent> <leader>n :set number! number?<CR>
-" endif
-" 
+
+" Toggle relative line number
+  function! NumberToggle()
+    if(&relativenumber)
+      set norelativenumber
+      set number
+    else
+      set relativenumber
+      set number
+    endif
+  endfunc
+  nnoremap <C-n> :call NumberToggle()<cr>
+
 " " settings from scrooloose:
 " 
 " "allow backspacing over everything in insert mode
@@ -478,10 +441,6 @@
          return (nums[l/2] + nums[(l/2)-1]) / 2
      endif
  endfunction
-" 
-" "nerdtree settings
-" " let g:NERDTreeMouseMode = 2
-" " let g:NERDTreeWinSize = 25
 " 
 " "source project specific config files
  runtime! projects/**/*.vim
