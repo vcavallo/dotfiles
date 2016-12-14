@@ -128,14 +128,16 @@
  map <Leader>cs :w<cr>:exe "!cucumber %" . ":" . line(".")<cr>
 
 " Run all cucumber feature files
- map <Leader>ca :w<cr>:!cucumber<cr>
+map <Leader>ca :w<cr>:!cucumber<cr>
 
- autocmd BufRead,BufNewFile *.less set filetype=css
- autocmd BufRead,BufNewFile *.less set syntax=css
- autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn set filetype=markdown
- autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal syntax=markdown
- autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal spell
- autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal wrap linebreak
+autocmd BufRead,BufNewFile *.less set filetype=css
+autocmd BufRead,BufNewFile *.less set syntax=css
+autocmd BufRead,BufNewFile *.ledger,*.journal set filetype=ledger
+autocmd BufRead,BufNewFile *.ledger,*.journal set syntax=ledger
+autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn set filetype=markdown
+autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal syntax=markdown
+autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal spell
+autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal wrap linebreak
 " autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal textwidth=80
 
 " if you give a file the .die extension, it won't be saved/saveable
