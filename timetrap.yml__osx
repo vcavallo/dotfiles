@@ -1,0 +1,21 @@
+---
+database_file: "/Users/vinney/Dropbox/.timetrap/.timetrap.db"
+round_in_seconds: 900
+append_notes_delimiter: " "
+formatter_search_paths:
+- "/Users/vinney/Dropbox/.timetrap/formatters"
+default_formatter: text
+auto_sheet: dotfiles
+auto_sheet_search_paths:
+- "/Users/vinney/Dropbox/.timetrap/auto_sheets"
+default_command: display -v
+auto_checkout: true
+require_note: true
+note_editor: false
+harvest:
+  email: vcavallo@gmail.com
+  password: "${HARVEST_PASSWORD}"
+  subdomain: vcavallo
+  round_in_minutes: 15
+  aliases:
+    code: 11879386 6676596
