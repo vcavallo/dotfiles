@@ -43,7 +43,7 @@ https://github.com/tmux-plugins/tpm
 ### install tmux-powerline
 
 - https://github.com/erikw/tmux-powerline
-- Copy `tmux-powerline-mytheme.sh` to `~/tmux-powerline/themes/`
+- Copy `tmux-powerline-mytheme.sh` to `~/tmux-powerline/themes/mytheme.sh`
 - Make sure to set the theme properly in `~/.tmux-powerlinerc`:  
 ```
   # The theme to use.
