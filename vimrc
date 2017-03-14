@@ -11,6 +11,8 @@
 " unmap Shift+k to avoid annoying man entry halting thing "
  :map <S-k> <Nop>
 
+ set clipboard=unnamed
+
 " %% on command line will give you current path of buffer
  cnoremap %% <C-R>=expand('%:h').'/'<cr>
 " map <leader>e :edit %%
