@@ -23,6 +23,8 @@
 " unmap Shift+k to avoid annoying man entry halting thing "
  :map <S-k> <Nop>
 
+ set clipboard=unnamed
+
 " %% on command line will give you current path of buffer
  cnoremap %% <C-R>=expand('%:h').'/'<cr>
 " map <leader>e :edit %%
@@ -327,6 +329,15 @@ autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal 
  set statusline+=%l/%L   "cursor line/total lines
  set statusline+=\ %P    "percent through file
  set laststatus=2
+
+" centers the current pane as middle of 4 imaginary columns
+" should be called in a window with a single pane
+ function CenterPane()
+   lefta vnew
+   wincmd w
+   exec 'vertical resize '. string(&columns * 0.75)
+ endfunction
+ nnoremap <leader>c :call CenterPane()<cr>
 
 "recalculate the trailing whitespace warning when idle, and after saving
  autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
