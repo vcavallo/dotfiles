@@ -22,6 +22,10 @@
     hledger -f ~/.exnilio.journal "$@" ;
   }
 
+  killbg() {
+    kill -9 $(jobs -p);
+  }
+
   # This function is called in your prompt to output your active git branch.
   function parse_git_branch {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
