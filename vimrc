@@ -74,12 +74,14 @@
  :map <Leader>d<S-d> kmxjA @done<esc>:.m/[aA]rchive/<Cr>`x<esc>
 " done and top of archive - D
 
- :nnoremap vv :set invpaste paste?<CR>
 " toggle paste modes
- :map <Leader>p vv"*]pvv
+ map <Leader>vv :set invpaste paste?<CR>
+
 " enter paste mode, paste at current indent level, leave paste mode
- :map <leader>o o<C-o>O
+ map <Leader>p <Leader>vv"*]p<Leader>vv
+
 " add blank line above and below and enter insert mode
+ map <leader>o o<C-o>O
 
 " editing
  set ignorecase " ignore case for searching unless using uppercase letters
@@ -114,6 +116,10 @@
 " set default split opening to bottom and right: "
  set splitbelow
  set splitright
+ " open vertical split:
+ nnoremap <silent> vv <C-w>v
+ " open horizontal split:
+ nnoremap <silent> vs <C-w>s
 
 " remove need for C-w before navigating "
  nnoremap <C-J> <C-W><C-J>
@@ -332,7 +338,7 @@ autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal 
 
 " centers the current pane as middle of 4 imaginary columns
 " should be called in a window with a single pane
- function CenterPane()
+ function! CenterPane()
    lefta vnew
    wincmd w
    exec 'vertical resize '. string(&columns * 0.75)
