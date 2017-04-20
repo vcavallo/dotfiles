@@ -239,6 +239,8 @@
 		cd $1; ls "-lahG"
   }	
 
+  alias vpn='/opt/cisco/anyconnect/bin/vpn'
+
   # Touch and Go
   create() {
     touch $1

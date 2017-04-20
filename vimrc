@@ -2,6 +2,18 @@
 "This must be first, because it changes other options as a side effect.
  set nocompatible
 
+ let g:pathogen_blacklist = []
+ "call add(g:pathogen_blacklist, 'ctrlp.vim')
+ "call add(g:pathogen_blacklist, 'vim-vinegar')
+ "call add(g:pathogen_blacklist, 'vim-unimpaired')
+ "call add(g:pathogen_blacklist, 'vim-rspec')
+ call add(g:pathogen_blacklist, 'rust')
+ call add(g:pathogen_blacklist, 'nvim')
+ call add(g:pathogen_blacklist, 'itchy')
+ call add(g:pathogen_blacklist, 'pad')
+ call add(g:pathogen_blacklist, 'vim-rails')
+ call add(g:pathogen_blacklist, 'vim-bundler')
+
 "activate pathogen
  call pathogen#infect()
 
