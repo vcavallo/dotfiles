@@ -17,7 +17,7 @@ files="\
   gitconfig\
   gitignore\
   screenrc\
-  tmux.conf\
+  tmux.conf__osx\
   inputrc\
   htoprc\
   timetrap.yml__osx\
