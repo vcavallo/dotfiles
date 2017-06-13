@@ -160,6 +160,8 @@ autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal 
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal wrap linebreak
 " autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal textwidth=80
 
+let g:jsx_ext_required = 0 " allows jsx in .js files
+
 " if you give a file the .die extension, it won't be saved/saveable
  autocmd BufRead,BufNewFile *.die setlocal buftype=nofile
  autocmd BufRead,BufNewFile *.die setlocal bufhidden=hide
