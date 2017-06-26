@@ -83,6 +83,9 @@
 " add blank line above and below and enter insert mode
  map <leader>o o<C-o>O
 
+ " in insert mode, ctrl-k adds newline above and places cursor there
+ inoremap <C-k> <C-o><S-o>
+
 " editing
  set ignorecase " ignore case for searching unless using uppercase letters
  set smartcase
@@ -161,6 +164,7 @@ autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal 
 " autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal textwidth=80
 
 let g:jsx_ext_required = 0 " allows jsx in .js files
+let g:polyglot_disabled = ['js']
 
 " if you give a file the .die extension, it won't be saved/saveable
  autocmd BufRead,BufNewFile *.die setlocal buftype=nofile

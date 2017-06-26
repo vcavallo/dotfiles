@@ -75,6 +75,10 @@
     # NODE_PATH
     # Node Path from Homebrew I believe
     export NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
+
+    export VIRTUALENVWRAPPER_PYTHON=/Library/Frameworks/Python.framework/Versions/3.5/bin/python3
+    export WORKON_HOME=~/Envs
+    source /usr/local/bin/virtualenvwrapper.sh
  
     # PYTHON_SHARE
     # Python Shared Path from Homebrew I believe
