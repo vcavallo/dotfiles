@@ -155,6 +155,8 @@ map <Leader>ca :w<cr>:!cucumber<cr>
 
 autocmd BufRead,BufNewFile *.less set filetype=css
 autocmd BufRead,BufNewFile *.less set syntax=css
+autocmd BufRead,BufNewFile *.scss* set filetype=scss.css
+autocmd BufRead,BufNewFile *.scss* set syntax=scss.css
 autocmd BufRead,BufNewFile *.ledger,*.journal set filetype=ledger
 autocmd BufRead,BufNewFile *.ledger,*.journal set syntax=ledger
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn set filetype=markdown
@@ -245,7 +247,7 @@ let g:polyglot_disabled = ['js']
 
 "folding settings
  set foldmethod=indent   "fold based on indent
- set foldnestmax=3       "deepest fold is 3 levels
+ set foldnestmax=10       "deepest fold is 3 levels
  set nofoldenable        "dont fold by default
 
  set wildmode=list:longest   "make cmdline tab completion similar to bash
