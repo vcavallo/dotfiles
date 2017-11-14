@@ -287,6 +287,11 @@
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+if [ -f ~/.Xmodmap ]; then
+  xmodmap ~/.Xmodmap
+fi
+
+
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 eval "$(rbenv init -)"
 
