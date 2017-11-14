@@ -13,11 +13,11 @@ files="\
   darwin_bashrc\
   linux_bashrc\
   bashrc\
-  vimrc\
+  vimrc__chrome\
   gitconfig\
   gitignore\
   screenrc\
-  tmux.conf\
+  tmux.conf__nix\
   inputrc\
   htoprc\
   timetrap.yml__nix\
