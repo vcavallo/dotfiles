@@ -8,6 +8,8 @@
  "call add(g:pathogen_blacklist, 'vim-unimpaired')
  "call add(g:pathogen_blacklist, 'vim-rspec')
  call add(g:pathogen_blacklist, 'rust')
+ call add(g:pathogen_blacklist, 'vim-autoclose')
+ call add(g:pathogen_blacklist, 'vim-tmux-navigator')
  call add(g:pathogen_blacklist, 'nvim')
  call add(g:pathogen_blacklist, 'itchy')
  call add(g:pathogen_blacklist, 'pad')
@@ -31,8 +33,9 @@
 " map <leader>v :view %%
 
 " display
- set nowrap
-" set linebreak " wrap lines at convenient points
+ set wrap
+ set synmaxcol=120
+ set linebreak " wrap lines at convenient points
 
 "vertical/horizontal scroll off settings
  set scrolloff=10
@@ -202,7 +205,7 @@ let g:polyglot_disabled = ['js']
  set winheight=999
 
 " highlight current line
- set cursorline
+" set cursorline
 " highlight current column
 " set cursorcolumn
 
