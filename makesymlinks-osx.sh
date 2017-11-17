@@ -10,9 +10,9 @@ dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 files="\
   bash_profile\
-  darwin_bashrc\
-  linux_bashrc\
+  darwin_bash_profile\
   bashrc\
+  darwin_bashrc\
   vimrc\
   gitconfig\
   gitignore\

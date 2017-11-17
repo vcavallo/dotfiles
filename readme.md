@@ -1,5 +1,11 @@
 # Dotfiles
 
+in general:
+
+- ENV variables in `bash_profile`, aliases and helpers in `bashrc`
+- minimal OS-agnostic stuff in the base files with a call to the OS-specific stuff at the bottom of each to add more functionality
+- not yet sure if this works how I expect. the difference between login/non-login shells between OSX and Linux is pretty annoying.
+
 ## TODO!
 
 - [X] make separate files for different OSes
