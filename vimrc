@@ -201,7 +201,7 @@ let g:polyglot_disabled = ['js']
  set winheight=999
 
 " highlight current line
- set cursorline
+set nocursorline
 " highlight current column
 " set cursorcolumn
 
