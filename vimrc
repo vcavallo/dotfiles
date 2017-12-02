@@ -8,6 +8,8 @@
  "call add(g:pathogen_blacklist, 'vim-unimpaired')
  "call add(g:pathogen_blacklist, 'vim-rspec')
  call add(g:pathogen_blacklist, 'rust')
+ call add(g:pathogen_blacklist, 'vim-autoclose')
+ call add(g:pathogen_blacklist, 'vim-tmux-navigator')
  call add(g:pathogen_blacklist, 'nvim')
  call add(g:pathogen_blacklist, 'itchy')
  call add(g:pathogen_blacklist, 'pad')
@@ -23,7 +25,7 @@
 " unmap Shift+k to avoid annoying man entry halting thing "
  :map <S-k> <Nop>
 
- set clipboard=unnamed
+ " set clipboard=unnamed
 
 " %% on command line will give you current path of buffer
  cnoremap %% <C-R>=expand('%:h').'/'<cr>
@@ -31,8 +33,9 @@
 " map <leader>v :view %%
 
 " display
- set nowrap
-" set linebreak " wrap lines at convenient points
+ set wrap
+ set synmaxcol=120
+ set linebreak " wrap lines at convenient points
 
 "vertical/horizontal scroll off settings
  set scrolloff=10
@@ -59,20 +62,20 @@
 " markdown stuff
 " these all start off with <Leader>m
 " increase header: leader-m then + (really =)
- :map <Leader>m= ^i#<esc>
-" decrease header: leader-m then -
- :map <Leader>m- ^x
+ ":map <Leader>m= ^i#<esc>
+"" decrease header: leader-m then -
+ ":map <Leader>m- ^x
 
 " taskpaper stuff
 " these all start off with <Leader>d (for donut. uh, i mean 'do')
- :map <Leader>dd A @done<esc>
-" mark done - d
- :map <Leader>da kmxj:.m/[Aa]rchive/<Cr>`x<esc>
- :vmap <leader>da :m/[Aa]rchive/<cr><esc>
- :map <leader>dA :g/@done/.m/[Aa]rchive/<cr><cr><esc>
-" move to top of archive - a
- :map <Leader>d<S-d> kmxjA @done<esc>:.m/[aA]rchive/<Cr>`x<esc>
-" done and top of archive - D
+ ":map <Leader>dd A @done<esc>
+"" mark done - d
+ ":map <Leader>da kmxj:.m/[Aa]rchive/<Cr>`x<esc>
+ ":vmap <leader>da :m/[Aa]rchive/<cr><esc>
+ ":map <leader>dA :g/@done/.m/[Aa]rchive/<cr><cr><esc>
+"" move to top of archive - a
+ ":map <Leader>d<S-d> kmxjA @done<esc>:.m/[aA]rchive/<Cr>`x<esc>
+"" done and top of archive - D
 
 " toggle paste modes
  map <Leader>vv :set invpaste paste?<CR>
@@ -80,10 +83,11 @@
 " enter paste mode, paste at current indent level, leave paste mode
  map <Leader>p <Leader>vv"*]p<Leader>vv
 
-" add blank line above and below and enter insert mode
- map <leader>o o<C-o>O
+" from this line, drop down one and then add blank lines above and below new
+" position
+ map <leader>o o<cr><C-o>O
 
- " in insert mode, ctrl-k adds newline above and places cursor there
+ " in insert mode, open newline above current cursor and go there
  inoremap <C-k> <C-o><S-o>
 
 " editing
@@ -133,10 +137,6 @@
 " toggle to previous buffer
  map <leader>\ <C-^>
 
-" DANGEROUS
-" execute ./ the most-recently changed file in working directory
- map <leader>cc :!unset -v latest; for file in *;do [[ $file -nt $latest ]] && latest=$file; done; ./$(basename $latest)<cr>
-
 " RSpec.vim mappings
  map <Leader>t :call RunCurrentSpecFile()<CR>
  map <Leader>s :call RunNearestSpec()<CR>
@@ -145,13 +145,13 @@
 
 " Cucumber mappings
 " Run currently open cucumber feature file
- map <Leader>ct :w<cr>:!cucumber %<cr>
+ "map <Leader>ct :w<cr>:!cucumber %<cr>
 
-" Run current cucumber scenario
- map <Leader>cs :w<cr>:exe "!cucumber %" . ":" . line(".")<cr>
+"" Run current cucumber scenario
+ "map <Leader>cs :w<cr>:exe "!cucumber %" . ":" . line(".")<cr>
 
-" Run all cucumber feature files
-map <Leader>ca :w<cr>:!cucumber<cr>
+"" Run all cucumber feature files
+"map <Leader>ca :w<cr>:!cucumber<cr>
 
 autocmd BufRead,BufNewFile *.less set filetype=css
 autocmd BufRead,BufNewFile *.less set syntax=css
@@ -180,7 +180,6 @@ let g:polyglot_disabled = ['js']
  let wiki_trunk.path = '~/Dropbox/wiki/notes'
  let wiki_trunk.syntax = 'markdown'
  let wiki_trunk.ext = '.markdown'
-
  let g:vimwiki_list = [wiki_trunk]
 
  let g:syntastic_mode_map={ 'mode': 'active',
@@ -202,7 +201,7 @@ let g:polyglot_disabled = ['js']
  set winheight=999
 
 " highlight current line
- set cursorline
+set nocursorline
 " highlight current column
 " set cursorcolumn
 
@@ -217,6 +216,7 @@ let g:polyglot_disabled = ['js']
     endif
   endfunc
   nnoremap <C-n> :call NumberToggle()<cr>
+  nnoremap <Leader>n :call NumberToggle()<cr>
 
 " settings from scrooloose:
 
@@ -490,7 +490,7 @@ let g:polyglot_disabled = ['js']
  endfunction
 
 "source project specific config files
- runtime! projects/**/*.vim
+ "runtime! projects/**/*.vim
 
 "map Q to something useful
  noremap Q gq
