@@ -15,10 +15,11 @@
   unstage = reset
   uncommit = reset --soft HEAD^
   df = diff --word-diff --color-words
+  l = log --oneline --decorate --graph --all
   slag = log --oneline --decorate --graph --all
   sla = log --oneline --decorate --all
   sl = log --oneline --decorate
-  l = log --oneline --decorate --graph --all
+  s = !"git -c color.status=always log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s' --decorate --all --graph | head $@"
   log = log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s'
   up = pull
   pr = pull --rebase
