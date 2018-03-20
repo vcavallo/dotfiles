@@ -51,6 +51,8 @@
 # Aliases
 # =====================
 
+  alias todo="todo.sh"
+
   # Rspec
   alias rs="rspec"
  
@@ -66,6 +68,9 @@
   # LS
    alias l="ls -lahG | cut -f 6- -d ' '"
   #  alias l="ls -lahG"
+
+  alias mldl="cd $HOME/development/exnilio/skm/mldl"
+  alias cc="cd $HOME/development/exnilio/skm/ccops"
  
   # Git
   alias gst="git status"

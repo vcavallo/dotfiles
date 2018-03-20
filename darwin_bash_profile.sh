@@ -130,3 +130,6 @@ if [ -f $HOME/.bashrc ]; then
   source $HOME/.bashrc
 fi
 
+# for npm & Homebrew
+export PATH="$HOME/.npm-packages/bin:$PATH"
+

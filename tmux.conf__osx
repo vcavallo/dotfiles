@@ -1,7 +1,7 @@
 # Reattach each new window to the user bootstrap namespace
 # # https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
 # required for terminal-notifier, possibly among other things
-set -g default-command "which reattach-to-user-namespace > /dev/null && reattach-to-user-namespace -l $SHELL || $SHELL -l"
+#set -g default-command "which reattach-to-user-namespace > /dev/null && reattach-to-user-namespace -l $SHELL || $SHELL -l"
 
 ## !!!!!!!!!!!!!!!! HEY!
 ## LOOKING FOR THE COMMAND TO OPEN A WINDOW FROM ANOTHER SESSION??
@@ -108,13 +108,20 @@ setw -g mode-keys vi
 # copy/paste stuff
 # you must 'brew install reattach-to-user-namespace on Mac OS X first!
 # but you can always select the copy selection with Enter and paste with ] IN tmux
-bind-key -t vi-copy 'v' begin-selection
+#bind-key -t vi-copy 'v' begin-selection
 
 # choose ONE of the below:
 # this one for mac:
-bind-key -t vi-copy 'y' copy-pipe "reattach-to-user-namespace pbcopy"
-unbind -t vi-copy Enter
-bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+#bind-key -t vi-copy 'y' copy-pipe "reattach-to-user-namespace pbcopy"
+#unbind -t vi-copy Enter
+#bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+
+#bind-key -Tcopy-mode-vi 'v' send -X begin-selection
+#bind -Tcopy-mode-vi 'v' send -X begin-selection
+#bind-key -Tcopy-mode-vi 'y' send -X copy-selection
+
+bind-key -Tcopy-mode-vi 'v' send -X begin-selection
+bind-key -Tcopy-mode-vi 'y' send -X copy-pipe-and-cancel pbcopy
 
 bind-key c command-prompt -p "window name:" "new-window; rename-window '%%'"
 

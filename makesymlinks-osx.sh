@@ -22,6 +22,7 @@ files="\
   htoprc\
   timetrap.yml__osx\
   rspec\
+  todo.cfg\
   tmux-powerlinerc"    # list of files/folders to symlink in homedir
 
 ##########

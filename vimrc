@@ -51,7 +51,8 @@
  set background=dark
 " colorscheme smyck
 " colorscheme solarized
- colorscheme tender
+" colorscheme tender
+ colorscheme falcon
 " let g:solarized_termtrans = 1
 
  set colorcolumn=85 " show right margin
@@ -142,6 +143,7 @@
  map <Leader>s :call RunNearestSpec()<CR>
  map <Leader>l :call RunLastSpec()<CR>
  map <Leader>a :call RunAllSpecs()<CR>
+ let g:rspec_command = "!bin/rspec {spec}"
 
 " Cucumber mappings
 " Run currently open cucumber feature file
@@ -157,6 +159,8 @@ autocmd BufRead,BufNewFile *.less set filetype=css
 autocmd BufRead,BufNewFile *.less set syntax=css
 autocmd BufRead,BufNewFile *.scss* set filetype=scss.css
 autocmd BufRead,BufNewFile *.scss* set syntax=scss.css
+autocmd BufRead,BufNewFile *.jbuilder* set filetype=ruby
+autocmd BufRead,BufNewFile *.jbuilder* set syntax=ruby
 autocmd BufRead,BufNewFile *.ledger,*.journal set filetype=ledger
 autocmd BufRead,BufNewFile *.ledger,*.journal set syntax=ledger
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn set filetype=markdown
@@ -178,7 +182,8 @@ let g:polyglot_disabled = ['js']
 " vimwiki
  let wiki_trunk = {}
  let wiki_trunk.path = '~/Dropbox/wiki/notes'
- let wiki_trunk.syntax = 'markdown'
+ "let wiki_trunk.syntax = 'markdown' " testing because jekyll sites don't
+ "allow vinegar to open
  let wiki_trunk.ext = '.markdown'
  let g:vimwiki_list = [wiki_trunk]
 
@@ -273,7 +278,7 @@ set nocursorline
 "Airline theme setup:
  " let g:airline_theme='kalisi'
  " let g:airline_theme='gruvbox'
- let g:airline_theme='tender'
+ let g:airline_theme='zenburn'
  let g:airline#extensions#tabline#enabled = 1
  let g:airline#extensions#tabline#left_sep = ' '
  let g:airline#extensions#tabline#left_alt_sep = '|'
