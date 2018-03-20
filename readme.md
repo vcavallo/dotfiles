@@ -94,3 +94,11 @@ home directory, be sure to add them to the files list in `makesymlinks.sh`**
 
 - Make sure you're using the correct symlinks script for your OS
 - Make sure necessary third-party applications and scripts are installed
+
+-----
+
+# other software to install
+
+- tmux
+- heroku cli
+- irssi
