@@ -114,3 +114,9 @@ home directory, be sure to add them to the files list in `makesymlinks.sh`**
 
 - heroku cli (from heroku's site)
 - ngrok (https://ngrok.com/download)
+- redis (http://download.redis.io/redis-stable.tar.gz, https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-redis-on-ubuntu-16-04)
+
+# keeping notes here about stuff to generally install for development
+
+The idea being to eventually set up an(nother) ansible project for building a cloud dev machine painlessly.
+

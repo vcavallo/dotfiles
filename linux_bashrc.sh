@@ -291,13 +291,6 @@ if [ -f ~/.Xmodmap ]; then
   xmodmap ~/.Xmodmap
 fi
 
-
-export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
-eval "$(rbenv init -)"
-
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
 echo "using Linux-specific bashrc"
