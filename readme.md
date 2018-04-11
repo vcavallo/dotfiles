@@ -99,6 +99,18 @@ home directory, be sure to add them to the files list in `makesymlinks.sh`**
 
 # other software to install
 
+## apt
+
+- htop
 - tmux
-- heroku cli
 - irssi
+- unzip
+
+## gems
+
+- timetrap
+
+## other installs
+
+- heroku cli (from heroku's site)
+- ngrok (https://ngrok.com/download)
