@@ -1,7 +1,7 @@
 # Reattach each new window to the user bootstrap namespace
 # # https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
 # required for terminal-notifier, possibly among other things
-set -g default-command "which reattach-to-user-namespace > /dev/null && reattach-to-user-namespace -l $SHELL || $SHELL -l"
+# set -g default-command "which reattach-to-user-namespace > /dev/null && reattach-to-user-namespace -l $SHELL || $SHELL -l"
 
 ## !!!!!!!!!!!!!!!! HEY!
 ## LOOKING FOR THE COMMAND TO OPEN A WINDOW FROM ANOTHER SESSION??
@@ -71,6 +71,9 @@ bind-key C-k select-pane -U
 bind l   select-pane -R
 bind-key l   select-pane -R
 bind-key C-l select-pane -R
+
+# The below is going in tpm instead
+# IF YOU'RE LOOKING FOR WEIRDNESS EXPLANATION, CHECK TPM PLUGINS!
 # Smart pane switching with awareness of Vim splits.
 # See: https://github.com/christoomey/vim-tmux-navigator
 # is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
@@ -156,6 +159,8 @@ set -g @continuum-restore 'on'
 # for vim
 set -g @resurrect-strategy-vim 'session'
 
+set -g @resurrect-capture-pane-contents 'on'
+
 # list of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
@@ -163,6 +168,7 @@ set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @plugin 'tmux-plugins/tmux-sessionist'
 set -g @plugin 'tmux-plugins/tmux-copycat'
+set -g @plugin 'christoomey/vim-tmux-navigator'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'

@@ -9,7 +9,7 @@
  "call add(g:pathogen_blacklist, 'vim-rspec')
  call add(g:pathogen_blacklist, 'rust')
  call add(g:pathogen_blacklist, 'vim-autoclose')
- call add(g:pathogen_blacklist, 'vim-tmux-navigator')
+ " call add(g:pathogen_blacklist, 'vim-tmux-navigator')
  call add(g:pathogen_blacklist, 'nvim')
  call add(g:pathogen_blacklist, 'itchy')
  call add(g:pathogen_blacklist, 'pad')
@@ -192,7 +192,7 @@ let g:polyglot_disabled = ['js']
                       \ 'active_filetypes': [],
                       \ 'passive_filetypes': ['html'] }
 
- set shell=/bin/bash\ -li
+ set shell=/bin/bash\ -l
 
 " autosave on lost focus "
  autocmd BufLeave,FocusLost * silent! wall
