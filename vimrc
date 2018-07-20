@@ -287,6 +287,7 @@ set nocursorline
  let g:airline_right_sep = ''
  let g:airline_left_sep = ''
  let g:airline#extensions#branch#enabled= 0
+ let g:airline_section_z = airline#section#create(['%{ObsessionStatus(" obsession "," NO SESSION! ")}', 'windowswap', '%3p%% ', 'linenr', ':%3v '])
 
 " let g:tender_airline = 1
 " let g:airline_theme='tender'
