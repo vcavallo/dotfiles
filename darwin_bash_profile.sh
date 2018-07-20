@@ -78,9 +78,10 @@ PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -
 # export NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
 
 # export VIRTUALENVWRAPPER_PYTHON=/Library/Frameworks/Python.framework/Versions/3.5/bin/python3
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3.6
-export WORKON_HOME=$HOME/Envs
-source /usr/local/bin/virtualenvwrapper.sh
+# TODO: fix python in high sierra
+# export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3.6
+# export WORKON_HOME=$HOME/Envs
+# source /usr/local/bin/virtualenvwrapper.sh
 
 # PYTHON_SHARE
 # Python Shared Path from Homebrew I believe
