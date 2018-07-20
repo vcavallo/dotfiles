@@ -20,21 +20,15 @@ set -g default-command "which reattach-to-user-namespace > /dev/null && reattach
 # set -g status-right '#[fg=colour233,bg=colour241,bold] #(~/bin/battery Discharging; ~/bin/battery Charging) #[fg=colour233,bg=colour245,bold] %B %e %I:%M%p '
 # set -g status-right-length 50
 
-
 ############### for tmux-powerline testing:
 
-set-option -g status on
+# set-option -g status on
 set-option -g status-interval 2
 set-option -g status-justify "centre"
-set-option -g status-left-length 75
-set-option -g status-right-length 75
+set-option -g status-left-length 85
+set-option -g status-right-length 65
 set-option -g status-left "#(~/tmux-powerline/powerline.sh left)"
 set-option -g status-right "#(~/tmux-powerline/powerline.sh right)"
-
-setw -g status-bg colour235
-setw -g status-fg colour255
-
-set-window-option -g window-status-current-format "#[fg=colour255, bg=colour235]#[fg=colour255, bg=colour27] #I #W #[fg=colour27, bg=colour235]"
 
 ###########################################
 
@@ -51,9 +45,9 @@ set -g prefix C-a
 bind-key C-a send-prefix
 
 # easier pane splitting
-bind v split-window -h -c "#{pane_current_path}"
+# bind v split-window -h -c "#{pane_current_path}"
 bind | split-window -h -c "#{pane_current_path}"
-bind s split-window -v -c "#{pane_current_path}"
+# bind s split-window -v -c "#{pane_current_path}"
 bind - split-window -v -c "#{pane_current_path}"
 
 # easier pane resizing
@@ -77,11 +71,11 @@ bind-key C-k select-pane -U
 bind l   select-pane -R
 bind-key l   select-pane -R
 bind-key C-l select-pane -R
-
 # Smart pane switching with awareness of Vim splits.
 # See: https://github.com/christoomey/vim-tmux-navigator
 # is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
 #     | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
+
 #
 # bind-key -n C-h if-shell "$is_vim" "send-keys C-h"  "select-pane -L"
 # bind-key -n C-j if-shell "$is_vim" "send-keys C-j"  "select-pane -D"
@@ -94,8 +88,7 @@ bind-key C-l select-pane -R
 bind-key -r "<" swap-window -t -1
 bind-key -r ">" swap-window -t +1
 
-# 'last window' is prefix and then t (which is the current prefix)
-bind t last-window
+bind a last-window
 
 # bind navigating indexes beginning at 1
 # windows:
@@ -112,15 +105,32 @@ setw -g mode-keys vi
 # copy/paste stuff
 # you must 'brew install reattach-to-user-namespace on Mac OS X first!
 # but you can always select the copy selection with Enter and paste with ] IN tmux
-bind-key -t vi-copy 'v' begin-selection
+# deprecated...?
+#bind-key -t vi-copy 'v' begin-selection
+
+# choose one of the below:
+# this one for mac:
+# deprecated...?
+#bind-key -t vi-copy 'y' copy-pipe "reattach-to-user-namespace pbcopy"
+#unbind -t vi-copy enter
+#bind-key -t vi-copy enter copy-pipe "reattach-to-user-namespace pbcopy"
+
+# remove if below works
+#bind -tcopy-mode-vi 'v' send -x begin-selection
+#bind-key -tcopy-mode-vi 'y' send -x copy-selection
+
+# this might be a fix for stupid tmux upgrade, thanks homebrew
+#bind -tcopy-mode-vi v send -x begin-selection
+#bind-key -tcopy-mode-vi 'v' send -x begin-selection
+#bind-key -tcopy-mode-vi 'y' send -x copy-pipe-and-cancel pbcopy
 
 # this one for linux (install xclip first!)
-bind -t vi-copy y copy-pipe "xclip -sel clip -i"
+#bind -t vi-copy y copy-pipe "xclip -sel clip -i"
 
 bind-key c command-prompt -p "window name:" "new-window; rename-window '%%'"
 
 # easily re-source this file
-bind C-R source-file ~/.tmux.conf
+bind R source-file ~/.tmux.conf
 
 #### from tmux-sensible:
 #
@@ -129,21 +139,30 @@ set -s escape-time 0
 # increase scrollback buffer size
 set -g history-limit 50000
 # tmux messages are displayed for 4 seconds
-set -g display-time 4000
+set -g display-time 4001
 # super useful when using "grouped sessions" and multi-monitor setup
 setw -g aggressive-resize on
-#
 
 set -g focus-events on
 
-# List of plugins
+# place theme-specific confs (mostly for colors) here.
+# these will override anything above (which is why you should use mostly colors in them)
+############ for falcon
+source-file /home/vcavallo/.falcon-tmux.conf
+############ end falcon
+
+set -g @continuum-restore 'on'
+
+# for vim
+set -g @resurrect-strategy-vim 'session'
+
+# list of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @plugin 'tmux-plugins/tmux-sessionist'
-
-# for vim
-# set -g @resurrect-strategy-vim 'session'
+set -g @plugin 'tmux-plugins/tmux-copycat'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'
