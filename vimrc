@@ -356,6 +356,7 @@ set nocursorline
    lefta vnew
    wincmd w
    exec 'vertical resize '. string(&columns * 0.75)
+   vnew
  endfunction
  nnoremap <leader>c :call CenterPane()<cr>
 
