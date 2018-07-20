@@ -17,6 +17,7 @@ files="\
   gitconfig\
   gitignore\
   screenrc\
+  falcon-tmux.conf\
   tmux.conf\
   inputrc\
   htoprc\
