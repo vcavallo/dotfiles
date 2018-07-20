@@ -357,6 +357,7 @@ set nocursorline
    lefta vnew
    wincmd w
    exec 'vertical resize '. string(&columns * 0.75)
+   vnew
  endfunction
  nnoremap <leader>c :call CenterPane()<cr>
 
@@ -544,5 +545,7 @@ set nocursorline
    \   nnoremap <buffer> .. :edit %:h<CR> |
    \ endif
 
-" allows you press esc to turn off search highlight "
- :nnoremap <esc> :noh<return><esc>
+" allows you press esc (TWICE) to turn off search highlight "
+nnoremap <esc> :noh<return><esc>
+nnoremap <esc>^[ <esc>^[
+" This mapping can cause startup problems! https://stackoverflow.com/a/1037182/1923858 
