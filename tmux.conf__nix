@@ -127,8 +127,10 @@ setw -g mode-keys vi
 #bind-key -tcopy-mode-vi 'v' send -x begin-selection
 #bind-key -tcopy-mode-vi 'y' send -x copy-pipe-and-cancel pbcopy
 
+# bind-key -T copy-mode-vi 'v' send -x begin-selection
 # this one for linux (install xclip first!)
-#bind -t vi-copy y copy-pipe "xclip -sel clip -i"
+bind-key -T copy-mode-vi 'v' send-keys -X begin-selection
+bind-key -T copy-mode-vi 'y' send-keys -X copy-pipe-and-cancel "xclip -sel clip -i"
 
 bind-key c command-prompt -p "window name:" "new-window; rename-window '%%'"
 

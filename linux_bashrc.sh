@@ -277,6 +277,8 @@
   # pb paste
   alias v="pbpaste"
 
+  alias xclip='xclip -selection c'
+
 # Final Configurations and Plugins
 # =====================
 
@@ -292,5 +294,6 @@ if [ -f ~/.Xmodmap ]; then
 fi
 
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$PATH"
 
 echo "using Linux-specific bashrc"

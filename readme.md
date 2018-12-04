@@ -107,8 +107,16 @@ home directory, be sure to add them to the files list in `makesymlinks.sh`**
 - tmux
 - irssi
 - unzip
+- libpq-dev (for `pg` gem)
 
 `sudo apt install git vim-gnome htop tmux unzip`
+
+
+## Ruby!
+
+- `rbenv`
+probably need to `apt install rbenv` and also this:? https://github.com/rbenv/rbenv-installer#rbenv-installer
+may need to uninstall system ruby first: https://stackoverflow.com/a/37956249
 
 ## gems
 
@@ -116,6 +124,7 @@ home directory, be sure to add them to the files list in `makesymlinks.sh`**
 
 ## other installs
 
+- dropbox
 - powerline fonts https://github.com/powerline/fonts (clone and use `./install.sh`)
 - vim dotfiles
 - heroku cli (from heroku's site)
