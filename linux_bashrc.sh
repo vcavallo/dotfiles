@@ -272,12 +272,9 @@
 
   # pb - wrap c or v in `these` to evalute in the command
   # pb copy
-  alias c="pbcopy"
-
-  # pb paste
-  alias v="pbpaste"
-
-  alias xclip='xclip -selection c'
+  alias c="xclip -i"
+  alias v="xclip -o"
+  alias x='xclip'
 
 # Final Configurations and Plugins
 # =====================
