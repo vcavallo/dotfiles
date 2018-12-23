@@ -56,3 +56,6 @@ export PATH="~/.local/bin:$PATH"
    "Linux" )
      source ~/dotfiles/linux_bashrc.sh;;
  esac
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
