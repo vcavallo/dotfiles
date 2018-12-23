@@ -14,6 +14,10 @@ else
   echo "get it here: https://github.com/jimeh/git-aware-prompt"
 fi
 
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+
 # thanks brett terpstra:
 fmt_time () { #format time just the way I likes it
   if [ `date +%p` = "PM" ]; then
