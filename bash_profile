@@ -2,6 +2,8 @@ EDITOR=vim
 GIT_EDITOR=vim
 HOMEBREW_GITHUB_API_TOKEN=6e931a2034f12c3a79dec052b72fe1f5708c2966
 
+eval "$(rbenv init -)"
+
 # This function is called in your prompt to output your active git branch.
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'

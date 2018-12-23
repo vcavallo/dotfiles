@@ -52,7 +52,8 @@
 " colorscheme smyck
 " colorscheme solarized
 " colorscheme tender
- colorscheme falcon
+colorscheme gruvbox
+" colorscheme falcon
 " let g:solarized_termtrans = 1
 
  set colorcolumn=85 " show right margin

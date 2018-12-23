@@ -45,7 +45,9 @@ export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 # add to PATH
 export PATH="$NPM_PACKAGES/bin:$PATH"
 
-export PATH="~/.local/bin:$PATH"
+export PATH="/home/vcavallo/local/bin:$PATH"
+export PATH="/home/vcavallo/.rbenv/bin:$PATH"
+export PATH="/home/vcavallo/.rbenv/shims:$PATH"
 
  # used for os-specific functions
  os=`uname -s`

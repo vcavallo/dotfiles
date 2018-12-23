@@ -101,10 +101,22 @@ home directory, be sure to add them to the files list in `makesymlinks.sh`**
 
 ## apt
 
+- git
+- vim-gnome
 - htop
 - tmux
 - irssi
 - unzip
+- libpq-dev (for `pg` gem)
+
+`sudo apt install git vim-gnome htop tmux unzip`
+
+
+## Ruby!
+
+- `rbenv`
+probably need to `apt install rbenv` and also this:? https://github.com/rbenv/rbenv-installer#rbenv-installer
+may need to uninstall system ruby first: https://stackoverflow.com/a/37956249
 
 ## gems
 
@@ -112,6 +124,9 @@ home directory, be sure to add them to the files list in `makesymlinks.sh`**
 
 ## other installs
 
+- dropbox
+- powerline fonts https://github.com/powerline/fonts (clone and use `./install.sh`)
+- vim dotfiles
 - heroku cli (from heroku's site)
 - ngrok (https://ngrok.com/download)
 - redis (http://download.redis.io/redis-stable.tar.gz, https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-redis-on-ubuntu-16-04)

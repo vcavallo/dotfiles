@@ -272,10 +272,9 @@
 
   # pb - wrap c or v in `these` to evalute in the command
   # pb copy
-  alias c="pbcopy"
-
-  # pb paste
-  alias v="pbpaste"
+  alias c="xclip -i"
+  alias v="xclip -o"
+  alias x='xclip'
 
 # Final Configurations and Plugins
 # =====================
@@ -292,5 +291,6 @@ if [ -f ~/.Xmodmap ]; then
 fi
 
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$PATH"
 
 echo "using Linux-specific bashrc"
