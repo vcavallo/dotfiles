@@ -34,7 +34,7 @@
 
 " display
  set wrap
- set synmaxcol=120
+ set synmaxcol=999
  set linebreak " wrap lines at convenient points
 
 "vertical/horizontal scroll off settings
@@ -58,8 +58,9 @@ colorscheme gruvbox
 
  set colorcolumn=85 " show right margin
 " change cursor shape per mode in terminal vim
- let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
- let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+" let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\" "
+" debugging some weird characters in linux _not_ in tmux
+" let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
 " markdown stuff
 " these all start off with <Leader>m
@@ -91,6 +92,8 @@ colorscheme gruvbox
 
  " in insert mode, open newline above current cursor and go there
  inoremap <C-k> <C-o><S-o>
+
+ let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+' " hide dotfiles by default in netrw/vinegar
 
 " editing
  set ignorecase " ignore case for searching unless using uppercase letters

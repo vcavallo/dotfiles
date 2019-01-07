@@ -156,7 +156,7 @@ set -g focus-events on
 source-file /home/vcavallo/.falcon-tmux.conf
 ############ end falcon
 
-set -g @continuum-restore 'on'
+set -g @continuum-restore 'off'
 
 # for vim
 set -g @resurrect-strategy-vim 'session'

@@ -117,9 +117,6 @@ fi
 ## Heroku
 export PATH="/usr/local/heroku/bin:$PATH"
 
-export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
-eval "$(rbenv init -)"
-
 # debug:
 # echo "this is darwin_bash_profile.sh"
 

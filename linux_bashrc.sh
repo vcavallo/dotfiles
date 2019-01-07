@@ -230,9 +230,6 @@
 
   # Rspec
   alias rs="rspec"
-
-  # Ruby
-  alias rb="ruby"
 	
   # CS function
 	  function cs () {
@@ -272,9 +269,8 @@
 
   # pb - wrap c or v in `these` to evalute in the command
   # pb copy
-  alias c="xclip -i"
-  alias v="xclip -o"
-  alias x='xclip'
+  alias c="xclip -i -selection c"
+  alias v="xclip -o -selection c"
 
 # Final Configurations and Plugins
 # =====================
@@ -285,12 +281,12 @@
   #setxkbmap -option ctrl:swapcaps
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 
 if [ -f ~/.Xmodmap ]; then
   xmodmap ~/.Xmodmap
 fi
 
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
 
 echo "using Linux-specific bashrc"
