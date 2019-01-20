@@ -134,6 +134,9 @@
   # show all if ambiguous
   bind "set show-all-if-ambiguous on"
 
+  # allows hitting <space> after `!!` to expand it and see what the command was
+  bind Space:magic-space
+
   # Functions to CD into folders from anywhere
   # so you just type "folder-name".
   # HINT: It uses the built in USER variable to know your OS X username
