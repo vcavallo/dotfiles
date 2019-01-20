@@ -21,6 +21,7 @@
   sl = log --oneline --decorate
   s = !"git -c color.status=always log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s' --decorate --all --graph | head $@"
   log = log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s'
+  first = log --format="format:%ci" --name-only --diff-filter=A
   up = pull
   pr = pull --rebase
   pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"

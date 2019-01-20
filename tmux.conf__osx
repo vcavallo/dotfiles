@@ -44,11 +44,11 @@ set -g default-terminal "screen-256color"
 # make active pane border blue (barely noticable)
 set -g pane-active-border-fg blue
 
-set -g prefix C-t
+set -g prefix C-a
 
 # for dealing with nested tmux sessions
 # (press prefix again)
-bind-key C-t send-prefix
+bind-key C-a send-prefix
 
 # easier pane splitting
 bind v split-window -h -c "#{pane_current_path}"
@@ -142,14 +142,27 @@ setw -g aggressive-resize on
 
 set -g focus-events on
 
-# List of plugins
+# place theme-specific confs (mostly for colors) here.
+# these will override anything above (which is why you should use mostly colors in them)
+############ for falcon
+source-file /Users/vinney/.falcon-tmux.conf
+############ end falcon
+
+set -g @continuum-restore 'on'
+
+# for vim
+set -g @resurrect-strategy-vim 'session'
+
+set -g @resurrect-capture-pane-contents 'on'
+
+# list of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @plugin 'tmux-plugins/tmux-sessionist'
-
-# for vim
-# set -g @resurrect-strategy-vim 'session'
+set -g @plugin 'tmux-plugins/tmux-copycat'
+set -g @plugin 'christoomey/vim-tmux-navigator'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'

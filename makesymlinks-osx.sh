@@ -18,6 +18,7 @@ files="\
   gitignore\
   screenrc\
   tmux.conf__osx\
+  falcon-tmux.conf\
   inputrc\
   htoprc\
   timetrap.yml__osx\
