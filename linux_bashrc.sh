@@ -286,8 +286,8 @@
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 
-if [ -f ~/.Xmodmap ]; then
-  xmodmap ~/.Xmodmap
+if [ -f ~/.xmodmap_alt_hjkl_arrows ]; then
+  xmodmap ~/.xmodmap_alt_hjkl_arrows
 fi
 
 export PATH="$HOME/.yarn/bin:$PATH"
