@@ -83,6 +83,10 @@
  ":map <Leader>d<S-d> kmxjA @done<esc>:.m/[aA]rchive/<Cr>`x<esc>
 "" done and top of archive - D
 
+" save and close mappings to avoid accidental :q when trying to :w
+ map <Leader>w :w<CR>
+ map <Leader>z :q<CR>
+
 " toggle paste modes
  map <Leader>vv :set invpaste paste?<CR>
 
