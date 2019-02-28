@@ -52,9 +52,12 @@
 " colorscheme smyck
 " colorscheme solarized
 " colorscheme tender
-colorscheme gruvbox
+" colorscheme gruvbox
 " colorscheme falcon
+ colorscheme apprentice
 " let g:solarized_termtrans = 1
+" low-impact colorschemes i like:
+" apprentice, paramount, seoul256
 
  set colorcolumn=85 " show right margin
 " change cursor shape per mode in terminal vim

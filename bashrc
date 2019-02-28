@@ -52,6 +52,8 @@ export PATH="/home/vcavallo/local/bin:$PATH"
  # used for os-specific functions
  os=`uname -s`
 
+ ~/.xsetwacom.sh
+
  case $os in
    "Darwin" )
      source ~/dotfiles/darwin_bashrc.sh;;
