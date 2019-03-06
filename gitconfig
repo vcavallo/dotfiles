@@ -55,7 +55,7 @@
 [diff "ruby"]
   funcname = ^ *\\(\\(class\\|module\\|def\\) .*\\)
 [push]
-  default = upstream
+	default = current
   followTags = true
 [fetch]
   prune = true
