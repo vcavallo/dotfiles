@@ -8,6 +8,9 @@ in general:
 
 ## TODO!
 
+`i3_config` is not symlinked properly. it's here for save-y purposes.  
+when launching i3, you may have to `xrandr` to set up monitor positioning.
+
 - [X] make separate files for different OSes
     - ~~[ ] allow os-probing to determine which to use~~
     - [X] make script use appropriate file per OS (using two different scripts)
