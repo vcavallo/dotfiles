@@ -8,7 +8,6 @@ in general:
 
 ## TODO!
 
-`i3_config` is not symlinked properly. it's here for save-y purposes.  
 when launching i3, you may have to `xrandr` to set up monitor positioning.
 
 - [X] make separate files for different OSes
@@ -38,6 +37,8 @@ source files appropriate to the OS indicated.
 To **denote this when creating dotfiles**: append `__osx` or `__nix` or whatever else
 you want at the end, then put _those_ files in the filename array in the `makesymlinks-*`
 script. It will trim off the `__whatever` at the end of the file and use the remainder.
+
+`i3-config` is copied here. you'll need to put it in `~/.config/i3` or something, depending on your setup. You'll also need to install a bunch of things for it, which are mostly documented in the i3 config file comments.
 
 ```
 cd ~/dotfiles

@@ -1,0 +1,35 @@
+// vim:ts=4:sw=4:et
+{
+    // tabbed split container with 1 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "tabbed",
+    "percent": 1,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "normal",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 458,
+               "width": 814,
+               "x": 0,
+               "y": 0
+            },
+            "name": "vcavallo@blackbuntu:~",
+            "percent": 1,
+            "swallows": [
+               {
+               // "class": "^Gnome\\-terminal$",
+               // "instance": "^gnome\\-terminal\\-server$",
+               // "title": "^vcavallo\\@blackbuntu\\:\\~$",
+               // "transient_for": "^$",
+               // "window_role": "^gnome\\-terminal\\-window\\-b868a7ee\\-2331\\-4853\\-acc1\\-f2be985b40b5$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
