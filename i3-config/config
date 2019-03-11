@@ -34,6 +34,9 @@ set $urgent-bg-color #E53935
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
+
+exec --no-startup-id /usr/bin/xrandr --output HDMI-0 --right-of DVI-1
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -83,7 +86,7 @@ bindsym $mod+shift+x exec i3lock --color "$bg-color"
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -97,18 +100,24 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+bindsym $mod+p workspace prev
+bindsym $mod+n workspace next
+bindsym $mod+Tab workspace back_and_forth
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace number 1: terminal
+bindsym $mod+2 workspace number 2: web
+bindsym $mod+3 workspace number 3: left-background
+bindsym $mod+4 workspace number 4: main-background
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9: hide
+bindsym $mod+0 workspace number 10
+
+bindsym $mod+shift+greater move workspace to output right
+bindsym $mod+shift+less move workspace to output left
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -186,7 +195,8 @@ client.urgent $urgent-bg-color  $urgent-bg-color  $text-color #00ff00
 
 # must install rofi!
 # use rofi combo run/show window:
-bindsym $mod+semicolon exec "rofi -combi-modi window,drun -show combi -modi combi -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18""
+# bindsym $mod+semicolon exec "rofi -combi-modi window,drun -show combi -modi combi -width 100 -padding 800 -opacity '85' -bw 0 -bc \"$bg-color\" -bg \"$bg-color\" -fg \"$text-color\" -hlbg \"$bg-color\" -hlfg '#9575cd' -font 'System San Francisco Display 18'"
+bindsym $mod+semicolon exec "rofi -combi-modi window,drun -show combi -modi combi -font 'System San Francisco Display 18' -theme /usr/share/rofi/themes/Arc-Dark.rasi"
 
 # bindsym $mod+shift+semicolon exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 
