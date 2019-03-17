@@ -53,8 +53,7 @@
 " colorscheme solarized
 " colorscheme tender
 " colorscheme gruvbox
-" colorscheme falcon
- colorscheme apprentice
+colorscheme falcon
 " let g:solarized_termtrans = 1
 " low-impact colorschemes i like:
 " apprentice, paramount, seoul256
