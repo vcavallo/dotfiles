@@ -72,11 +72,11 @@ esac
 # used for os-specific functions
 os=`uname -s`
 
+echo "base .bash_profile has run"
+
 case $os in
  "Darwin" )
    source ~/dotfiles/darwin_bash_profile.sh;;
  "Linux" )
    source ~/dotfiles/linux_bash_profile.sh;;
 esac
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
