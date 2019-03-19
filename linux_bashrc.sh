@@ -292,4 +292,10 @@ fi
 
 export PATH="$HOME/.yarn/bin:$PATH"
 
+NPM_PACKAGES="${HOME}/.npm-packages"
+export PATH="$NPM_PACKAGES/bin:$PATH"
+unset MANPATH
+export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+
+
 echo "using Linux-specific bashrc"
