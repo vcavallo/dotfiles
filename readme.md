@@ -114,8 +114,9 @@ home directory, be sure to add them to the files list in `makesymlinks.sh`**
 - irssi
 - unzip
 - libpq-dev (for `pg` gem)
+- xclip
 
-`sudo apt install git vim-gnome htop tmux unzip`
+`sudo apt install git vim-gnome htop tmux unzip xclip`
 
 
 ## Ruby!
