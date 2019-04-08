@@ -40,6 +40,8 @@ script. It will trim off the `__whatever` at the end of the file and use the rem
 
 `i3-config` is copied here. you'll need to put it in `~/.config/i3` or something, depending on your setup. You'll also need to install a bunch of things for it, which are mostly documented in the i3 config file comments.
 
+`sudo apt install i3status compton rofi i3blocks`
+
 ```
 cd ~/dotfiles
 chmod +x makesymlinks-osx.sh
@@ -112,8 +114,9 @@ home directory, be sure to add them to the files list in `makesymlinks.sh`**
 - irssi
 - unzip
 - libpq-dev (for `pg` gem)
+- xclip
 
-`sudo apt install git vim-gnome htop tmux unzip`
+`sudo apt install git vim-gnome htop tmux unzip xclip`
 
 
 ## Ruby!
