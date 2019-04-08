@@ -165,6 +165,52 @@
   alias c="xclip -i -selection c"
   alias v="xclip -o -selection c"
 
+  output-list() { pacmd list-sinks | awk '/index/ || /name:/' ;}
+  output-set() { 
+    # list all apps in playback tab (ex: cmus, mplayer, vlc)
+    inputs=($(pacmd list-sink-inputs | awk '/index/ {print $2}')) 
+    # set the default output device
+    pacmd set-default-sink $1 &> /dev/null
+    # apply the changes to all running apps to use the new output device
+    for i in ${inputs[*]}; do pacmd move-sink-input $i $1 &> /dev/null; done
+  }
+  output-toggle() {
+    # pacmd list-sinks | awk '/available/' ... something to get the first number
+    # then subtract one to get the index max
+    # new index is above plus 1 (or 0 if > max)
+    # call output-set(new_index)
+  }
+  output-playbacklist() { 
+    # list individual apps
+    echo "==============="
+    echo "Running Apps"
+    pacmd list-sink-inputs | awk '/index/ || /application.name /'
+
+    # list all sound device
+    echo "==============="
+    echo "Sound Devices"
+    pacmd list-sinks | awk '/index/ || /name:/'
+  }
+  output-playbackset() { 
+    # set the default output device
+    pacmd set-default-sink "$2" &> /dev/null
+    # apply changes to one running app to use the new output device
+    pacmd move-sink-input "$1" "$2" &> /dev/null
+  }
+  toggle-output() {
+    output_lines=($(output-list | wc -l))
+    let max_index=(output_lines/2 - 1)
+    current_index=($(output-list | \grep -I '*' | \grep -Io '\([0-9]*\)'))
+    let temp_index=(current_index + 1)
+
+    if [ "$temp_index" -gt "$max_index" ];then
+      new_index=0
+    else
+      new_index=$temp_index
+    fi
+
+    $(output-set $new_index)
+  }
 
 # free up control-s for forward history search
 stty -ixon
