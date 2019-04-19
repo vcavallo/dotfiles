@@ -174,12 +174,6 @@
     # apply the changes to all running apps to use the new output device
     for i in ${inputs[*]}; do pacmd move-sink-input $i $1 &> /dev/null; done
   }
-  output-toggle() {
-    # pacmd list-sinks | awk '/available/' ... something to get the first number
-    # then subtract one to get the index max
-    # new index is above plus 1 (or 0 if > max)
-    # call output-set(new_index)
-  }
   output-playbacklist() { 
     # list individual apps
     echo "==============="

@@ -24,6 +24,7 @@ files="\
   timetrap.yml__nix\
   xmodmap_alt_hjkl_arrows\
   xsetwacom.sh__nix\
+  compton.conf\
   tmux-powerlinerc"  # list of files/folders to symlink in homedir
 
 ##########
