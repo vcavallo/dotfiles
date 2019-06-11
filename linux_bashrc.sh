@@ -222,5 +222,10 @@ fi
 unset GEM_HOME
 # export PATH="$HOME/.rvm/bin:$PATH"
 
+# add yarn global to path
+if [ -d "$HOME/.yarn" ] ; then
+  export PATH="$HOME/.yarn/bin:$PATH"
+fi
+
 echo "linux bashrc has run"
 
