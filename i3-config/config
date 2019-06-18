@@ -9,7 +9,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
+set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -17,6 +17,10 @@ set $mod Mod4
 font pango:System San Francisco Display 12
 
 set $bg-color #2f343f
+# set $callout-color #36B369
+set $callout-color #BA48B4
+set $callout-inac-bg-color #4C1D4A
+set $callout-text-color #ffffff
 set $inac-bg-color #2f343f
 set $text-color #f3f4f5
 set $inac-text-color #676E7D
@@ -34,8 +38,14 @@ set $urgent-bg-color #E53935
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
+#exec --no-startup-id /usr/bin/xrandr --output HDMI1 --right-of DVI-1
+exec --no-startup-id /usr/bin/xrandr --output DisplayPort-0 --right-of HDMI-0
 
-exec --no-startup-id /usr/bin/xrandr --output HDMI-0 --right-of DVI-1
+
+for_window [class="Spotify"] floating enable
+for_window [class="Transmission-gtk"] floating enable
+for_window [class="Gnome-calculator"] floating enable
+for_window [class="zoom"] floating enable
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -46,13 +56,17 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
+bindsym $mod+Shift+m move scratchpad
+bindsym $mod+m scratchpad show
+
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-bindsym $mod+g exec ~/bin/i3-window-jump
+# bindsym $mod+g exec ~/bin/i3-window-jump
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -83,6 +97,8 @@ bindsym $mod+f fullscreen toggle
 
 # lock screen
 bindsym $mod+shift+x exec i3lock --color "$bg-color"
+# lock and sleep
+bindsym $mod+shift+z exec i3lock --color "$bg-color" && sudo pm-suspend
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -164,6 +180,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+bindsym $mod+g exec gnome-screenshot -i
+
 # must install pulse and pavucontrol
 # Volume
 bindsym XF86AudioMute exec amixer sset 'Master' toggle
@@ -171,18 +189,17 @@ bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%-
 bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+
 
 # Media player controls
-bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Play
-bindsym XF86AudioStop exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause
+bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
-hide_edge_borders both
+# hide_edge_borders both
 
-#              border     bg                 text              indicator
-client.focused  $bg-color $bg-color $text-color #00ff00
-client.unfocused  $inac-bg-color $inac-bg-color $inac-text-color  #00ff00
-client.focused_inactive  $inac-bg-color $inac-bg-color $inac-text-color #00ff00
-client.urgent $urgent-bg-color  $urgent-bg-color  $text-color #00ff00
+#                         border            bg                text                indicator
+client.focused            $callout-color    $callout-color    $callout-text-color #00ff00
+client.unfocused          $inac-bg-color    $inac-bg-color    $inac-text-color    #00ff00
+client.focused_inactive   $inac-bg-color    $inac-bg-color    $inac-text-color    #00ff00
+client.urgent             $urgent-bg-color  $urgent-bg-color  $text-color         #00ff00
 #
 # start dmenu (a program launcher)
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -198,10 +215,12 @@ client.urgent $urgent-bg-color  $urgent-bg-color  $text-color #00ff00
 # bindsym $mod+semicolon exec "rofi -combi-modi window,drun -show combi -modi combi -width 100 -padding 800 -opacity '85' -bw 0 -bc \"$bg-color\" -bg \"$bg-color\" -fg \"$text-color\" -hlbg \"$bg-color\" -hlfg '#9575cd' -font 'System San Francisco Display 18'"
 bindsym $mod+semicolon exec "rofi -combi-modi window,drun -show combi -modi combi -font 'System San Francisco Display 18' -theme /usr/share/rofi/themes/Arc-Dark.rasi"
 
+bindsym $mod+shift+semicolon exec "rofi -show run -font 'System San Francisco Display 18' -theme /usr/share/rofi/themes/Arc-Dark.rasi"
+
 # bindsym $mod+shift+semicolon exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 
 # must install compton
-exec_always compton -f
+exec_always compton -f --backend glx --paint-on-overlay --vsync opengl-swc
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -213,10 +232,10 @@ bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
         colors {
           background $bg-color
-          separator #757575
+          separator $callout-color
           #                   border              bg               text
-          focused_workspace   $bg-color           $bg-color        $text-color
-          inactive_workspace  $inac-bg-color      $inac-bg-color   $inac-text-color
-          urgent_workspace    $urgent-bg-color    $urgent-bg-color $text-color
+          focused_workspace   $callout-color           $callout-color          $text-color
+          inactive_workspace  $callout-inac-bg-color   $callout-inac-bg-color  $inac-text-color
+          urgent_workspace    $urgent-bg-color         $urgent-bg-color        $text-color
         }
 }
