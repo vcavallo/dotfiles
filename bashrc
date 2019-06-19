@@ -49,6 +49,8 @@ export PATH="/home/vcavallo/local/bin:$PATH"
 # export PATH="/home/vcavallo/.rbenv/bin:$PATH"
 # export PATH="/home/vcavallo/.rbenv/shims:$PATH"
 
+export PATH="/home/vcavallo/bin:$PATH"
+
  # used for os-specific functions
  os=`uname -s`
 
