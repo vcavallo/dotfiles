@@ -1,5 +1,3 @@
-# Configuring The Prompt
-# ======================
 
   # This function is called in your prompt to output your active git branch.
   function parse_git_branch {
@@ -63,67 +61,15 @@
   # for tmux-powerline PWD and Git integration:
   PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
-# Environment Variables
-# =====================
-  # Library Paths
-  # These variables tell your shell where they can find certain
-  # required libraries so other programs can reliably call the variable name
-  # instead of a hardcoded path.
+  export GIT_MERGE_AUTOEDIT='no'
 
-    # NODE_PATH
-    # Node Path from Homebrew I believe
-    export NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
+  export VISUAL="vim"
+  export SVN_EDITOR="vim"
+  export GIT_EDITOR="vim"
+  export EDITOR="vim"
 
-    # PYTHON_SHARE
-    # Python Shared Path from Homebrew I believe
-    # export PYTHON_SHARE='/usr/local/share/python' [I commented this out on 9/24/(2013?) for brew doctor message - VOC]
+  export USR_PATHS="/usr/games/bin:/usr/local:/usr/local/bin:/usr/local/sbin:/usr/bin"
 
-    # Those NODE & Python Paths won't break anything even if you
-    # don't have NODE or Python installed. Eventually you will and
-    # then you don't have to update your bash_profile
-
-  # Configurations
-
-    # GIT_MERGE_AUTO_EDIT
-    # This variable configures git to not require a message when you merge.
-    export GIT_MERGE_AUTOEDIT='no'
-
-    # Editors
-    # Tells your shell that when a program requires various editors, use sublime.
-    # The -w flag tells your shell to wait until sublime exits
-    export VISUAL="vim"
-    export SVN_EDITOR="vim"
-    export GIT_EDITOR="vim"
-    export EDITOR="vim"
-
-  # Paths
-
-    # The USR_PATHS variable will just store all relevant /usr paths for easier usage
-    # Each path is seperate via a : and we always use absolute paths.
-
-    # A bit about the /usr directory
-    # The /usr directory is a convention from linux that creates a common place to put
-    # files and executables that the entire system needs access too. It tries to be user
-    # independent, so whichever user is logged in should have permissions to the /usr directory.
-    # We call that /usr/local. Within /usr/local, there is a bin directory for actually
-    # storing the binaries (programs) that our system would want.
-    # Also, Homebrew adopts this convetion so things installed via Homebrew
-    # get symlinked into /usr/local
-    export USR_PATHS="/usr/games/bin:/usr/local:/usr/local/bin:/usr/local/sbin:/usr/bin"
-
-    # Hint: You can interpolate a variable into a string by using the $VARIABLE notation as below.
-
-    # We build our final PATH by combining the variables defined above
-    # along with any previous values in the PATH variable.
-
-    # Our PATH variable is special and very important. Whenever we type a command into our shell,
-    # it will try to find that command within a directory that is defined in our PATH.
-    # Read http://blog.seldomatt.com/blog/2012/10/08/bash-and-the-one-true-path/ for more on that.
-    export PATH="$USR_PATHS:$PYTHON_SHARE:$PATH"
-
-    # If you go into your shell and type: $PATH you will see the output of your current path.
-
-    export PATH="$PATH:/home/$USER/bin"
 
 # Helpful Functions
 # =====================
@@ -136,53 +82,6 @@
 
   # allows hitting <space> after `!!` to expand it and see what the command was
   bind Space:magic-space
-
-  # Functions to CD into folders from anywhere
-  # so you just type "folder-name".
-  # HINT: It uses the built in USER variable to know your OS X username
-
-  # USE: desktop
-  #      desktop subfolder
-
-  function desktop {
-    cd /home/$USER/Desktop/$@
-  }
-
-  function dotfiles {
-    cd /home/$USER/dotfiles/$@
-  }
-
-  function dev {
-    cd /home/$USER/development/$@
-  }
-
-  function wu {
-    cd /home/$USER/development/exnilio/walkup/$@
-  }
-
-  function nytm {
-    cd /home/$USER/development/projects/clients/nytm/nytm-membership-v2/$@
-  }
-
-  function kpmg {
-    cd /home/$USER/development/projects/clients/dopamine/kpmg_trivia/$@
-  }
-
-  function dopa {
-    cd /home/$USER/development/projects/clients/dopamine/$@
-  }
-
-  function fin_lit {
-    cd /home/$USER/development/projects/clients/dopamine/fin_lit/$@
-  }
-
-  function allegiance {
-    cd /home/$USER/development/projects/clients/dopamine/allegiance/$@
-  }
-
-  function dotfiles {
-    cd /home/$USER/dotfiles/$@
-  }
 
   # A function to easily grep for a matching process
   # USE: psg postgres
@@ -223,23 +122,14 @@
     ls -la | grep "[$FIRST]$REST"
   }
 
-  # USE: new-repo repo-name
-  function new-repo () {
-    curl -u 'vcavallo' https://api.github.com/user/repos -d "{\"name\":\"$1\"}"
-  }
-
-# Aliases
-# =====================
-
   # Rspec
   alias rs="rspec"
-	
+
   # CS function
-	  function cs () {
-		cd $1; ls "-lahG"
+  function cs () {
+    cd $1; ls "-lahG"
   }	
 
-  alias vpn='/opt/cisco/anyconnect/bin/vpn'
 
   # Touch and Go
   create() {
@@ -275,22 +165,69 @@
   alias c="xclip -i -selection c"
   alias v="xclip -o -selection c"
 
-# Final Configurations and Plugins
-# =====================
+  output-list() { pacmd list-sinks | awk '/index/ || /name:/' ;}
+  output-set() { 
+    # list all apps in playback tab (ex: cmus, mplayer, vlc)
+    inputs=($(pacmd list-sink-inputs | awk '/index/ {print $2}')) 
+    # set the default output device
+    pacmd set-default-sink $1 &> /dev/null
+    # apply the changes to all running apps to use the new output device
+    for i in ${inputs[*]}; do pacmd move-sink-input $i $1 &> /dev/null; done
+  }
+  output-playbacklist() { 
+    # list individual apps
+    echo "==============="
+    echo "Running Apps"
+    pacmd list-sink-inputs | awk '/index/ || /application.name /'
 
-  # free up control-s for forward history search
-  stty -ixon
+    # list all sound device
+    echo "==============="
+    echo "Sound Devices"
+    pacmd list-sinks | awk '/index/ || /name:/'
+  }
+  output-playbackset() { 
+    # set the default output device
+    pacmd set-default-sink "$2" &> /dev/null
+    # apply changes to one running app to use the new output device
+    pacmd move-sink-input "$1" "$2" &> /dev/null
+  }
+  toggle-output() {
+    output_lines=($(output-list | wc -l))
+    let max_index=(output_lines/2 - 1)
+    current_index=($(output-list | \grep -I '*' | \grep -Io '\([0-9]*\)'))
+    let temp_index=(current_index + 1)
 
-  #setxkbmap -option ctrl:swapcaps
+    if [ "$temp_index" -gt "$max_index" ];then
+      new_index=0
+    else
+      new_index=$temp_index
+    fi
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+    $(output-set $new_index)
+  }
 
-if [ -f ~/.xmodmap_alt_hjkl_arrows ]; then
-  xmodmap ~/.xmodmap_alt_hjkl_arrows
+# free up control-s for forward history search
+stty -ixon
+
+
+## Add home bin to path
+if [ -d "$HOME/bin" ] ; then
+  PATH="$HOME/bin:$PATH"
 fi
 
-export PATH="$HOME/.yarn/bin:$PATH"
+## Heroku
+# export PATH="/usr/local/heroku/bin:$PATH"
+# export PATH="$PATH:/home/$USER/bin"
+
+unset GEM_HOME
+# export PATH="$HOME/.rvm/bin:$PATH"
+
+# add yarn global to path
+if [ -d "$HOME/.yarn" ] ; then
+  export PATH="$HOME/.yarn/bin:$PATH"
+fi
+
+echo "linux bashrc has run"
 
 NPM_PACKAGES="${HOME}/.npm-packages"
 export PATH="$NPM_PACKAGES/bin:$PATH"

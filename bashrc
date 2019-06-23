@@ -40,12 +40,12 @@ fi
 # echo "this is bashrc"
 
 # this is the root folder where all globally installed node packages will  go
-export NPM_PACKAGES="/usr/local/npm_packages"
-export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+# export NPM_PACKAGES="/usr/local/npm_packages"
+# export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 # add to PATH
-export PATH="$NPM_PACKAGES/bin:$PATH"
+# export PATH="$NPM_PACKAGES/bin:$PATH"
 
-export PATH="/home/vcavallo/local/bin:$PATH"
+# export PATH="/home/vcavallo/local/bin:$PATH"
 # export PATH="/home/vcavallo/.rbenv/bin:$PATH"
 # export PATH="/home/vcavallo/.rbenv/shims:$PATH"
 
@@ -56,12 +56,11 @@ export PATH="/home/vcavallo/bin:$PATH"
 
  ~/.xsetwacom.sh
 
+echo "base .bashrc has run"
+
  case $os in
    "Darwin" )
      source ~/dotfiles/darwin_bashrc.sh;;
    "Linux" )
      source ~/dotfiles/linux_bashrc.sh;;
  esac
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"

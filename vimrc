@@ -112,12 +112,24 @@ colorscheme falcon
 " use shift-tab to insert tabs in INSERT mode
  inoremap <S-Tab> <C-V><Tab>
 
+ " maps  /     - yes, '/' for some reason vim uses _ for / here
+ " nnoremap <C-_>:Ack!<Space>
+ cnoreabbrev Ack Ack!
+
 " setup for ctrlp "
  set runtimepath^=~/.vim/bundle/ctrlp.vim
  let g:ctrlp_map = '<C-p>'
  let g:ctrlp_cmd = 'CtrlP'
  let g:ctrlp_working_path_mode = 'rw'
  :nmap π :CtrlP<return>
+
+ if executable('ag')
+   " Use Ag over Grep
+   set grepprg=ag\ --nogroup\ --nocolor
+   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+ endif
+
 
  augroup BgHighlight
      autocmd!
