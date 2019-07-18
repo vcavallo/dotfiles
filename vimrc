@@ -122,6 +122,7 @@ colorscheme falcon
  let g:ctrlp_cmd = 'CtrlP'
  let g:ctrlp_working_path_mode = 'rw'
  :nmap π :CtrlP<return>
+ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|log'
 
  if executable('ag')
    " Use Ag over Grep
