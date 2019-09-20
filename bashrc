@@ -54,6 +54,10 @@ fi
 
  ~/.xsetwacom.sh
 
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 echo "base .bashrc has run"
 
  case $os in

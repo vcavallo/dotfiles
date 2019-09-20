@@ -54,10 +54,12 @@
 " colorscheme tender
 " colorscheme gruvbox
 " colorscheme falcon
- colorscheme apprentice
+" colorscheme apprentice
 " let g:solarized_termtrans = 1
 " low-impact colorschemes i like:
 " apprentice, paramount, seoul256
+" colorscheme seoul256
+colorscheme grb256
 
  set colorcolumn=85 " show right margin
 " change cursor shape per mode in terminal vim
@@ -203,6 +205,11 @@ let g:polyglot_disabled = ['js']
 
  au FileType xhtml,xml so ~/.vim/bundle/html-autoclosetag.vim
 
+ autocmd FileType go nmap <leader>b :GoBuild<CR>
+ autocmd FileType go nmap <leader>r :GoRun<CR>
+ autocmd FileType go nmap <leader>t :GoTest<CR>
+ autocmd FileType go nmap <leader>s :GoTestFunc<CR>
+
 " vimwiki
  let wiki_trunk = {}
  let wiki_trunk.path = '~/Dropbox/wiki/notes'
@@ -302,7 +309,7 @@ set nocursorline
 "Airline theme setup:
  " let g:airline_theme='kalisi'
  " let g:airline_theme='gruvbox'
- let g:airline_theme='zenburn'
+ " let g:airline_theme='zenburn'
  let g:airline#extensions#tabline#enabled = 1
  let g:airline#extensions#tabline#left_sep = ' '
  let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -312,8 +319,8 @@ set nocursorline
  let g:airline#extensions#branch#enabled= 0
  let g:airline_section_z = airline#section#create(['%{ObsessionStatus(" obsession "," NO SESSION! ")}', 'windowswap', '%3p%% ', 'linenr', ':%3v '])
 
-" let g:tender_airline = 1
-" let g:airline_theme='tender'
+"let g:airline_theme='distinguished'
+"let g:airline_theme='raven'
 
 "statusline setup
  set statusline =%#identifier#
@@ -531,6 +538,9 @@ set nocursorline
 
 "make Y consistent with C and D
  nnoremap Y y$
+
+"close quickfix easily:
+nnoremap <leader>q :cclose<CR>
 
 "visual search mappings
  function! s:VSetSearch()

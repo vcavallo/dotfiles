@@ -165,6 +165,9 @@
   alias c="xclip -i -selection c"
   alias v="xclip -o -selection c"
 
+  # alias weather="curl wttr.in?nq1"
+  # alias btc="curl rate.sx/btc@30d"
+
   output-list() { pacmd list-sinks | awk '/index/ || /name:/' ;}
   output-set() { 
     # list all apps in playback tab (ex: cmus, mplayer, vlc)
