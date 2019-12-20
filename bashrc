@@ -50,11 +50,17 @@ fi
 # export PATH="/home/vcavallo/.rbenv/shims:$PATH"
 
 export PATH="/home/vcavallo/bin:$PATH"
+export PATH="/home/vcavallo/scripts:$PATH"
+export PATH=$PATH:/usr/local/go/bin
 
  # used for os-specific functions
  os=`uname -s`
 
  ~/.xsetwacom.sh
+
+export GDK_SCALE=2
+export GDK_DPI_SCALE=0.5
+
 
 echo "base .bashrc has run"
 
@@ -64,3 +70,6 @@ echo "base .bashrc has run"
    "Linux" )
      source ~/dotfiles/linux_bashrc.sh;;
  esac
+
+export NVM_DIR="/home/vcavallo/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

@@ -51,9 +51,10 @@
  set background=dark
 " colorscheme smyck
 " colorscheme solarized
-" colorscheme tender
+ colorscheme tender
 " colorscheme gruvbox
-colorscheme falcon
+" colorscheme falcon
+" colorscheme grb256
 " let g:solarized_termtrans = 1
 " low-impact colorschemes i like:
 " apprentice, paramount, seoul256
@@ -299,10 +300,28 @@ set nocursorline
 "hide buffers when not displayed
  set hidden
 
+" Startify options
+"
+let g:startify_lists = [
+      \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+      \ { 'type': 'files',     'header': ['   MRU']            },
+      \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+      \ { 'type': 'sessions',  'header': ['   Sessions']       },
+      \ { 'type': 'commands',  'header': ['   Commands']       },
+      \ ]
+let g:startify_bookmarks = [
+    \   { 'v': '~/development/vss-rails-vue' },
+    \   { 'w': '~/Dropbox/wiki/notes/index.markdown' },
+    \ ]
+
+let g:startify_custom_indices = ['a','s','d','f','g','z','x','c']
+let g:startify_custom_header = 'startify#fortune#boxed()'
+
+
 "Airline theme setup:
  " let g:airline_theme='kalisi'
  " let g:airline_theme='gruvbox'
- let g:airline_theme='zenburn'
+ let g:airline_theme='raven'
  let g:airline#extensions#tabline#enabled = 1
  let g:airline#extensions#tabline#left_sep = ' '
  let g:airline#extensions#tabline#left_alt_sep = '|'
