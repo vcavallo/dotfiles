@@ -3,7 +3,7 @@
  set nocompatible
 
  let g:pathogen_blacklist = []
- "call add(g:pathogen_blacklist, 'ctrlp.vim')
+ call add(g:pathogen_blacklist, 'ctrlp.vim')
  "call add(g:pathogen_blacklist, 'vim-vinegar')
  "call add(g:pathogen_blacklist, 'vim-unimpaired')
  "call add(g:pathogen_blacklist, 'vim-rspec')
@@ -18,6 +18,25 @@
 
 "activate pathogen
  call pathogen#infect()
+
+ let g:deoplete#enable_at_startup = 1
+
+ " set up fzf
+ set rtp+=~/.fzf
+ let g:fzf_command_prefix = 'Fzf'
+ :nmap <C-P> :FzfFiles<return>
+
+ nnoremap <leader>ff :FzfFiles<return>
+ nnoremap <leader>fa :FzfAg<return>
+ nnoremap <leader>fg :FzfRg<return>
+ nnoremap <leader>fb :FzfBuffers<return>
+ 
+" setup for ctrlp [ now using fzf ]"
+ "set runtimepath^=~/.vim/bundle/ctrlp.vim
+ "let g:ctrlp_map = '<C-p>'
+ "let g:ctrlp_cmd = 'CtrlP'
+ "let g:ctrlp_working_path_mode = 'rw'
+ ":nmap π :CtrlP<return>
 
 " map 'jj' to 'exit insert mode' "
  :imap jj <Esc>
@@ -51,7 +70,7 @@
  set background=dark
 " colorscheme smyck
 " colorscheme solarized
-" colorscheme tender
+ colorscheme tender
 " colorscheme gruvbox
 " colorscheme falcon
 " colorscheme apprentice
@@ -59,7 +78,7 @@
 " low-impact colorschemes i like:
 " apprentice, paramount, seoul256
 " colorscheme seoul256
-colorscheme grb256
+" colorscheme grb256
 
  set colorcolumn=85 " show right margin
 " change cursor shape per mode in terminal vim
@@ -118,13 +137,6 @@ colorscheme grb256
  " maps  /     - yes, '/' for some reason vim uses _ for / here
  " nnoremap <C-_>:Ack!<Space>
  cnoreabbrev Ack Ack!
-
-" setup for ctrlp "
- set runtimepath^=~/.vim/bundle/ctrlp.vim
- let g:ctrlp_map = '<C-p>'
- let g:ctrlp_cmd = 'CtrlP'
- let g:ctrlp_working_path_mode = 'rw'
- :nmap π :CtrlP<return>
 
  if executable('ag')
    " Use Ag over Grep
@@ -320,7 +332,13 @@ set nocursorline
  let g:airline_section_z = airline#section#create(['%{ObsessionStatus(" obsession "," NO SESSION! ")}', 'windowswap', '%3p%% ', 'linenr', ':%3v '])
 
 "let g:airline_theme='distinguished'
-"let g:airline_theme='raven'
+let g:airline_theme='raven'
+
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'typescript': ['tsserver', 'tslint'],
+\   'vue': ['eslint']
+\}
 
 "statusline setup
  set statusline =%#identifier#
@@ -526,6 +544,26 @@ set nocursorline
          return (nums[l/2] + nums[(l/2)-1]) / 2
      endif
  endfunction
+
+  let g:ft = ''
+  function! NERDCommenter_before()
+    if &ft == 'vue'
+      let g:ft = 'vue'
+      let stack = synstack(line('.'), col('.'))
+      if len(stack) > 0
+        let syn = synIDattr((stack)[0], 'name')
+        if len(syn) > 0
+          exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
+        endif
+      endif
+    endif
+  endfunction
+  function! NERDCommenter_after()
+    if g:ft == 'vue'
+      setf vue
+      let g:ft = ''
+    endif
+  endfunction
 
 "source project specific config files
  "runtime! projects/**/*.vim

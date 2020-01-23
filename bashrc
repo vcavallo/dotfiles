@@ -25,6 +25,8 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias fzfp="fzf --preview 'head -100 {}'"
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -55,8 +57,12 @@ fi
  ~/.xsetwacom.sh
 
 export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+# export GOPATH=$HOME/go
+# export PATH=$PATH:$GOPATH/bin
+
+export PATH=$PATH:/opt/gradle/gradle-5.6.2/bin
+
+export PATH=$PATH:/usr/bin/npm
 
 echo "base .bashrc has run"
 
@@ -66,3 +72,5 @@ echo "base .bashrc has run"
    "Linux" )
      source ~/dotfiles/linux_bashrc.sh;;
  esac
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
