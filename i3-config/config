@@ -41,10 +41,11 @@ set $urgent-bg-color #E53935
 # exec --no-startup-id /usr/bin/setxkbmap -layout us -option ctrl:nocaps
 
 
-for_window [class="Spotify"] floating enable
-for_window [class="Transmission-gtk"] floating enable
-for_window [class="Gnome-calculator"] floating enable
-for_window [class="zoom"] floating enable
+for_window [class="Spotify"] floating enable move scratchpad scratchpad show
+for_window [class="Transmission-gtk"] floating enable move scratchpad scratchpad show
+for_window [class="Gnome-calculator"] floating enable move scratchpad scratchpad show
+for_window [class="zoom"] floating enable move scratchpad scratchpad show
+for_window [class="Nautilus"] floating enable move scratchpad scratchpad show
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

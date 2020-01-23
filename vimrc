@@ -3,7 +3,7 @@
  set nocompatible
 
  let g:pathogen_blacklist = []
- "call add(g:pathogen_blacklist, 'ctrlp.vim')
+ call add(g:pathogen_blacklist, 'ctrlp.vim')
  "call add(g:pathogen_blacklist, 'vim-vinegar')
  "call add(g:pathogen_blacklist, 'vim-unimpaired')
  "call add(g:pathogen_blacklist, 'vim-rspec')
@@ -18,6 +18,25 @@
 
 "activate pathogen
  call pathogen#infect()
+
+ let g:deoplete#enable_at_startup = 1
+
+ " set up fzf
+ set rtp+=~/.fzf
+ let g:fzf_command_prefix = 'Fzf'
+ :nmap <C-P> :FzfFiles<return>
+
+ nnoremap <leader>ff :FzfFiles<return>
+ nnoremap <leader>fa :FzfAg<return>
+ nnoremap <leader>fg :FzfRg<return>
+ nnoremap <leader>fb :FzfBuffers<return>
+ 
+" setup for ctrlp [ now using fzf ]"
+ "set runtimepath^=~/.vim/bundle/ctrlp.vim
+ "let g:ctrlp_map = '<C-p>'
+ "let g:ctrlp_cmd = 'CtrlP'
+ "let g:ctrlp_working_path_mode = 'rw'
+ ":nmap π :CtrlP<return>
 
 " map 'jj' to 'exit insert mode' "
  :imap jj <Esc>
@@ -55,9 +74,12 @@
 " colorscheme gruvbox
 " colorscheme falcon
 " colorscheme grb256
+" colorscheme apprentice
 " let g:solarized_termtrans = 1
 " low-impact colorschemes i like:
 " apprentice, paramount, seoul256
+" colorscheme seoul256
+" colorscheme grb256
 
  set colorcolumn=85 " show right margin
 " change cursor shape per mode in terminal vim
@@ -116,14 +138,6 @@
  " maps  /     - yes, '/' for some reason vim uses _ for / here
  " nnoremap <C-_>:Ack!<Space>
  cnoreabbrev Ack Ack!
-
-" setup for ctrlp "
- set runtimepath^=~/.vim/bundle/ctrlp.vim
- let g:ctrlp_map = '<C-p>'
- let g:ctrlp_cmd = 'CtrlP'
- let g:ctrlp_working_path_mode = 'rw'
- :nmap π :CtrlP<return>
- let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|log'
 
  if executable('ag')
    " Use Ag over Grep
@@ -203,6 +217,11 @@ let g:polyglot_disabled = ['js']
  autocmd BufRead,BufNewFile *.die setlocal noswapfile
 
  au FileType xhtml,xml so ~/.vim/bundle/html-autoclosetag.vim
+
+ autocmd FileType go nmap <leader>b :GoBuild<CR>
+ autocmd FileType go nmap <leader>r :GoRun<CR>
+ autocmd FileType go nmap <leader>t :GoTest<CR>
+ autocmd FileType go nmap <leader>s :GoTestFunc<CR>
 
 " vimwiki
  let wiki_trunk = {}
@@ -331,8 +350,14 @@ let g:startify_custom_header = 'startify#fortune#boxed()'
  let g:airline#extensions#branch#enabled= 0
  let g:airline_section_z = airline#section#create(['%{ObsessionStatus(" obsession "," NO SESSION! ")}', 'windowswap', '%3p%% ', 'linenr', ':%3v '])
 
-" let g:tender_airline = 1
-" let g:airline_theme='tender'
+"let g:airline_theme='distinguished'
+let g:airline_theme='raven'
+
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'typescript': ['tsserver', 'tslint'],
+\   'vue': ['eslint']
+\}
 
 "statusline setup
  set statusline =%#identifier#
@@ -539,6 +564,26 @@ let g:startify_custom_header = 'startify#fortune#boxed()'
      endif
  endfunction
 
+  let g:ft = ''
+  function! NERDCommenter_before()
+    if &ft == 'vue'
+      let g:ft = 'vue'
+      let stack = synstack(line('.'), col('.'))
+      if len(stack) > 0
+        let syn = synIDattr((stack)[0], 'name')
+        if len(syn) > 0
+          exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
+        endif
+      endif
+    endif
+  endfunction
+  function! NERDCommenter_after()
+    if g:ft == 'vue'
+      setf vue
+      let g:ft = ''
+    endif
+  endfunction
+
 "source project specific config files
  "runtime! projects/**/*.vim
 
@@ -550,6 +595,9 @@ let g:startify_custom_header = 'startify#fortune#boxed()'
 
 "make Y consistent with C and D
  nnoremap Y y$
+
+"close quickfix easily:
+nnoremap <leader>q :cclose<CR>
 
 "visual search mappings
  function! s:VSetSearch()

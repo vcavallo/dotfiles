@@ -25,6 +25,8 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias fzfp="fzf --preview 'head -100 {}'"
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -61,6 +63,13 @@ export PATH=$PATH:/usr/local/go/bin
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
 
+export PATH=$PATH:/usr/local/go/bin
+# export GOPATH=$HOME/go
+# export PATH=$PATH:$GOPATH/bin
+
+export PATH=$PATH:/opt/gradle/gradle-5.6.2/bin
+
+export PATH=$PATH:/usr/bin/npm
 
 echo "base .bashrc has run"
 
@@ -73,3 +82,5 @@ echo "base .bashrc has run"
 
 export NVM_DIR="/home/vcavallo/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
