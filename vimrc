@@ -30,6 +30,7 @@
  nnoremap <leader>fa :FzfAg<return>
  nnoremap <leader>fg :FzfRg<return>
  nnoremap <leader>fb :FzfBuffers<return>
+ nnoremap <leader>ft :FzfTags<return>
  
 " setup for ctrlp [ now using fzf ]"
  "set runtimepath^=~/.vim/bundle/ctrlp.vim
