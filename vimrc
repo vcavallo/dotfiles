@@ -19,6 +19,10 @@
 "activate pathogen
  call pathogen#infect()
 
+ " need to npm-install prettier
+ let g:prettier#exec_cmd_path = "~/.npm-global/bin/prettier"
+
+
  let g:deoplete#enable_at_startup = 1
 
  " set up fzf
