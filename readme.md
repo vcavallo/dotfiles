@@ -142,6 +142,7 @@ may need to uninstall system ruby first: https://stackoverflow.com/a/37956249
 - redis (http://download.redis.io/redis-stable.tar.gz, https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-redis-on-ubuntu-16-04)
 - fzf
 - ripgrep
+- pulseaudio snap
 
 # keeping notes here about stuff to generally install for development
 

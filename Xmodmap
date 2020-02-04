@@ -1,4 +1,4 @@
-keycode 43 = h H NoSymbol NoSymbol Left
+keycode 44 = h H NoSymbol NoSymbol Left
 keycode 44 = j J NoSymbol NoSymbol Down
 keycode 45 = k K NoSymbol NoSymbol Up
 keycode 46 = l L NoSymbol NoSymbol Right
