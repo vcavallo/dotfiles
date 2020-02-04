@@ -38,7 +38,9 @@ To **denote this when creating dotfiles**: append `__osx` or `__nix` or whatever
 you want at the end, then put _those_ files in the filename array in the `makesymlinks-*`
 script. It will trim off the `__whatever` at the end of the file and use the remainder.
 
-`i3-config` is copied here. you'll need to put it in `~/.config/i3` or something, depending on your setup. You'll also need to install a bunch of things for it, which are mostly documented in the i3 config file comments.
+Check out the i3-config repo for setting that up.
+And don't forget to install i3 gaps, if appropriate
+
 
 `sudo apt install i3status compton rofi i3blocks`
 
@@ -115,6 +117,7 @@ home directory, be sure to add them to the files list in `makesymlinks.sh`**
 - unzip
 - libpq-dev (for `pg` gem)
 - xclip
+- feh
 
 `sudo apt install git vim-gnome htop tmux unzip xclip`
 
@@ -137,6 +140,8 @@ may need to uninstall system ruby first: https://stackoverflow.com/a/37956249
 - heroku cli (from heroku's site)
 - ngrok (https://ngrok.com/download)
 - redis (http://download.redis.io/redis-stable.tar.gz, https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-redis-on-ubuntu-16-04)
+- fzf
+- ripgrep
 
 # keeping notes here about stuff to generally install for development
 
