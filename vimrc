@@ -208,6 +208,8 @@ autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal 
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal wrap linebreak
 autocmd BufRead,BufNewFile todo.txt setlocal nospell
 " autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal textwidth=80
+autocmd BufRead,BufNewFile *.c set tabstop=8
+autocmd BufRead,BufNewFile *.c set shiftwidth=8
 
 let g:jsx_ext_required = 0 " allows jsx in .js files
 let g:polyglot_disabled = ['js']

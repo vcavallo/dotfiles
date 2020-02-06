@@ -55,6 +55,9 @@ export PATH="/home/vcavallo/bin:$PATH"
 export PATH="/home/vcavallo/scripts:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 
+# export GOPATH=$HOME/go
+# export PATH=$PATH:$GOPATH/bin
+
  # used for os-specific functions
  os=`uname -s`
 
@@ -62,10 +65,6 @@ export PATH=$PATH:/usr/local/go/bin
 
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
-
-export PATH=$PATH:/usr/local/go/bin
-# export GOPATH=$HOME/go
-# export PATH=$PATH:$GOPATH/bin
 
 export PATH=$PATH:/opt/gradle/gradle-5.6.2/bin
 
@@ -82,5 +81,6 @@ echo "base .bashrc has run"
 
 export NVM_DIR="/home/vcavallo/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

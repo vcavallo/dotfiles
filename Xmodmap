@@ -1,4 +1,6 @@
-keycode 44 = h H NoSymbol NoSymbol Left
-keycode 44 = j J NoSymbol NoSymbol Down
-keycode 45 = k K NoSymbol NoSymbol Up
-keycode 46 = l L NoSymbol NoSymbol Right
+keycode 133 = Mode_switch NoSymbol Mode_switch
+keycode 108 = Alt_R NoSymbol Alt_R
+keycode 43 = h H Left Left Left Left Left
+keycode 44 = j J Down Down Down
+keycode 45 = k K Up Up Up
+keycode 46 = l L Right Right Right
