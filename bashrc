@@ -48,8 +48,8 @@ fi
 # export PATH="$NPM_PACKAGES/bin:$PATH"
 
 # export PATH="/home/vcavallo/local/bin:$PATH"
-# export PATH="/home/vcavallo/.rbenv/bin:$PATH"
-# export PATH="/home/vcavallo/.rbenv/shims:$PATH"
+export PATH="/home/vcavallo/.rbenv/bin:$PATH"
+export PATH="/home/vcavallo/.rbenv/shims:$PATH"
 
 export PATH="/home/vcavallo/bin:$PATH"
 export PATH="/home/vcavallo/scripts:$PATH"

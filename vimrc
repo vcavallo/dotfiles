@@ -19,6 +19,9 @@
 "activate pathogen
  call pathogen#infect()
 
+ " need to npm-install prettier
+ let g:prettier#exec_cmd_path = "~/.npm-global/bin/prettier"
+
  let g:deoplete#enable_at_startup = 1
 
  " set up fzf
@@ -71,10 +74,11 @@
  set background=dark
 " colorscheme smyck
 " colorscheme solarized
- colorscheme tender
+colorscheme tender
 " colorscheme gruvbox
 " colorscheme falcon
 " colorscheme grb256
+" colorscheme 256_noir
 " colorscheme apprentice
 " let g:solarized_termtrans = 1
 " low-impact colorschemes i like:
@@ -130,6 +134,7 @@
  set smartcase
  set smartindent
  set tabstop=2
+ set softtabstop=2
  set shiftwidth=2
  set expandtab " turn tabs into spaces
 
@@ -210,6 +215,7 @@ autocmd BufRead,BufNewFile todo.txt setlocal nospell
 " autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal textwidth=80
 autocmd BufRead,BufNewFile *.c set tabstop=8
 autocmd BufRead,BufNewFile *.c set shiftwidth=8
+autocmd BufRead,BufNewFile *.c set softtabstop=8
 
 let g:jsx_ext_required = 0 " allows jsx in .js files
 let g:polyglot_disabled = ['js']
