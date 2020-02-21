@@ -89,11 +89,6 @@ home directory, be sure to add them to the files list in `makesymlinks.sh`**
 
 ## Ubuntu-specific stuff
 
-### install xcape
-
-- get it here: [https://github.com/alols/xcape](xcape repo)
-- make sure to use the `get-ubuntu-keys` script from my scripts repo
-
 ### if using an Apple Magic Mouse:
 
 - check out the `set-mouse` script in the scripts repo
@@ -143,6 +138,10 @@ may need to uninstall system ruby first: https://stackoverflow.com/a/37956249
 - fzf
 - ripgrep
 - pulseaudio snap
+
+## Linux and laptops?
+
+`cp 40-libinput.conf /etc/X11/xorg.conf/` to set up trackpad options on Thinkpad
 
 # keeping notes here about stuff to generally install for development
 
