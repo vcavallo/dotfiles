@@ -141,7 +141,10 @@ may need to uninstall system ruby first: https://stackoverflow.com/a/37956249
 
 ## Linux and laptops?
 
-`cp 40-libinput.conf /etc/X11/xorg.conf/` to set up trackpad options on Thinkpad
+- `ln -s  ~/dotfiles/40-libinput.conf /etc/X11/xorg.conf/40-libinput.conf`
+- `ln -s  ~/dotfiles/20-intel.conf /etc/X11/xorg.conf/20-intel.conf`
+
+to set up trackpad and backlight on Thinkpad
 
 # keeping notes here about stuff to generally install for development
 
