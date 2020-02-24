@@ -21,7 +21,11 @@
 
  " need to npm-install prettier
  let g:prettier#exec_cmd_path = "~/.npm-global/bin/prettier"
-
+ let g:prettier#autoformat_config_present = 1
+ let g:prettier#autoformat_config_files = [".prettierrc"]
+ let g:prettier#autoformat = 0
+ "autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
+ autocmd BufRead *.md let g:prettier#config#prose_wrap = 'always'
 
  let g:deoplete#enable_at_startup = 1
 
@@ -34,6 +38,29 @@
  nnoremap <leader>fa :FzfAg<return>
  nnoremap <leader>fg :FzfRg<return>
  nnoremap <leader>fb :FzfBuffers<return>
+
+" Startfiy settings
+
+set viminfo='100,n$HOME/.vim/files/info/viminfo'
+let g:startify_session_sort = 0
+let g:startify_custom_indices = ['a','s','d','f','j','k','l']
+let g:startify_custom_header = []
+" let g:startify_skiplist = [ "" Example!
+"     \ 'bundle/.*doc',
+"     \ '/home/vcavallo/somethign'
+"     \ ]
+let g:startify_bookmarks = [
+      \ { 'v': '~/Dropbox/nvALT/' },
+      \ '~/Desktop/sticky.md',
+      \ ]
+
+let g:startify_lists = [
+      \ { 'type': 'files',     'header': ['   All Files']            },
+      \ { 'type': 'dir',       'header': ['   CWD Files '. getcwd()] },
+      \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+      \ { 'type': 'sessions',  'header': ['   Sessions']       },
+      \ { 'type': 'commands',  'header': ['   Commands']       },
+      \ ]
  
 " setup for ctrlp [ now using fzf ]"
  "set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -210,6 +237,8 @@ autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal 
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal wrap linebreak
 autocmd BufRead,BufNewFile todo.txt setlocal nospell
 " autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal textwidth=80
+autocmd BufRead,BufNewFile *.c setlocal tabstop=8
+autocmd BufRead,BufNewFile *.c setlocal shiftwidth=8
 
 let g:jsx_ext_required = 0 " allows jsx in .js files
 let g:polyglot_disabled = ['js']
