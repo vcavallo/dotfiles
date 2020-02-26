@@ -43,7 +43,7 @@
 
 set viminfo='100,n$HOME/.vim/files/info/viminfo'
 let g:startify_session_sort = 0
-let g:startify_custom_indices = ['a','s','d','f','j','k','l']
+let g:startify_custom_indices = ['a','s','d','f','z','x','c','v']
 let g:startify_custom_header = []
 " let g:startify_skiplist = [ "" Example!
 "     \ 'bundle/.*doc',
@@ -52,6 +52,9 @@ let g:startify_custom_header = []
 let g:startify_bookmarks = [
       \ { 'v': '~/Dropbox/nvALT/' },
       \ '~/Desktop/sticky.md',
+      \ '~/.vimrc',
+      \ '~/.config/i3/config',
+      \ '~/tempnotes.die',
       \ ]
 
 let g:startify_lists = [
