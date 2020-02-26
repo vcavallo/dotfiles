@@ -34,6 +34,32 @@
  nnoremap <leader>fg :FzfRg<return>
  nnoremap <leader>fb :FzfBuffers<return>
  nnoremap <leader>ft :FzfTags<return>
+
+" Startfiy settings
+
+set viminfo='100,n$HOME/.vim/files/info/viminfo'
+let g:startify_session_sort = 0
+let g:startify_custom_indices = ['a','s','d','f','z','x','c','v']
+let g:startify_custom_header = []
+" let g:startify_skiplist = [ "" Example!
+"     \ 'bundle/.*doc',
+"     \ '/home/vcavallo/somethign'
+"     \ ]
+let g:startify_bookmarks = [
+      \ { 'v': '~/Dropbox/nvALT/' },
+      \ '~/Desktop/sticky.md',
+      \ '~/.vimrc',
+      \ '~/.config/i3/config',
+      \ '~/tempnotes.die',
+      \ ]
+
+let g:startify_lists = [
+      \ { 'type': 'files',     'header': ['   All Files']            },
+      \ { 'type': 'dir',       'header': ['   CWD Files '. getcwd()] },
+      \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+      \ { 'type': 'sessions',  'header': ['   Sessions']       },
+      \ { 'type': 'commands',  'header': ['   Commands']       },
+      \ ]
  
 " setup for ctrlp [ now using fzf ]"
  "set runtimepath^=~/.vim/bundle/ctrlp.vim
