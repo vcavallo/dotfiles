@@ -98,9 +98,10 @@ let g:startify_lists = [
 " syntax on
  syntax enable
  set background=dark
+ colorscheme yin
 " colorscheme smyck
 " colorscheme solarized
-colorscheme tender
+" colorscheme tender
 " colorscheme gruvbox
 " colorscheme falcon
 " colorscheme grb256
@@ -375,8 +376,8 @@ let g:startify_custom_header = 'startify#fortune#boxed()'
 "Airline theme setup:
  " let g:airline_theme='kalisi'
  " let g:airline_theme='gruvbox'
- " let g:airline_theme='raven'
- let g:airline_theme='tender'
+ " let g:airline_theme='tender'
+ let g:airline_theme='raven'
  let g:airline#extensions#tabline#enabled = 1
  let g:airline#extensions#tabline#left_sep = ' '
  let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -387,7 +388,7 @@ let g:startify_custom_header = 'startify#fortune#boxed()'
  let g:airline_section_z = airline#section#create(['%{ObsessionStatus(" obsession "," NO SESSION! ")}', 'windowswap', '%3p%% ', 'linenr', ':%3v '])
 
 "let g:airline_theme='distinguished'
-let g:airline_theme='raven'
+" let g:airline_theme='raven'
 
 let g:ale_linters = {
 \   'javascript': ['eslint'],

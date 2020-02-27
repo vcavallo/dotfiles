@@ -70,6 +70,8 @@ export PATH=$PATH:/opt/gradle/gradle-5.6.2/bin
 
 export PATH=$PATH:/usr/bin/npm
 
+# export LANG=en_NZ.ISO-8859-1
+
 echo "base .bashrc has run"
 
  case $os in
