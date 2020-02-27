@@ -358,6 +358,7 @@ set nocursorline
  " let g:airline_theme='kalisi'
  " let g:airline_theme='gruvbox'
  " let g:airline_theme='zenburn'
+ let g:airline_theme='tender'
  let g:airline#extensions#tabline#enabled = 1
  let g:airline#extensions#tabline#left_sep = ' '
  let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -368,7 +369,7 @@ set nocursorline
  let g:airline_section_z = airline#section#create(['%{ObsessionStatus(" obsession "," NO SESSION! ")}', 'windowswap', '%3p%% ', 'linenr', ':%3v '])
 
 "let g:airline_theme='distinguished'
-let g:airline_theme='raven'
+" let g:airline_theme='raven'
 
 let g:ale_linters = {
 \   'javascript': ['eslint'],
