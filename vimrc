@@ -375,7 +375,8 @@ let g:startify_custom_header = 'startify#fortune#boxed()'
 "Airline theme setup:
  " let g:airline_theme='kalisi'
  " let g:airline_theme='gruvbox'
- let g:airline_theme='raven'
+ " let g:airline_theme='raven'
+ let g:airline_theme='tender'
  let g:airline#extensions#tabline#enabled = 1
  let g:airline#extensions#tabline#left_sep = ' '
  let g:airline#extensions#tabline#left_alt_sep = '|'

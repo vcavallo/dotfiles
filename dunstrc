@@ -186,7 +186,7 @@
     max_icon_size = 32
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/Green-Maia/status/64/:/usr/share/icons/Green-Maia/devices/64/
+    icon_path = /usr/share/icons/Humanity/status/16/:/usr/share/icons/Humanity/devices/16/
 
     ### History ###
 
