@@ -35,6 +35,34 @@ set-option -g status-right "#(~/tmux-powerline/powerline.sh right)"
 # this should fix vim background color
 set -g default-terminal "screen-256color"
 
+set -g automatic-rename on
+set -g set-titles on # rename terminal tab
+set -g set-titles-string '#W' # use window name for tab
+
+set -g status-left-style 'bg=colour05,fg=colour07'
+set -g status-left '[ #S ] #{b:pane_current_path} ' # basename of current pane's path
+
+set -g status-right-style 'bg=colour05,fg=colour07'
+set -g status-right ' #(date +%%c) '
+
+set -g status-style 'bg=colour04,fg=colour12' # fg seems to be the separators only
+set -g window-status-style 'bg=colour04,fg=colour07' # window names in status
+set -g window-status-format '< #I #W #{?#{m:*#(whoami)*,#{b:pane_current_path}},~,#{b:pane_current_path}/ } >'
+# ^ for all inactive panes, if the path is anything other than my home directory, always
+# print it, otherwise if it is home, ONLY print a ~
+# for the CURRENT pane, we'll always show the full dirname
+
+set -g window-status-current-style 'reverse,bg=colour04,fg=colour15'
+set -g window-status-current-format '[ #W #{pane_current_path}/ ]'
+
+set -g window-status-bell-style 'bg=colour01,fg=colour15'
+set -g window-status-separator " "
+
+set -g window-active-style '' # clear weird yellow font in pane's text...
+
+# set -g status-bg colour8 #dark grey
+# set -g status-fg colour16 # dark black
+
 # make active pane border blue (barely noticable)
 set -g pane-active-border-fg blue
 
