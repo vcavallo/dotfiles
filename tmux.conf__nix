@@ -48,10 +48,13 @@ set -g status-right ' #(date +%%c) '
 
 set -g status-style 'bg=colour04,fg=colour12' # fg seems to be the separators only
 set -g window-status-style 'bg=colour04,fg=colour07' # window names in status
-set -g window-status-format '< #I #W #{b:pane_current_path}/ >'
+set -g window-status-format '< #I #W #{?#{m:*#(whoami)*,#{b:pane_current_path}},~,#{b:pane_current_path}/ } >'
+# ^ for all inactive panes, if the path is anything other than my home directory, always
+# print it, otherwise if it is home, ONLY print a ~
+# for the CURRENT pane, we'll always show the full dirname
 
 set -g window-status-current-style 'reverse,bg=colour04,fg=colour15'
-set -g window-status-current-format '[ #W #{b:pane_current_path}/ ]'
+set -g window-status-current-format '[ #W #{pane_current_path}/ ]'
 
 set -g window-status-bell-style 'bg=colour01,fg=colour15'
 set -g window-status-separator " "
