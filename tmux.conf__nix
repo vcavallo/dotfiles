@@ -27,16 +27,43 @@ set-option -g status-interval 2
 set-option -g status-justify "centre"
 set-option -g status-left-length 85
 set-option -g status-right-length 65
-set-option -g status-left "#(~/tmux-powerline/powerline.sh left)"
-set-option -g status-right "#(~/tmux-powerline/powerline.sh right)"
+# set-option -g status-left "#(~/tmux-powerline/powerline.sh left)"
+# set-option -g status-right "#(~/tmux-powerline/powerline.sh right)"
+
 
 ###########################################
 
 # this should fix vim background color
 set -g default-terminal "screen-256color"
 
+set -g automatic-rename on
+set -g set-titles on # rename terminal tab
+set -g set-titles-string '#W' # use window name for tab
+
+set -g status-left-style 'bg=colour05,fg=colour07'
+set -g status-left '[ #S ] #{b:pane_current_path}' # basename of current pane's path
+
+set -g status-right-style 'bg=colour05,fg=colour07'
+set -g status-right ' #(date +%%c) '
+
+set -g status-style 'bg=colour04,fg=colour12' # fg seems to be the separators only
+set -g window-status-style 'bg=colour04,fg=colour07' # window names in status
+set -g window-status-format '< #I #W #{b:pane_current_path}/ >'
+
+set -g window-status-current-style 'reverse,bg=colour04,fg=colour15'
+set -g window-status-current-format '[ #W #{b:pane_current_path}/ ]'
+
+set -g window-status-bell-style 'bg=colour01,fg=colour15'
+set -g window-status-separator " "
+
+set -g window-active-style '' # clear weird yellow font in pane's text...
+
+# set -g status-bg colour8 #dark grey
+# set -g status-fg colour16 # dark black
+
 # make active pane border blue (barely noticable)
-set -g pane-active-border-fg blue
+set -g pane-active-border-style 'bg=brightblue,fg=black'
+set -g pane-border-style 'bg=black,fg=black'
 
 set -g prefix C-a
 
@@ -132,7 +159,8 @@ setw -g mode-keys vi
 bind-key -T copy-mode-vi 'v' send-keys -X begin-selection
 bind-key -T copy-mode-vi 'y' send-keys -X copy-pipe-and-cancel "xclip -sel clip -i"
 
-bind-key c command-prompt -p "window name:" "new-window; rename-window '%%'"
+#bind-key c command-prompt -p "window name:" "new-window; rename-window '%%'"
+# this is renaming new windows as '' rather than letting the process name through
 
 # easily re-source this file
 bind R source-file ~/.tmux.conf
@@ -153,23 +181,23 @@ set -g focus-events on
 # place theme-specific confs (mostly for colors) here.
 # these will override anything above (which is why you should use mostly colors in them)
 ############ for falcon
-source-file /home/vcavallo/.falcon-tmux.conf
+# source-file /home/vcavallo/.falcon-tmux.conf
 ############ end falcon
 
-set -g @continuum-restore 'off'
+# set -g @continuum-restore 'off'
 
 # for vim
-set -g @resurrect-strategy-vim 'session'
+# set -g @resurrect-strategy-vim 'session'
 
-set -g @resurrect-capture-pane-contents 'on'
+# set -g @resurrect-capture-pane-contents 'on'
 
 # list of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
-set -g @plugin 'tmux-plugins/tmux-resurrect'
-set -g @plugin 'tmux-plugins/tmux-continuum'
-set -g @plugin 'tmux-plugins/tmux-sessionist'
-set -g @plugin 'tmux-plugins/tmux-copycat'
+# set -g @plugin 'tmux-plugins/tmux-resurrect'
+# set -g @plugin 'tmux-plugins/tmux-continuum'
+# set -g @plugin 'tmux-plugins/tmux-sessionist'
+# set -g @plugin 'tmux-plugins/tmux-copycat'
 set -g @plugin 'christoomey/vim-tmux-navigator'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
