@@ -41,10 +41,10 @@ set -g set-titles on # rename terminal tab
 set -g set-titles-string '#W' # use window name for tab
 
 set -g status-left-style 'bg=colour05,fg=colour07'
-set -g status-left '[ #S ] #{b:pane_current_path}' # basename of current pane's path
+set -g status-left '[ #S ] #{b:pane_current_path} ' # basename of current pane's path
 
 set -g status-right-style 'bg=colour05,fg=colour07'
-set -g status-right ' #(date +%%c) '
+set -g status-right ' #(date +%%c) '
 
 set -g status-style 'bg=colour04,fg=colour12' # fg seems to be the separators only
 set -g window-status-style 'bg=colour04,fg=colour07' # window names in status
