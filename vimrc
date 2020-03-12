@@ -104,7 +104,7 @@ let g:startify_lists = [
  set background=dark
 " colorscheme smyck
 " colorscheme solarized
- colorscheme tender
+" colorscheme tender
 " colorscheme gruvbox
 " colorscheme falcon
 " colorscheme apprentice
@@ -113,6 +113,7 @@ let g:startify_lists = [
 " apprentice, paramount, seoul256
 " colorscheme seoul256
 " colorscheme grb256
+colorscheme yin
 
  set colorcolumn=85 " show right margin
 " change cursor shape per mode in terminal vim
@@ -238,6 +239,7 @@ autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn set filet
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal syntax=markdown
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal spell
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal wrap linebreak
+autocmd BufRead,BufNewFile *.md,*.markdown setlocal conceallevel=1
 autocmd BufRead,BufNewFile todo.txt setlocal nospell
 " autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal textwidth=80
 autocmd BufRead,BufNewFile *.c setlocal tabstop=8
