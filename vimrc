@@ -60,6 +60,10 @@ let g:startify_lists = [
       \ { 'type': 'sessions',  'header': ['   Sessions']       },
       \ { 'type': 'commands',  'header': ['   Commands']       },
       \ ]
+
+" notational-fzf-vim settings
+let g:nv_search_paths = ['~/Dropbox/nvALT', '~/Dropbox/wiki/notes', '~/Desktop' ]
+nnoremap <leader>nv :NV<cr>
  
 " setup for ctrlp [ now using fzf ]"
  "set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -365,7 +369,7 @@ let g:startify_lists = [
       \ { 'type': 'commands',  'header': ['   Commands']       },
       \ ]
 let g:startify_bookmarks = [
-    \   { 'v': '~/development/vss-rails-vue' },
+    \   { 'v': '~/Dropbox/nvALT' },
     \   { 'w': '~/Dropbox/wiki/notes/index.markdown' },
     \ ]
 

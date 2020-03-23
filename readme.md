@@ -141,10 +141,13 @@ may need to uninstall system ruby first: https://stackoverflow.com/a/37956249
 
 ## Linux and laptops?
 
-- `ln -s  ~/dotfiles/40-libinput.conf /etc/X11/xorg.conf/40-libinput.conf`
-- `ln -s  ~/dotfiles/20-intel.conf /etc/X11/xorg.conf/20-intel.conf`
+First, install the mtrack stuff, which may be tough. check out https://github.com/BlueDragonX/xf86-input-mtrack and https://howchoo.com/g/mdy0ngziogm/the-perfect-almost-touchpad-settings-on-linux-2, might need to install all of `xorg-dev` `libmtdev1` `libmtdev-dev` first. The resulting settings are good, macbook-like, and worth the effort, it seems. unclear if the older `40-libinput.conf` is _also_ needed, or if `50-mtrack.conf` is enough. currently I have both going.
 
-to set up trackpad and backlight on Thinkpad
+- `ln -s ~/dotfiles/40-libinput.conf /etc/X11/xorg.conf/40-libinput.conf`
+- `ln -s ~/dotfiles/20-intel.conf /etc/X11/xorg.conf/20-intel.conf`
+- `ln -s ~/dotfiles/50-mtrack.conf /etc/X11/xorg.conf/50-mtrack.conf`
+
+to set up trackpad and backlight on Thinkpad.
 
 # keeping notes here about stuff to generally install for development
 
