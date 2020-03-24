@@ -38,6 +38,7 @@
  nnoremap <leader>fa :FzfAg<return>
  nnoremap <leader>fg :FzfRg<return>
  nnoremap <leader>fb :FzfBuffers<return>
+ nnoremap <leader>ft :FzfTags<return>
 
 " Startfiy settings
 
@@ -64,6 +65,10 @@ let g:startify_lists = [
       \ { 'type': 'sessions',  'header': ['   Sessions']       },
       \ { 'type': 'commands',  'header': ['   Commands']       },
       \ ]
+
+" notational-fzf-vim settings
+let g:nv_search_paths = ['~/Dropbox/nvALT', '~/Dropbox/wiki/notes', '~/Desktop' ]
+nnoremap <leader>nv :NV<cr>
  
 " setup for ctrlp [ now using fzf ]"
  "set runtimepath^=~/.vim/bundle/ctrlp.vim
