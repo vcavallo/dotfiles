@@ -21,6 +21,11 @@
 
  " need to npm-install prettier
  let g:prettier#exec_cmd_path = "~/.npm-global/bin/prettier"
+ let g:prettier#autoformat_config_present = 1
+ let g:prettier#autoformat_config_files = [".prettierrc"]
+ let g:prettier#autoformat = 0
+ "autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
+ autocmd BufRead *.md let g:prettier#config#prose_wrap = 'always'
 
  let g:deoplete#enable_at_startup = 1
 
@@ -165,7 +170,6 @@ nnoremap <leader>nv :NV<cr>
  set smartcase
  set smartindent
  set tabstop=2
- set softtabstop=2
  set shiftwidth=2
  set expandtab " turn tabs into spaces
 
@@ -244,9 +248,8 @@ autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal 
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal wrap linebreak
 autocmd BufRead,BufNewFile todo.txt setlocal nospell
 " autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal textwidth=80
-autocmd BufRead,BufNewFile *.c set tabstop=8
-autocmd BufRead,BufNewFile *.c set shiftwidth=8
-autocmd BufRead,BufNewFile *.c set softtabstop=8
+autocmd BufRead,BufNewFile *.c setlocal tabstop=8
+autocmd BufRead,BufNewFile *.c setlocal shiftwidth=8
 
 let g:jsx_ext_required = 0 " allows jsx in .js files
 let g:polyglot_disabled = ['js']
