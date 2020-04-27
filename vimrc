@@ -67,7 +67,7 @@ let g:startify_lists = [
       \ ]
 
 " notational-fzf-vim settings
-let g:nv_search_paths = ['~/Dropbox/nvALT', '~/Dropbox/wiki/notes', '~/Desktop' ]
+let g:nv_search_paths = ['~/Dropbox/nvALT', '~/Dropbox/wiki/notes', '~/Dropbox/Documents', '~/Desktop' ]
 nnoremap <leader>nv :NV<cr>
  
 " setup for ctrlp [ now using fzf ]"
@@ -249,6 +249,7 @@ autocmd BufRead,BufNewFile todo.txt setlocal nospell
 " autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal textwidth=80
 autocmd BufRead,BufNewFile *.c setlocal tabstop=8
 autocmd BufRead,BufNewFile *.c setlocal shiftwidth=8
+autocmd FileType help setlocal nospell
 
 let g:jsx_ext_required = 0 " allows jsx in .js files
 let g:polyglot_disabled = ['js']
@@ -264,6 +265,10 @@ let g:polyglot_disabled = ['js']
  autocmd FileType go nmap <leader>r :GoRun<CR>
  autocmd FileType go nmap <leader>t :GoTest<CR>
  autocmd FileType go nmap <leader>s :GoTestFunc<CR>
+
+ let g:go_auto_type_info = 1
+ let g:go_auto_sameids = 1
+ set updatetime=100
 
 " vimwiki
  let wiki_trunk = {}
