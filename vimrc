@@ -266,8 +266,10 @@ let g:polyglot_disabled = ['js']
  autocmd FileType go nmap <leader>t :GoTest<CR>
  autocmd FileType go nmap <leader>s :GoTestFunc<CR>
 
+ nnoremap <leader>g :GoFmt<Cr>
  let g:go_auto_type_info = 1
  let g:go_auto_sameids = 1
+ let g:go_fmt_command = "goimports"
  set updatetime=100
 
 " vimwiki
