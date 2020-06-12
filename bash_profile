@@ -72,7 +72,7 @@ esac
 # used for os-specific functions
 os=`uname -s`
 
-echo "base .bash_profile has run"
+# echo "base .bash_profile has run"
 
 case $os in
  "Darwin" )

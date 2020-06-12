@@ -1,6 +1,6 @@
-xsetwacom set "Wacom BambooFun 6x8 Pen stylus" Button 1 "1"  # left mouse click
-xsetwacom set "Wacom BambooFun 6x8 Pen cursor" CursorProximity 5 # don't see the mouse when it's lifted
-xsetwacom set "Wacom BambooFun 6x8 Pen stylus" MapToOutput HDMI-0
-xsetwacom set "Wacom BambooFun 6x8 Pen eraser" MapToOutput HDMI-0
-xsetwacom set "Wacom BambooFun 6x8 Pen stylus" Mode "Absolute" # relative/absolute
-xsetwacom set "Wacom BambooFun 6x8 Pen eraser" Mode "Absolute" # vs Absolute
+# xsetwacom set "Wacom BambooFun 6x8 Pen stylus" Button 1 "1"  # left mouse click
+# xsetwacom set "Wacom BambooFun 6x8 Pen cursor" CursorProximity 5 # don't see the mouse when it's lifted
+# xsetwacom set "Wacom BambooFun 6x8 Pen stylus" MapToOutput HDMI-0
+# xsetwacom set "Wacom BambooFun 6x8 Pen eraser" MapToOutput HDMI-0
+# xsetwacom set "Wacom BambooFun 6x8 Pen stylus" Mode "Absolute" # relative/absolute
+# xsetwacom set "Wacom BambooFun 6x8 Pen eraser" Mode "Absolute" # vs Absolute
