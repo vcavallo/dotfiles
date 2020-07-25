@@ -44,11 +44,12 @@
 
     local USER="\u"
     local HOST="\h"
-    local TIME=`fmt_time`
+    #local TIME=`fmt_time` # this freezes the date...
+    local DATETIME='\D{%a %b %d, %l:%M:%S%P}'
     local WORKING_PATH="\w"
     local DATE="\d"
     # build the prompt variable here:
-    local PROMPT="[ $LGRAY$USER@$HOST $IPURPLE$DATE, $TIME $ENDC] $IBLUE$WORKING_PATH\n$IYELLOW\$git_branch$BBLACK_ON_IGREEN\$git_dirty$IRED\$$ENDC "
+    local PROMPT="$USER@$HOST $IPURPLE$DATETIME $ENDC> $IBLUE$WORKING_PATH\n$IYELLOW\$git_branch$BBLACK_ON_IGREEN\$git_dirty$IRED\$$ENDC "
 
     export PS1=$PROMPT
       PS2='> '
@@ -229,6 +230,8 @@ unset GEM_HOME
 if [ -d "$HOME/.yarn" ] ; then
   export PATH="$HOME/.yarn/bin:$PATH"
 fi
+
+. /home/vcavallo/.nix-profile/etc/profile.d/nix.sh
 
 echo "linux bashrc has run"
 

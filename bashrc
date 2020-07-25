@@ -26,6 +26,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 alias fzfp="fzf --preview 'head -100 {}'"
+alias n="neuron"
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile

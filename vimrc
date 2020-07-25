@@ -33,6 +33,7 @@
  set rtp+=~/.fzf
  let g:fzf_command_prefix = 'Fzf'
  :nmap <C-P> :FzfFiles<return>
+ let g:fzf_preview_window = 'right:60%'
 
  nnoremap <leader>ff :FzfFiles<return>
  nnoremap <leader>fa :FzfAg<return>
@@ -53,6 +54,7 @@ let g:startify_custom_header = []
 let g:startify_bookmarks = [
       \ { 'v': '~/Dropbox/nvALT/' },
       \ '~/Desktop/sticky.md',
+      \ '~/Dropbox/zettelkasten',
       \ '~/.vimrc',
       \ '~/.config/i3/config',
       \ '~/tempnotes.die',
@@ -67,7 +69,7 @@ let g:startify_lists = [
       \ ]
 
 " notational-fzf-vim settings
-let g:nv_search_paths = ['~/Dropbox/nvALT', '~/Dropbox/wiki/notes', '~/Dropbox/Documents', '~/Desktop' ]
+let g:nv_search_paths = ['~/Dropbox/nvALT', '~/Dropbox/wiki/notes', '~/Dropbox/Documents', '~/Dropbox/zettelkasten', '~/Desktop' ]
 nnoremap <leader>nv :NV<cr>
  
 " setup for ctrlp [ now using fzf ]"
