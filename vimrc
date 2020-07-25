@@ -40,6 +40,9 @@
  nnoremap <leader>fb :FzfBuffers<return>
  nnoremap <leader>ft :FzfTags<return>
 
+let g:nv_search_paths = ['~/Dropbox/nvALT', '~/Dropbox/wiki/notes', '~/Desktop', '~/Dropbox/zettelkasten' ]
+nnoremap <leader>nv :NV<cr>
+
 " Startfiy settings
 
 set viminfo='100,n$HOME/.vim/files/info/viminfo'
