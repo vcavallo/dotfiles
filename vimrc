@@ -44,6 +44,12 @@
 " Startfiy settings
 
 set viminfo='100,n$HOME/.vim/files/info/viminfo'
+
+set shortmess=IA
+
+" Turning it off for now
+let g:startify_disable_at_vimenter = 1
+
 let g:startify_session_sort = 0
 let g:startify_custom_indices = ['a','s','d','f','z','x','c','v']
 let g:startify_custom_header = []
@@ -69,8 +75,15 @@ let g:startify_lists = [
       \ ]
 
 " notational-fzf-vim settings
-let g:nv_search_paths = ['~/Dropbox/nvALT', '~/Dropbox/wiki/notes', '~/Dropbox/Documents', '~/Dropbox/zettelkasten', '~/Desktop' ]
+let g:nv_search_paths = [
+  \ '~/Dropbox/nvALT',
+  \ '~/Dropbox/wiki/notes',
+  \ '~/Dropbox/Documents',
+  \ '~/Dropbox/zettelkasten',
+  \ '~/Desktop']
+let g:nv_create_note_window = 'split' " tabedit
 nnoremap <leader>nv :NV<cr>
+
  
 " setup for ctrlp [ now using fzf ]"
  "set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -277,10 +290,44 @@ let g:polyglot_disabled = ['js']
 " vimwiki
  let wiki_trunk = {}
  let wiki_trunk.path = '~/Dropbox/wiki/notes'
+ let wiki_trunk.ext = '.md'
+ let wiki_trunk.syntax = 'markdown'
+ let wiki_trunk.links_space_char = '-'
+
+ let zettel_trunk = {}
+ let zettel_trunk.path = '~/zettelkasten'
+ let zettel_trunk.syntax = 'markdown'
+ let zettel_trunk.ext = '.md'
+ let zettel_trunk.links_space_char = '-'
+
  "let wiki_trunk.syntax = 'markdown' " testing because jekyll sites don't
  "allow vinegar to open
- let wiki_trunk.ext = '.markdown'
- let g:vimwiki_list = [wiki_trunk]
+ let g:vimwiki_list = [wiki_trunk, zettel_trunk]
+
+
+let g:zettel_format = "%y%m%d%H%M%S"
+let g:zettel_date_format = "%y-%m-%d"
+" let g:zettel_options = [{}, {"template" :  "~/Dropbox/zettelkasten/zettel_template.tpl"}]
+" let g:zettel_default_mappings
+" let g:zettel_fzf_command
+" let g:zettel_fzf_options
+" let g:zettel_backlinks_title
+" let g:zettel_fzf_options = ['--exact', '--tiebreak=end']
+" let g:zettel_link_format="[%title](%link)"
+nnoremap <leader>zkn :ZettelNew<space>
+nnoremap <leader>zko :ZettelOpen<cr>
+nnoremap <leader>zki :ZettelInsertNote<cr>
+nnoremap <leader>zky :ZettelYankName<cr>
+
+" let g:zettel_default_mappings = 0
+" " This is basically the same as the default configuration
+" augroup filetype_vimwiki
+"   autocmd!
+"   autocmd FileType vimwiki imap <silent> [[ [[<esc><Plug>ZettelSearchMap
+"   autocmd FileType vimwiki nmap T <Plug>ZettelYankNameMap
+"   autocmd FileType vimwiki xmap z <Plug>ZettelNewSelectedMap
+"   autocmd FileType vimwiki nmap gZ <Plug>ZettelReplaceFileWithLink
+" augroup END
 
  let g:syntastic_mode_map={ 'mode': 'active',
                       \ 'active_filetypes': [],
