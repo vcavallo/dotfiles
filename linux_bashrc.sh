@@ -156,10 +156,9 @@
   alias cd..='cd ..'
 
   # GREP
-  alias grep='grep -n --color=auto'
+  alias grep='grep --color=auto'
 
-  # Restart POW server for this app
-  alias restart="touch tmp/restart.txt"
+  alias z="cd ~/zettelkasten"
 
   # pb - wrap c or v in `these` to evalute in the command
   # pb copy
