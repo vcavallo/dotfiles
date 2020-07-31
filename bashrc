@@ -25,7 +25,8 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias fzfp="fzf --preview 'head -100 {}'"
+alias fzfp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
+alias n="neuron"
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -80,6 +81,10 @@ echo "base .bashrc has run"
    "Linux" )
      source ~/dotfiles/linux_bashrc.sh;;
  esac
+
+#. /home/vcavallo/.nix-profile/etc/profile.d/nix.sh
+
+if [ -e /home/vcavallo/.nix-profile/etc/profile.d/nix.sh ]; then . /home/vcavallo/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 export NVM_DIR="/home/vcavallo/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

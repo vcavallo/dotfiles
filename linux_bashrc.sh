@@ -230,6 +230,8 @@ if [ -d "$HOME/.yarn" ] ; then
   export PATH="$HOME/.yarn/bin:$PATH"
 fi
 
+alias fzfp="fzf --border --preview 'bat --style=numbers --color=always --line-range :500 {}'"
+
 echo "linux bashrc has run"
 
 NPM_PACKAGES="${HOME}/.npm-packages"
