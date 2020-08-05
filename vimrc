@@ -20,12 +20,12 @@
  call pathogen#infect()
 
  " need to npm-install prettier
- " let g:prettier#exec_cmd_path = "~/.npm-global/bin/prettier"
- " let g:prettier#autoformat_config_present = 1
- " let g:prettier#autoformat_config_files = [".prettierrc"]
- " let g:prettier#autoformat = 0
- " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
- " autocmd BufRead *.md let g:prettier#config#prose_wrap = 'always'
+ let g:prettier#exec_cmd_path = "~/.npm-global/bin/prettier"
+ let g:prettier#autoformat_config_present = 1
+ let g:prettier#autoformat_config_files = [".prettierrc"]
+ let g:prettier#autoformat = 0
+ "autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
+ autocmd BufRead *.md let g:prettier#config#prose_wrap = 'always'
 
  let g:deoplete#enable_at_startup = 1
 
@@ -33,6 +33,7 @@
  set rtp+=~/.fzf
  let g:fzf_command_prefix = 'Fzf'
  :nmap <C-P> :FzfFiles<return>
+ let g:fzf_preview_window = 'right:60%'
 
  nnoremap <leader>ff :FzfFiles<return>
  nnoremap <leader>fa :FzfAg<return>
@@ -40,12 +41,15 @@
  nnoremap <leader>fb :FzfBuffers<return>
  nnoremap <leader>ft :FzfTags<return>
 
-let g:nv_search_paths = ['~/Dropbox/nvALT', '~/Dropbox/wiki/notes', '~/Desktop', '~/Dropbox/zettelkasten' ]
-nnoremap <leader>nv :NV<cr>
-
 " Startfiy settings
 
 set viminfo='100,n$HOME/.vim/files/info/viminfo'
+
+set shortmess=IA
+
+" Turning it off for now
+let g:startify_disable_at_vimenter = 1
+
 let g:startify_session_sort = 0
 let g:startify_custom_indices = ['a','s','d','f','z','x','c','v']
 let g:startify_custom_header = []
@@ -56,6 +60,7 @@ let g:startify_custom_header = []
 let g:startify_bookmarks = [
       \ { 'v': '~/Dropbox/nvALT/' },
       \ '~/Desktop/sticky.md',
+      \ '~/Dropbox/zettelkasten',
       \ '~/.vimrc',
       \ '~/.config/i3/config',
       \ '~/tempnotes.die',
@@ -70,8 +75,15 @@ let g:startify_lists = [
       \ ]
 
 " notational-fzf-vim settings
-let g:nv_search_paths = ['~/Dropbox/nvALT', '~/Dropbox/wiki/notes', '~/Desktop' ]
+let g:nv_search_paths = [
+  \ '~/Dropbox/nvALT',
+  \ '~/Dropbox/wiki/notes',
+  \ '~/Dropbox/Documents',
+  \ '~/Dropbox/zettelkasten',
+  \ '~/Desktop']
+let g:nv_create_note_window = 'split' " tabedit
 nnoremap <leader>nv :NV<cr>
+
  
 " setup for ctrlp [ now using fzf ]"
  "set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -110,20 +122,18 @@ nnoremap <leader>nv :NV<cr>
 " syntax on
  syntax enable
  set background=dark
- colorscheme yin
 " colorscheme smyck
 " colorscheme solarized
 " colorscheme tender
 " colorscheme gruvbox
 " colorscheme falcon
-" colorscheme grb256
-" colorscheme 256_noir
 " colorscheme apprentice
 " let g:solarized_termtrans = 1
 " low-impact colorschemes i like:
 " apprentice, paramount, seoul256
 " colorscheme seoul256
 " colorscheme grb256
+colorscheme yin
 
  set colorcolumn=85 " show right margin
 " change cursor shape per mode in terminal vim
@@ -249,10 +259,12 @@ autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn set filet
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal syntax=markdown
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal spell
 autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal wrap linebreak
+autocmd BufRead,BufNewFile *.md,*.markdown setlocal conceallevel=1
 autocmd BufRead,BufNewFile todo.txt setlocal nospell
 " autocmd BufRead,BufNewFile *.txt,*.md,*.*markdown,*.mdown,*.mkd,*.mkdn setlocal textwidth=80
 autocmd BufRead,BufNewFile *.c setlocal tabstop=8
 autocmd BufRead,BufNewFile *.c setlocal shiftwidth=8
+autocmd FileType help setlocal nospell
 
 let g:jsx_ext_required = 0 " allows jsx in .js files
 let g:polyglot_disabled = ['js']
@@ -269,13 +281,53 @@ let g:polyglot_disabled = ['js']
  autocmd FileType go nmap <leader>t :GoTest<CR>
  autocmd FileType go nmap <leader>s :GoTestFunc<CR>
 
+ nnoremap <leader>g :GoFmt<Cr>
+ let g:go_auto_type_info = 1
+ let g:go_auto_sameids = 1
+ let g:go_fmt_command = "goimports"
+ set updatetime=100
+
 " vimwiki
  let wiki_trunk = {}
  let wiki_trunk.path = '~/Dropbox/wiki/notes'
+ let wiki_trunk.ext = '.md'
+ let wiki_trunk.syntax = 'markdown'
+ let wiki_trunk.links_space_char = '-'
+
+ let zettel_trunk = {}
+ let zettel_trunk.path = '~/zettelkasten'
+ let zettel_trunk.syntax = 'markdown'
+ let zettel_trunk.ext = '.md'
+ let zettel_trunk.links_space_char = '-'
+
  "let wiki_trunk.syntax = 'markdown' " testing because jekyll sites don't
  "allow vinegar to open
- let wiki_trunk.ext = '.markdown'
- let g:vimwiki_list = [wiki_trunk]
+ let g:vimwiki_list = [wiki_trunk, zettel_trunk]
+
+
+let g:zettel_format = "%y%m%d%H%M%S"
+let g:zettel_date_format = "%y-%m-%d"
+" let g:zettel_options = [{}, {"template" :  "~/Dropbox/zettelkasten/zettel_template.tpl"}]
+" let g:zettel_default_mappings
+" let g:zettel_fzf_command
+" let g:zettel_fzf_options
+" let g:zettel_backlinks_title
+" let g:zettel_fzf_options = ['--exact', '--tiebreak=end']
+" let g:zettel_link_format="[%title](%link)"
+nnoremap <leader>zkn :ZettelNew<space>
+nnoremap <leader>zko :ZettelOpen<cr>
+nnoremap <leader>zki :ZettelInsertNote<cr>
+nnoremap <leader>zky :ZettelYankName<cr>
+
+" let g:zettel_default_mappings = 0
+" " This is basically the same as the default configuration
+" augroup filetype_vimwiki
+"   autocmd!
+"   autocmd FileType vimwiki imap <silent> [[ [[<esc><Plug>ZettelSearchMap
+"   autocmd FileType vimwiki nmap T <Plug>ZettelYankNameMap
+"   autocmd FileType vimwiki xmap z <Plug>ZettelNewSelectedMap
+"   autocmd FileType vimwiki nmap gZ <Plug>ZettelReplaceFileWithLink
+" augroup END
 
  let g:syntastic_mode_map={ 'mode': 'active',
                       \ 'active_filetypes': [],
@@ -364,24 +416,6 @@ set nocursorline
 
 "hide buffers when not displayed
  set hidden
-
-" Startify options
-"
-let g:startify_lists = [
-      \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-      \ { 'type': 'files',     'header': ['   MRU']            },
-      \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
-      \ { 'type': 'sessions',  'header': ['   Sessions']       },
-      \ { 'type': 'commands',  'header': ['   Commands']       },
-      \ ]
-let g:startify_bookmarks = [
-    \   { 'v': '~/Dropbox/nvALT' },
-    \   { 'w': '~/Dropbox/wiki/notes/index.markdown' },
-    \ ]
-
-let g:startify_custom_indices = ['a','s','d','f','g','z','x','c']
-let g:startify_custom_header = 'startify#fortune#boxed()'
-
 
 "Airline theme setup:
  " let g:airline_theme='kalisi'
