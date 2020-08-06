@@ -1,23 +1,60 @@
 "Use Vim settings, rather then Vi settings (much better!).
 "This must be first, because it changes other options as a side effect.
  set nocompatible
+ filetype off
 
- let g:pathogen_blacklist = []
- call add(g:pathogen_blacklist, 'ctrlp.vim')
- "call add(g:pathogen_blacklist, 'vim-vinegar')
- "call add(g:pathogen_blacklist, 'vim-unimpaired')
- "call add(g:pathogen_blacklist, 'vim-rspec')
- call add(g:pathogen_blacklist, 'rust')
- call add(g:pathogen_blacklist, 'vim-autoclose')
- " call add(g:pathogen_blacklist, 'vim-tmux-navigator')
- call add(g:pathogen_blacklist, 'nvim')
- call add(g:pathogen_blacklist, 'itchy')
- call add(g:pathogen_blacklist, 'pad')
- call add(g:pathogen_blacklist, 'vim-rails')
- call add(g:pathogen_blacklist, 'vim-bundler')
+ "let g:pathogen_blacklist = []
+ "call add(g:pathogen_blacklist, 'ctrlp.vim')
+ ""call add(g:pathogen_blacklist, 'vim-vinegar')
+ ""call add(g:pathogen_blacklist, 'vim-unimpaired')
+ ""call add(g:pathogen_blacklist, 'vim-rspec')
+ "call add(g:pathogen_blacklist, 'rust')
+ "call add(g:pathogen_blacklist, 'vim-autoclose')
+ "" call add(g:pathogen_blacklist, 'vim-tmux-navigator')
+ "call add(g:pathogen_blacklist, 'nvim')
+ "call add(g:pathogen_blacklist, 'itchy')
+ "call add(g:pathogen_blacklist, 'pad')
+ "call add(g:pathogen_blacklist, 'vim-rails')
+ "call add(g:pathogen_blacklist, 'vim-bundler')
 
-"activate pathogen
- call pathogen#infect()
+""activate pathogen
+ "call pathogen#infect()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'tpope/vim-fugitive'
+Plugin 'mileszs/ack.vim'
+Plugin 'scrooloose/NERDCommenter'
+Plugin 'bling/vim-airline'
+Plugin 'lokaltog/vim-easymotion'
+Plugin 'Valloric/vim-indent-guides'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'vimwiki/vimwiki'
+Plugin 'morhetz/gruvbox'
+Plugin 'tpope/vim-vinegar'
+Plugin 'jacoborus/tender.vim'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'fenetikm/falcon'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'mhinz/vim-startify'
+Plugin 'rafi/awesome-vim-colorschemes'
+Plugin 'fatih/vim-go'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'junegunn/fzf.vim'
+Plugin 'prettier/vim-prettier'
+Plugin 'dense-analysis/ale'
+Plugin 'wakatime/vim-wakatime'
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
+Plugin 'alok/notational-fzf-vim'
+Plugin 'ihsanturk/neuron.vim'
+Plugin 'michal-h21/vim-zettel'
+Plugin 'junegunn/fzf'
+call vundle#end()            " required
+filetype plugin indent on    " required
 
  " need to npm-install prettier
  let g:prettier#exec_cmd_path = "~/.npm-global/bin/prettier"
@@ -27,7 +64,7 @@
  "autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
  autocmd BufRead *.md let g:prettier#config#prose_wrap = 'always'
 
- let g:deoplete#enable_at_startup = 1
+ let g:deoplete#enable_at_startup = 0
 
  " set up fzf
  set rtp+=~/.fzf
@@ -430,7 +467,6 @@ set nocursorline
  let g:airline_right_sep = ''
  let g:airline_left_sep = ''
  let g:airline#extensions#branch#enabled= 0
- let g:airline_section_z = airline#section#create(['%{ObsessionStatus(" obsession "," NO SESSION! ")}', 'windowswap', '%3p%% ', 'linenr', ':%3v '])
 
 "let g:airline_theme='distinguished'
 " let g:airline_theme='raven'
