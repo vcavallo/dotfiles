@@ -342,8 +342,8 @@ let g:polyglot_disabled = ['js']
  let g:vimwiki_list = [wiki_trunk, zettel_trunk]
 
 
-let g:zettel_format = "%y%m%d%H%M%S"
-let g:zettel_date_format = "%y-%m-%d"
+let g:zettel_format = "%Y%m%d%H%M%S"
+let g:zettel_date_format = "%Y-%m-%d"
 " let g:zettel_options = [{}, {"template" :  "~/Dropbox/zettelkasten/zettel_template.tpl"}]
 " let g:zettel_default_mappings
 " let g:zettel_fzf_command
@@ -351,7 +351,7 @@ let g:zettel_date_format = "%y-%m-%d"
 " let g:zettel_backlinks_title
 " let g:zettel_fzf_options = ['--exact', '--tiebreak=end']
 " let g:zettel_link_format="[%title](%link)"
-nnoremap <leader>zkn :ZettelNew<space>
+nnoremap <leader>zn :ZettelNew<space>
 nnoremap <leader>zko :ZettelOpen<cr>
 nnoremap <leader>zki :ZettelInsertNote<cr>
 nnoremap <leader>zky :ZettelYankName<cr>

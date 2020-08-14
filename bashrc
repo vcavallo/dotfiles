@@ -27,6 +27,11 @@ alias l='ls -CF'
 
 alias fzfp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 alias n="neuron"
+alias z="cd ~/zettelkasten"
+alias d="todo.sh"
+
+export TODOTXT_ACTIONS_DIR=~/Dropbox/todotxt-meta
+
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
