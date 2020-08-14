@@ -1,26 +1,10 @@
-"Use Vim settings, rather then Vi settings (much better!).
-"This must be first, because it changes other options as a side effect.
  set nocompatible
  filetype off
 
- "let g:pathogen_blacklist = []
- "call add(g:pathogen_blacklist, 'ctrlp.vim')
- ""call add(g:pathogen_blacklist, 'vim-vinegar')
- ""call add(g:pathogen_blacklist, 'vim-unimpaired')
- ""call add(g:pathogen_blacklist, 'vim-rspec')
- "call add(g:pathogen_blacklist, 'rust')
- "call add(g:pathogen_blacklist, 'vim-autoclose')
- "" call add(g:pathogen_blacklist, 'vim-tmux-navigator')
- "call add(g:pathogen_blacklist, 'nvim')
- "call add(g:pathogen_blacklist, 'itchy')
- "call add(g:pathogen_blacklist, 'pad')
- "call add(g:pathogen_blacklist, 'vim-rails')
- "call add(g:pathogen_blacklist, 'vim-bundler')
-
-""activate pathogen
- "call pathogen#infect()
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'tpope/vim-fugitive'
 Plugin 'mileszs/ack.vim'
@@ -31,7 +15,6 @@ Plugin 'Valloric/vim-indent-guides'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'vimwiki/vimwiki'
 Plugin 'morhetz/gruvbox'
 Plugin 'tpope/vim-vinegar'
 Plugin 'jacoborus/tender.vim'
@@ -43,7 +26,6 @@ Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'fatih/vim-go'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'Shougo/deoplete.nvim'
-Plugin 'junegunn/fzf.vim'
 Plugin 'prettier/vim-prettier'
 Plugin 'dense-analysis/ale'
 Plugin 'wakatime/vim-wakatime'
@@ -51,8 +33,10 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'alok/notational-fzf-vim'
 Plugin 'ihsanturk/neuron.vim'
-Plugin 'michal-h21/vim-zettel'
+Plugin 'vimwiki/vimwiki'
 Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'michal-h21/vim-zettel'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -336,6 +320,8 @@ let g:polyglot_disabled = ['js']
  let zettel_trunk.syntax = 'markdown'
  let zettel_trunk.ext = '.md'
  let zettel_trunk.links_space_char = '-'
+
+nnoremap <leader>zn :ZettelNew<space>
 
  "let wiki_trunk.syntax = 'markdown' " testing because jekyll sites don't
  "allow vinegar to open
