@@ -35,6 +35,7 @@ export TODO_FILE="$TODO_DIR/todo.txt"
 export TODO_DONE_FILE="$TODO_DIR/todo-done.txt"
 export TODO_REPORT_FILE="$TODO_DIR/todo-report.txt"
 export TODO_ACTIONS_DIR="$HOME/.config/todo-txt/actions"
+export TODOTXT_DEFAULT_ACTION=ls
 
 
 # enable programmable completion features (you don't need to enable
