@@ -105,6 +105,15 @@ let g:nv_search_paths = [
 let g:nv_create_note_window = 'split' " tabedit
 nnoremap <leader>nv :NV<cr>
 
+" for when you have a new buffer and you want to save it directly
+" to the notes directory. Filename defautls to first line, but can
+" be changed after calling the funciton.
+function! SaveFileToNotes()
+  let l:filename = input('filename:', getline(1))
+  execute "write " . "~/Dropbox/nvALT/".l:filename.".md"
+endfunction
+nnoremap <leader>nnv :call SaveFileToNotes()<cr>
+
  
 " setup for ctrlp [ now using fzf ]"
  "set runtimepath^=~/.vim/bundle/ctrlp.vim
