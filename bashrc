@@ -70,10 +70,10 @@ export PATH=$PATH:/usr/local/go/bin
 # export GOPATH=$HOME/go
 # export PATH=$PATH:$GOPATH/bin
 
- # used for os-specific functions
- os=`uname -s`
+# used for os-specific functions
+os=`uname -s`
 
- ~/.xsetwacom.sh
+# ~/.xsetwacom.sh
 
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
