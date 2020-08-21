@@ -27,6 +27,7 @@ files="\
   xinitrc\
   xsetwacom.sh__nix\
   compton.conf\
+  todo.cfg\
   tmux-powerlinerc"  # list of files/folders to symlink in homedir
 
 ##########

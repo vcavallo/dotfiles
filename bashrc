@@ -28,7 +28,7 @@ alias l='ls -CF'
 alias fzfp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 alias n="neuron"
 alias z="cd ~/zettelkasten"
-alias d="todo.sh"
+alias d="todo.sh -d ~/.todo.cfg"
 
 export TODO_DIR=/home/vcavallo/Dropbox
 export TODO_FILE="$TODO_DIR/todo.txt"
