@@ -334,6 +334,7 @@ let g:polyglot_disabled = ['js']
  "allow vinegar to open
  let g:vimwiki_list = [wiki_trunk, zettel_trunk]
 
+nmap <Leader>wo <Plug>VimwikiIndex
 
 let g:zettel_format = "%Y%m%d%H%M%S"
 let g:zettel_date_format = "%Y-%m-%d"
