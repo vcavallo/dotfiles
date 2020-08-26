@@ -190,13 +190,13 @@ colorscheme yin
 "" done and top of archive - D
 
 " save and close mappings to avoid accidental :q when trying to :w
- map <Leader>w :w<CR>
- map <Leader>z :q<CR>
+ map <Leader>ww :w<CR>
+ map <Leader>zz :q<CR>
 
 " toggle paste modes
  map <Leader>vv :set invpaste paste?<CR>
 
-" enter paste mode, paste at current indent level, leave paste mode
+" enter paste mode, paste at current indent level from clipboard, leave paste mode
  map <Leader>p <Leader>vv"*]p<Leader>vv
 
 " from this line, drop down one and then add blank lines above and below new
@@ -258,13 +258,13 @@ colorscheme yin
  nnoremap <C-H> <C-W><C-H>
 
 " toggle to previous buffer
- map <leader>\ <C-^>
+ map <leader>bb <C-^>
 
 " RSpec.vim mappings
- map <Leader>t :call RunCurrentSpecFile()<CR>
- map <Leader>s :call RunNearestSpec()<CR>
- map <Leader>l :call RunLastSpec()<CR>
- map <Leader>a :call RunAllSpecs()<CR>
+ autocmd FileType ruby nmap <Leader>t :call RunCurrentSpecFile()<CR>
+ autocmd FileType ruby nmap <Leader>s :call RunNearestSpec()<CR>
+ autocmd FileType ruby nmap <Leader>l :call RunLastSpec()<CR>
+ autocmd FileType ruby nmap <Leader>a :call RunAllSpecs()<CR>
  let g:rspec_command = "!bin/rspec {spec}"
 
 " Cucumber mappings
@@ -310,8 +310,8 @@ let g:polyglot_disabled = ['js']
  autocmd FileType go nmap <leader>r :GoRun<CR>
  autocmd FileType go nmap <leader>t :GoTest<CR>
  autocmd FileType go nmap <leader>s :GoTestFunc<CR>
+ autocmd FileType go nmap <leader>g :GoFmt<CR>
 
- nnoremap <leader>g :GoFmt<Cr>
  let g:go_auto_type_info = 1
  let g:go_auto_sameids = 1
  let g:go_fmt_command = "goimports"
@@ -329,8 +329,6 @@ let g:polyglot_disabled = ['js']
  let zettel_trunk.syntax = 'markdown'
  let zettel_trunk.ext = '.md'
  let zettel_trunk.links_space_char = '-'
-
-nnoremap <leader>zn :ZettelNew<space>
 
  "let wiki_trunk.syntax = 'markdown' " testing because jekyll sites don't
  "allow vinegar to open
@@ -710,7 +708,7 @@ let g:ale_linters = {
  nnoremap Y y$
 
 "close quickfix easily:
-nnoremap <leader>q :cclose<CR>
+nnoremap <leader>qq :cclose<CR>
 
 "visual search mappings
  function! s:VSetSearch()
