@@ -84,6 +84,7 @@ bind-key -r H resize-pane -L 10
 bind-key -r J resize-pane -D 10
 bind-key -r K resize-pane -U 10
 bind-key -r L resize-pane -R 10
+bind-key -r R command-prompt -p 'Enter percentage: ' -I 50 "resize-pane -y %1\%"
 
 # easier pane navigating
 # testing out pain_control bindings
