@@ -36,7 +36,7 @@ Plugin 'ihsanturk/neuron.vim'
 Plugin 'vimwiki/vimwiki'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
-Plugin 'michal-h21/vim-zettel'
+"Plugin 'michal-h21/vim-zettel'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -373,10 +373,10 @@ nnoremap <leader>zky :ZettelYankName<cr>
  :map tt :Vexplore<cr>
 
 " resize splits on focus:
- set winwidth=84
- set winheight=5
- set winminheight=5
- set winheight=999
+" set winwidth=84
+" set winheight=5
+" set winminheight=5
+" set winheight=999
 
 " highlight current line
 set nocursorline
