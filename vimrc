@@ -2,6 +2,7 @@
  filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
+"set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
@@ -32,13 +33,16 @@ Plugin 'wakatime/vim-wakatime'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'alok/notational-fzf-vim'
-Plugin 'ihsanturk/neuron.vim'
+" Plugin 'ihsanturk/neuron.vim'
+Plugin 'fiatjaf/neuron.vim'
 Plugin 'vimwiki/vimwiki'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 "Plugin 'michal-h21/vim-zettel'
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+let g:path_neuron = "/home/vcavallo/.nix-profile/bin/neuron"
 
  " need to npm-install prettier
  let g:prettier#exec_cmd_path = "~/.npm-global/bin/prettier"
@@ -64,7 +68,10 @@ filetype plugin indent on    " required
 
 " Startfiy settings
 
-set viminfo='100,n$HOME/.vim/files/info/viminfo'
+" commenting out for nvim help
+if !has('nvim')
+  set viminfo='100,n$HOME/.vim/files/info/viminfo'
+endif
 
 set shortmess=IA
 
@@ -339,9 +346,10 @@ let g:polyglot_disabled = ['js']
  let zettel_trunk.ext = '.md'
  let zettel_trunk.links_space_char = '-'
 
- "let wiki_trunk.syntax = 'markdown' " testing because jekyll sites don't
- "allow vinegar to open
- let g:vimwiki_list = [wiki_trunk, zettel_trunk]
+let g:vimwiki_list = [wiki_trunk, zettel_trunk]
+
+" remove the '-' mapping to allow vim vinegar to open:
+nmap <Nop> <Plug>VimwikiRemoveHeaderLevel
 
 nmap <Leader>wo <Plug>VimwikiIndex
 
@@ -449,7 +457,10 @@ set nocursorline
 
 "some stuff to get the mouse going in term
  set mouse=a
- set ttymouse=xterm2
+if !has('nvim')
+ " more nvim commenting
+  set ttymouse=xterm2
+endif
 
 "tell the term has 256 colors
  set t_Co=256

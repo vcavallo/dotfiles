@@ -33,7 +33,8 @@ set-option -g status-right "#(~/tmux-powerline/powerline.sh right)"
 ###########################################
 
 # this should fix vim background color
-set -g default-terminal "screen-256color"
+# set -g default-terminal "screen-256color"
+set -g default-terminal "xterm-256color"
 
 set -g automatic-rename on
 set -g set-titles on # rename terminal tab
