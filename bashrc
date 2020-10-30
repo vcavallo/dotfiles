@@ -51,6 +51,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
+if [ -f /etc/bash_completion ]; then
+  . /etc/bash_completion
+fi
+
+# also need to symlink ~/Dropbox/.timetrap/.timetrap.db to ~/.timetrap.db because the autocomplete script assumes ~/.timetrap.db
+source /home/vcavallo/.rvm/gems/ruby-2.5.3/gems/timetrap-1.15.2/completions/bash/timetrap-autocomplete.bash 
+
 # debug:
 # echo "this is bashrc"
 
@@ -68,8 +75,10 @@ export PATH="/home/vcavallo/bin:$PATH"
 export PATH="/home/vcavallo/scripts:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 
-# export GOPATH=$HOME/go
-# export PATH=$PATH:$GOPATH/bin
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
 
 # used for os-specific functions
 os=`uname -s`
