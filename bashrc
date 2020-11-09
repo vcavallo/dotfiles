@@ -91,8 +91,11 @@ export GDK_DPI_SCALE=0.5
 export PATH=$PATH:/opt/gradle/gradle-5.6.2/bin
 
 export PATH=$PATH:/usr/bin/npm
+export PATH=$PATH:$HOME/.npm-global/bin
 
 # export LANG=en_NZ.ISO-8859-1
+
+source ~/scripts/set-title.sh
 
 echo "base .bashrc has run"
 
