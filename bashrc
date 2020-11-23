@@ -30,6 +30,11 @@ alias n="neuron"
 alias z="cd ~/zettelkasten"
 alias d="todo.sh -d ~/.todo.cfg"
 alias vim="nvim" # goodbye, old friend.
+alias r7fe="cd ~/code/r7feed-web-client"
+alias r7be="cd ~/code/r7feed-api"
+alias jssp="cd ~/code/jssp-af"
+alias ldxbe="cd ~/code/ldx-api"
+alias ldxfe="cd ~/code/ldx-api/ldx-frontend"
 
 export TODO_DIR=/home/vcavallo/Dropbox
 export TODO_FILE="$TODO_DIR/todo.txt"
@@ -54,6 +59,8 @@ fi
 if [ -f /etc/bash_completion ]; then
   . /etc/bash_completion
 fi
+
+source "/etc/profile.d/rvm.sh"
 
 # also need to symlink ~/Dropbox/.timetrap/.timetrap.db to ~/.timetrap.db because the autocomplete script assumes ~/.timetrap.db
 source /home/vcavallo/.rvm/gems/ruby-2.5.3/gems/timetrap-1.15.2/completions/bash/timetrap-autocomplete.bash 
