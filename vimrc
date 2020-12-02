@@ -2,6 +2,7 @@
  filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
+"set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
@@ -32,13 +33,16 @@ Plugin 'wakatime/vim-wakatime'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'alok/notational-fzf-vim'
-Plugin 'ihsanturk/neuron.vim'
+" Plugin 'ihsanturk/neuron.vim'
+Plugin 'fiatjaf/neuron.vim'
 Plugin 'vimwiki/vimwiki'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
-Plugin 'michal-h21/vim-zettel'
+"Plugin 'michal-h21/vim-zettel'
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+let g:path_neuron = "/home/vcavallo/.nix-profile/bin/neuron"
 
  " need to npm-install prettier
  let g:prettier#exec_cmd_path = "~/.npm-global/bin/prettier"
@@ -64,7 +68,10 @@ filetype plugin indent on    " required
 
 " Startfiy settings
 
-set viminfo='100,n$HOME/.vim/files/info/viminfo'
+" commenting out for nvim help
+if !has('nvim')
+  set viminfo='100,n$HOME/.vim/files/info/viminfo'
+endif
 
 set shortmess=IA
 
@@ -105,7 +112,15 @@ let g:nv_search_paths = [
 let g:nv_create_note_window = 'split' " tabedit
 nnoremap <leader>nv :NV<cr>
 
- 
+" for when you have a new buffer and you want to save it directly
+" to the notes directory. Filename defautls to first line, but can
+" be changed after calling the funciton.
+function! SaveFileToNotes()
+  let l:filename = input('filename:', getline(1))
+  execute "write " . "~/Dropbox/nvALT/".l:filename.".md"
+endfunction
+nnoremap <leader>nnv :call SaveFileToNotes()<cr>
+
 " setup for ctrlp [ now using fzf ]"
  "set runtimepath^=~/.vim/bundle/ctrlp.vim
  "let g:ctrlp_map = '<C-p>'
@@ -181,13 +196,13 @@ colorscheme yin
 "" done and top of archive - D
 
 " save and close mappings to avoid accidental :q when trying to :w
- map <Leader>w :w<CR>
- map <Leader>z :q<CR>
+ map <Leader>ww :w<CR>
+ map <Leader>zz :q<CR>
 
 " toggle paste modes
  map <Leader>vv :set invpaste paste?<CR>
 
-" enter paste mode, paste at current indent level, leave paste mode
+" enter paste mode, paste at current indent level from clipboard, leave paste mode
  map <Leader>p <Leader>vv"*]p<Leader>vv
 
 " from this line, drop down one and then add blank lines above and below new
@@ -248,14 +263,23 @@ colorscheme yin
  nnoremap <C-L> <C-W><C-L>
  nnoremap <C-H> <C-W><C-H>
 
+" make the C-X C-F menu better
+" (https://vim.fandom.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE)
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
 " toggle to previous buffer
- map <leader>\ <C-^>
+ map <leader>bb <C-^>
 
 " RSpec.vim mappings
- map <Leader>t :call RunCurrentSpecFile()<CR>
- map <Leader>s :call RunNearestSpec()<CR>
- map <Leader>l :call RunLastSpec()<CR>
- map <Leader>a :call RunAllSpecs()<CR>
+ autocmd FileType ruby nmap <Leader>t :call RunCurrentSpecFile()<CR>
+ autocmd FileType ruby nmap <Leader>s :call RunNearestSpec()<CR>
+ autocmd FileType ruby nmap <Leader>l :call RunLastSpec()<CR>
+ autocmd FileType ruby nmap <Leader>a :call RunAllSpecs()<CR>
  let g:rspec_command = "!bin/rspec {spec}"
 
 " Cucumber mappings
@@ -301,6 +325,12 @@ let g:polyglot_disabled = ['js']
  autocmd FileType go nmap <leader>r :GoRun<CR>
  autocmd FileType go nmap <leader>t :GoTest<CR>
  autocmd FileType go nmap <leader>s :GoTestFunc<CR>
+ autocmd FileType go nmap <leader>g :GoFmt<CR>
+
+ let g:go_auto_type_info = 1
+ let g:go_auto_sameids = 1
+ let g:go_fmt_command = "goimports"
+ set updatetime=100
 
  nnoremap <leader>g :GoFmt<Cr>
  let g:go_auto_type_info = 1
@@ -321,15 +351,15 @@ let g:polyglot_disabled = ['js']
  let zettel_trunk.ext = '.md'
  let zettel_trunk.links_space_char = '-'
 
-nnoremap <leader>zn :ZettelNew<space>
+let g:vimwiki_list = [wiki_trunk, zettel_trunk]
 
- "let wiki_trunk.syntax = 'markdown' " testing because jekyll sites don't
- "allow vinegar to open
- let g:vimwiki_list = [wiki_trunk, zettel_trunk]
+" remove the '-' mapping to allow vim vinegar to open:
+nmap <Nop> <Plug>VimwikiRemoveHeaderLevel
 
+nmap <Leader>wo <Plug>VimwikiIndex
 
-let g:zettel_format = "%y%m%d%H%M%S"
-let g:zettel_date_format = "%y-%m-%d"
+let g:zettel_format = "%Y%m%d%H%M%S"
+let g:zettel_date_format = "%Y-%m-%d"
 " let g:zettel_options = [{}, {"template" :  "~/Dropbox/zettelkasten/zettel_template.tpl"}]
 " let g:zettel_default_mappings
 " let g:zettel_fzf_command
@@ -337,7 +367,7 @@ let g:zettel_date_format = "%y-%m-%d"
 " let g:zettel_backlinks_title
 " let g:zettel_fzf_options = ['--exact', '--tiebreak=end']
 " let g:zettel_link_format="[%title](%link)"
-nnoremap <leader>zkn :ZettelNew<space>
+nnoremap <leader>zn :ZettelNew<space>
 nnoremap <leader>zko :ZettelOpen<cr>
 nnoremap <leader>zki :ZettelInsertNote<cr>
 nnoremap <leader>zky :ZettelYankName<cr>
@@ -365,10 +395,10 @@ nnoremap <leader>zky :ZettelYankName<cr>
  :map tt :Vexplore<cr>
 
 " resize splits on focus:
- set winwidth=84
- set winheight=5
- set winminheight=5
- set winheight=999
+" set winwidth=84
+" set winheight=5
+" set winminheight=5
+" set winheight=999
 
 " highlight current line
 set nocursorline
@@ -432,7 +462,10 @@ set nocursorline
 
 "some stuff to get the mouse going in term
  set mouse=a
- set ttymouse=xterm2
+if !has('nvim')
+ " more nvim commenting
+  set ttymouse=xterm2
+endif
 
 "tell the term has 256 colors
  set t_Co=256
@@ -701,7 +734,7 @@ let g:ale_linters = {
  nnoremap Y y$
 
 "close quickfix easily:
-nnoremap <leader>q :cclose<CR>
+nnoremap <leader>qq :cclose<CR>
 
 "visual search mappings
  function! s:VSetSearch()

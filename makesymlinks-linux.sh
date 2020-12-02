@@ -22,9 +22,12 @@ files="\
   inputrc\
   htoprc\
   timetrap.yml__nix\
-  xmodmap_alt_hjkl_arrows\
+  Xmodmap\
+  Xresources\
+  xinitrc\
   xsetwacom.sh__nix\
   compton.conf\
+  todo.cfg\
   tmux-powerlinerc"  # list of files/folders to symlink in homedir
 
 ##########

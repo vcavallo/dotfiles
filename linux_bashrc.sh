@@ -230,7 +230,14 @@ if [ -d "$HOME/.yarn" ] ; then
   export PATH="$HOME/.yarn/bin:$PATH"
 fi
 
-. /home/vcavallo/.nix-profile/etc/profile.d/nix.sh
+alias fzfp="fzf --border --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 
 echo "linux bashrc has run"
 
+NPM_PACKAGES="${HOME}/.npm-packages"
+export PATH="$NPM_PACKAGES/bin:$PATH"
+unset MANPATH
+export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+
+
+echo "using Linux-specific bashrc"

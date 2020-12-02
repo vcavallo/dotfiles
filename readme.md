@@ -38,7 +38,9 @@ To **denote this when creating dotfiles**: append `__osx` or `__nix` or whatever
 you want at the end, then put _those_ files in the filename array in the `makesymlinks-*`
 script. It will trim off the `__whatever` at the end of the file and use the remainder.
 
-`i3-config` is copied here. you'll need to put it in `~/.config/i3` or something, depending on your setup. You'll also need to install a bunch of things for it, which are mostly documented in the i3 config file comments.
+Check out the i3-config repo for setting that up.
+And don't forget to install i3 gaps, if appropriate
+
 
 `sudo apt install i3status compton rofi i3blocks`
 
@@ -87,11 +89,6 @@ home directory, be sure to add them to the files list in `makesymlinks.sh`**
 
 ## Ubuntu-specific stuff
 
-### install xcape
-
-- get it here: [https://github.com/alols/xcape](xcape repo)
-- make sure to use the `get-ubuntu-keys` script from my scripts repo
-
 ### if using an Apple Magic Mouse:
 
 - check out the `set-mouse` script in the scripts repo
@@ -115,6 +112,7 @@ home directory, be sure to add them to the files list in `makesymlinks.sh`**
 - unzip
 - libpq-dev (for `pg` gem)
 - xclip
+- feh
 
 `sudo apt install git vim-gnome htop tmux unzip xclip`
 
@@ -137,6 +135,19 @@ may need to uninstall system ruby first: https://stackoverflow.com/a/37956249
 - heroku cli (from heroku's site)
 - ngrok (https://ngrok.com/download)
 - redis (http://download.redis.io/redis-stable.tar.gz, https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-redis-on-ubuntu-16-04)
+- fzf
+- ripgrep
+- pulseaudio snap
+
+## Linux and laptops?
+
+First, install the mtrack stuff, which may be tough. check out https://github.com/BlueDragonX/xf86-input-mtrack and https://howchoo.com/g/mdy0ngziogm/the-perfect-almost-touchpad-settings-on-linux-2, might need to install all of `xorg-dev` `libmtdev1` `libmtdev-dev` first. The resulting settings are good, macbook-like, and worth the effort, it seems. unclear if the older `40-libinput.conf` is _also_ needed, or if `50-mtrack.conf` is enough. currently I have both going.
+
+- `ln -s ~/dotfiles/40-libinput.conf /etc/X11/xorg.conf/40-libinput.conf`
+- `ln -s ~/dotfiles/20-intel.conf /etc/X11/xorg.conf/20-intel.conf`
+- `ln -s ~/dotfiles/50-mtrack.conf /etc/X11/xorg.conf/50-mtrack.conf`
+
+to set up trackpad and backlight on Thinkpad.
 
 # keeping notes here about stuff to generally install for development
 

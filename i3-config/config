@@ -38,8 +38,7 @@ set $urgent-bg-color #E53935
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
-#exec --no-startup-id /usr/bin/xrandr --output HDMI1 --right-of DVI-1
-exec --no-startup-id /usr/bin/xrandr --output DisplayPort-0 --right-of HDMI-0
+# exec --no-startup-id /usr/bin/setxkbmap -layout us -option ctrl:nocaps
 
 
 for_window [class="Spotify"] floating enable move scratchpad scratchpad show
