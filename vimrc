@@ -171,7 +171,9 @@ nnoremap <leader>nnv :call SaveFileToNotes()<cr>
 " colorscheme grb256
 colorscheme yin
 
- set colorcolumn=85 " show right margin
+" set colorcolumn=85 " show right margin
+nnoremap <Leader>m :set colorcolumn=0<cr>
+nnoremap <Leader>mm :set colorcolumn=85<cr>
 " change cursor shape per mode in terminal vim
 " let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\" "
 " debugging some weird characters in linux _not_ in tmux

@@ -25,11 +25,14 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-<<<<<<< HEAD
-alias fzfp="fzf --preview 'head -100 {}'"
-alias n="neuron"
-=======
+# for making sure node_modules is ignored globally!
+export FZF_DEFAULT_COMMAND='ag --ignore node_modules -g ""'
+# ctrl-y to copy filename to clipboard
+export FZF_DEFAULT_OPTS="--bind='ctrl-y:execute-silent(echo {+} | xclip -sel clip)'"
+export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
+
 alias fzfp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
+
 alias n="neuron"
 alias z="cd ~/zettelkasten"
 alias d="todo.sh -d ~/.todo.cfg"
@@ -40,6 +43,8 @@ alias jssp="cd ~/code/jssp-af"
 alias ldxbe="cd ~/code/ldx-api"
 alias ldxfe="cd ~/code/ldx-api/ldx-frontend"
 
+alias rserver="ruby -run -ehttpd"
+
 export TODO_DIR=/home/vcavallo/Dropbox
 export TODO_FILE="$TODO_DIR/todo.txt"
 export TODO_DONE_FILE="$TODO_DIR/todo-done.txt"
@@ -47,8 +52,6 @@ export TODO_REPORT_FILE="$TODO_DIR/todo-report.txt"
 export TODO_ACTIONS_DIR="$HOME/.config/todo-txt/actions"
 export TODOTXT_DEFAULT_ACTION=ls
 export TODOTXT_PRIORITY_ON_ADD=Z
-
->>>>>>> x1
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
